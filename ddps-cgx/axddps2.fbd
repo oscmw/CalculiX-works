@@ -1,0 +1,91 @@
+# axisymmetric deep drawing process simulation for a circular blank
+frame
+rot -z
+
+# parameters
+valu D1 33.
+valu R1	5.
+valu D2	34.25
+valu thk 0.5
+valu R2	2.5 
+valu DB	60. 
+valu thk 0.5
+valu Nthk - 0 thk
+valu radp / D1 2.
+valu rcpf - radp R1
+valu radb / DB 2.    
+valu radd / D2 2.    
+valu penh - radb radd 
+valu rcdf + radd R2
+valu zcdf + thk R2
+valu Nzcdf - 0 zcdf
+valu zcdb + thk penh
+valu Nzcdb - 0 zcdb
+valu radh + thk radd  
+valu zcht * 4 thk
+
+# points
+PNT PO 0.0 0.0 0.0
+PNT P001 0.0 penh 0.0
+PNT P002 radp penh 0.0
+PNT P003 radp R1 0.0
+PNT P004 rcpf R1 0.0
+PNT P005 rcpf 0.0 0.0
+PNT P011 radb 0.0 0.0
+PNT P012 radb Nthk 0.0
+PNT P013  0.0 Nthk 0.0
+PNT P021 radh 0.0 0.0
+PNT P022 radh zcht 0.0
+PNT P023 radb zcht 0.0
+PNT P031 rcdf Nthk  0.0
+PNT P032 rcdf Nzcdf 0.0
+PNT P033 radd Nzcdf 0.0
+PNT P034 radd Nzcdb 0.0
+PNT P035 radb Nzcdb 0.0
+
+# edge divisions
+valu dqca 4	
+valu dblh 20	
+valu dblv 4	
+
+# geometry punch
+LINE L001 PO P005
+LINE L002 P005 P003 P004 dqca
+LINE L003 P003 P002
+LINE L004 P002 P001
+LINE L005 P001 PO
+SETO geom_punch
+gsur A001 + BLEND + L001 + L002 + L003 + L004 + L005
+SETC geom_punch
+
+# geometry blank
+LINE L011 PO   P013 dblv
+LINE L012 P013 P012 dblh
+LINE L013 P012 P011 dblv
+LINE L014 P011 PO   dblh
+SETO geom_blank
+gsur A002 + BLEND + L011 + L012 + L013 + L014
+SETC geom_blank
+
+# geometry holder
+LINE L021 P021 P011
+LINE L022 P011 P023
+LINE L023 P023 P022
+LINE L024 P022 P021
+SETO geom_holder
+gsur A003 + BLEND + L021 + L022 + L023 + L024
+SETC geom_holder
+
+# geometry die
+LINE L031 P012 P031
+LINE L032 P031 P033 P032 dqca
+LINE L033 P033 P034
+LINE L034 P034 P035
+LINE L035 P035 P012
+SETO geom_die
+gsur A004 + BLEND + L031 + L032 + L033 + L034 + L035
+SETC geom_die
+
+# mesh the objects
+ELTY all qu8
+MESH all
