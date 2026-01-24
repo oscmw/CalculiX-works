@@ -1,28 +1,41 @@
-# axisymmetric deep drawing process simulation for a circular blank
+# the axisymmetric deep drawing finite element model
+# this program is designed to be called by CalculiX cgx
+#
+# calling statement:
+# cgx -b axddps2.fbd
+#
+# this is the first of the three CalculiX cgx scripts.
+# the other scripts are consecutively named (numbered) 
+# model geometry definitions consistent with TS 10525
+# undertaken as part of  teknopro SEY lecture effort
+# use the most generic and open creative commons license
+#
+# by fethio, Fethi Okyar, Ali Fethi Okyar, cc 2026
+
+# bring plane normal to screen
 frame
 rot -z
 
 # parameters
-valu D1 33.
-valu R1	5.
-valu D2	34.25
-valu thk 0.5
-valu R2	2.5 
-valu DB	60. 
-valu thk 0.5
-valu Nthk - 0 thk
-valu radp / D1 2.
-valu rcpf - radp R1
-valu radb / DB 2.    
-valu radd / D2 2.    
-valu penh - radb radd 
-valu rcdf + radd R2
-valu zcdf + thk R2
+valu D1 33.  # diameter of Punch
+valu R1	5.   # fillet radius of Punch
+valu D2	34.255 # inner diameter of Die
+valu  A  0.5  # thickness of Blank
+valu R2	2.5   # fillet radius of D
+valu DB	50.   # diameter of Blank
+valu Nthk - 0 A
+valu radp / D1 2.   # radius of Punch
+valu rcpf - radp R1 # radial coor. of punch fillet arc center
+valu radb / DB 2.  # radius of Blank    
+valu radd / D2 2.  # radius inner of Die    
+valu penh - radb radd # penetration height
+valu rcdf + radd R2  # radial coor. of die fillet arc center
+valu zcdf + A R2  # vertical offset of die fillet arc center
 valu Nzcdf - 0 zcdf
-valu zcdb + thk penh
+valu zcdb + A penh # vertical offset of die bottom
 valu Nzcdb - 0 zcdb
-valu radh + thk radd  
-valu zcht * 4 thk
+valu radh + A radd  # radius inner of Holder  
+valu zcht * 4 A
 
 # points
 PNT PO 0.0 0.0 0.0
@@ -84,8 +97,25 @@ LINE L034 P034 P035
 LINE L035 P035 P012
 SETO geom_die
 gsur A004 + BLEND + L031 + L032 + L033 + L034 + L035
+# trial of complementing a set with lower entities
+comp geom_die do
+
 SETC geom_die
+# to see the nodes (n) and faces (f) in a set use
+# plot n geom_die
+# plot f geom_die
+
+# plot n geom_die
+# plus f geom_die b
+
 
 # mesh the objects
 ELTY all qu8
 MESH all
+
+# create the interaction sets
+seta punch_b_surf l L001 L002 L003  # punch's edge entities with blank (includes inner nodes)
+comp punch_b_surf do  # to include bounding nodes
+# to plot this use: `plus n punch_b_surf`
+seta blank_top l L014  # blank's top surface
+comp blank_top do
