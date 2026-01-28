@@ -99,15 +99,14 @@ SETO geom_die
 gsur A004 + BLEND + L031 + L032 + L033 + L034 + L035
 # trial of complementing a set with lower entities
 comp geom_die do
-
 SETC geom_die
+
 # to see the nodes (n) and faces (f) in a set use
 # plot n geom_die
 # plot f geom_die
 
 # plot n geom_die
 # plus f geom_die b
-
 
 # mesh the objects
 ELTY all qu8
@@ -119,3 +118,7 @@ comp punch_b_surf do  # to include bounding nodes
 # to plot this use: `plus n punch_b_surf`
 seta blank_top l L014  # blank's top surface
 comp blank_top do
+
+# Write data
+send all abq
+send blank_top abq nam
