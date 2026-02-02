@@ -1,0 +1,64 @@
+#+TITLE:  CalculiX-Oscmw
+#+AUTHOR: Fethi Okyar
+#+DATE: 2025-10-26
+#+SUBTITLE: Examples in Calculix
+#+DESCRIPTION: 
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2> <h3>%s</h3> <h4>%d</h4>
+#+OPTIONS: timestamp:nil toc:1 num:nil
+#+REVEAL_EXTRA_CSS: ../style.css
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+HTML_HEAD_EXTRA: <style>
+#+HTML_HEAD_EXTRA: pre.src { font-size: 0.8em; color: white; background: black; padding: 10px; }
+#+HTML_HEAD_EXTRA: </style>
+
+* About us
+People contributing to this repo will mostly be affiliated with the loosely tied group of mechanicians entitled open-source computational mechanics and acoustics workshop, or OSCMW.
+
+The "thread" called [[https://github.com/CalculiX-works/][CalculiX-works]] was created in order to share information, experience, knowledge as well as models created in [[https://dhondt.de][CalculiX]].
+
+This document will be organized as blog sections (threads) devoted to specific problems  which will be found as issues (and branch names for that matter), in the github repo. For example, our first issue is related with the earing phenomenon in deep-drawing process. The second issue will be buckling, wind and earthquake response of the skirt of a vertical pressure vessel. Hopefully, there will be more topics (issues) to follow these...
+
+The final section will be References where an enriched list of content addresses about CalculiX is aimed.
+* Earing Phenomenon
+Early work on this found under folders, ddps_cup (axisymmetric),  ddps_cup-gmsh,  ddps_strip (plane strain) analysis files.
+
+The aims are
+1. obtain a fundamental response curve such as the drawing force vs. punch displacement which can be compared amongst various types of models, 2d, 3d, etc.
+2.
+** Reports
+*** Bilge S A, Aras M
+* Skirt Response
+In this problem buckling of a simplified cylindrical skirt model (the structure used to support a vertical pressure vessel) is studied under various types of loading such as static gravitational, wind, earthquake, etc.
+
+* Referanslar
+** Kitaplar
+- Dhondt, G. *The Finite Element Method for Three-dimensional Thermomechanical Applications*, Wiley (2004)
+- Hughes, T.J.R. *The Finite Element Method: Linear Static and Dynamic Analysis*
+- Zienkiewicz, O. C., Taylor, R. L. *The Finite Element Method*
+- Bathe, K.J. *Finite Element Procedures*
+  
+** User Space Documentation
+- PrePoMax kullanıcı dokümantasyonu ve örnek modelleri
+- CalculiX [[https://www.calculix.de/][webpage]], A Free Software Three-Dimensional Structural Finite Element Program
+  + jet-engine model
+  + turbo-charger compressor/turbine
+- Guido Dhont [[https://www.dhondt.de/][webpage]], CalculiX
+  + a Calculix GraphiX [[https://www.dhondt.de/tutorial.txt][cgx tutorial]] (ASCII)
+  + source code, documentation for cgx and ccx
+  + examples: folders including openfoam, airfol, basic, compressor and 7-8 more
+- Documentation
+  
+** Example and Source Repositories
+- Calculix [[https://github.com/Dhondtguido/CalculiX/][github repo]], Guido Dhondt.
+- Calculix Examples [[https://github.com/calculix/CalculiX-Examples][github repo]], Martin Kraska
+- Calculix Templates [[https://github.com/rsmith-nl/calculix-templates][github repo]], Ronald Smith
+- CalculiX Advanced Environment (cae) [[https://github.com/calculix/cae][github repo]], a GUI wrapper for CalculiX CrunchiX and GraphicX.
+- Calculix for Windows [[https://github.com/GeneralElectric/CalculiX][github repo]], from the General Electric github org
+  
+** User Groups, Forums, Discourse, etc.
+- A discourse discussion group for CalculiX, [[https://calculix.discourse.group][http link]] 
+- Advanced CalculiX Tutorial, Libre Mechanics [[https://libremechanics.com/advanced-calculix-tutorial/][homepage]]
+- FEA with CalculiX, Roland's [[https://rsmith.home.xs4all.nl/engineering/fea-with-calculix-1.html][homepage]] 

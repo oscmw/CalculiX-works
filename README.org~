@@ -1,0 +1,170 @@
+#+TITLE:  Sonlu Elemanlar Eğitimi
+#+AUTHOR: Fethi Okyar
+#+DATE: 2025-10-26
+#+SUBTITLE: TeknoPro Tasarım Merkezi
+#+DESCRIPTION: 
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2> <h3>%s</h3> <h4>%d</h4>
+#+OPTIONS: timestamp:nil toc:1 num:nil
+#+REVEAL_EXTRA_CSS: ../style.css
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+HTML_HEAD_EXTRA: <style>
+#+HTML_HEAD_EXTRA: pre.src { font-size: 0.8em; color: white; background: black; padding: 10px; }
+#+HTML_HEAD_EXTRA: </style>
+
+* Eğitim Planı
+*Amaç*: Bu eğitim programının amacı, firmada mevcut sonlu elemanlar yöntemi (SEY) kullanıcısı mühendislere yöntemin matematiksel temellerini hatırlatmak, farklı problem tipleri için çözüm kurgusunun üzerinden geçmek, çözümü sağlarken arka planda işleyen programla ilgili bilgilendirme sağlamak, ve bu yolla mühendislerin problem modelleme ve çözüm sürecine daha sistematik yaklaşımlarını sağlamaktır.
+
+Bu amaca yönelik olarak yaklaşık olarak ikişer saatlik dilimlerden oluşan altı adet ders yapılması hedeflenmektedir.
+** Modül 1: [[./modul_1.html][Mekanik Temeller]]
+- Amaç
+  + Mekanik alanında (ısı transferi hariç) çözümlenebilen genel problem sınıflarının irdelenmesi (statik, dinamik, model, burkulma, vb.).
+- Hedefler
+  + Doğru problem formülasyonu için gereken girdilere bakılması,
+  + Problem sınıfına dahil olan alt katmanlara inilmesi,
+  + Problem sınıfının çözdürülmesinde kullanılan sayısal kütüphanelerin gezilmesi.
+** Modül 2: [[./modul_2.html][SEY Dili ve İş Akışı]]
+- Amaç
+  + Bu modülün amacı birkaç uygulama örneği çizgisinde, açık kaynaklı/araştırma amaçlı Calculix SEY yazılımının tasarım ve işleyişine göz atmak, Calculix ve benzeri programların iş akışlarını görüntülemek, buna uygun PRE- ve POST- adımlarını göstermek, CAD geometrisi için gerekli işlemci yazılımlardan en önde gelenleri tanımaktır.
+
+- Hedefler
+  + Çalıştırılabilir Calculix dosyalarına erişimin sağlanması (windows OS için)
+
+  + Birkaç Calculix test dosyası çalıştırıp elde edilen sonuçların referans değerler ile karşılaştırılması
+
+  + Bir INPUT dosyasının genel yapısını anlamak
+
+  + SEY dilinde öne çıkan temel INPUT kartlarını tanımak
+
+  + Calculix Graphics (cgx) ÖN- ve SON-işlemler
+
+** Modül 3: [[./modul_3.html][Matematiksel Sezgi]]
+- Amaç
+  + SEY problemlerinde doğrusallığın anlamı ve doğrusal olmayan problemlerin incelenmesi.
+- Hedefler
+  + Problemin doğrusal davranışa sahip olması için sağlanması gerekli bazı şartlar,
+  + Doğrusallığın şekil değiştirmenin boyutundan dolayı kaybedilmesi,
+  + Doğrusallığın malzemenin davranış tarzından dolayı kaybedilmesi,
+  + Doğrusallığın temas arayüzlerinin çözümünden dolayı kaybedilmesi,
+  + Doğrusallığın kullanılan gerinme-şekil değiştirme ilişkisinden dolayı kaybedilmesi.
+** Modül 4: Yapısal Elemanlar
+- Amaç
+  + SEY'de yapısal elemanların rolü ve önemi.
+- Hedefler
+  + 730-C-501 Skirt'ın yapısal elemanlarla modellenmesi
+    - SEY probleminin skeçi
+    - geometrinin sadeleştirilmesi ve boyutsal indirgeme
+    - örnek vaka belirlenmesi
+    - İş akışının oluşturulması
+** Modül 5: Sonuç Güvenirliği
+- Amaç
+  + SEY'de kullanılan modellerin doğrulama ve gerçekleme işlemleri ile ilgili paylaşımlar.\\
+- Hedefler
+  + Model oluşturma ve çözdürme sonrasında elde edilen sonuçların yorumlanması için stratejiler,
+  + Doğrulama ile gerçekleme arasındaki fark ve benzerliklere dair,
+  + Doğrulama sürecinde takip edilebilecek sistematik konusunda tavsiyeler,
+  + Eleman tiplerine göre yakınsama davranış beklentileri.
+** Modül 6: Yeni Ufuklar
+- Amaç
+  + SEY'de genel akımlara alternatifler ve gelecekte SEY yazılımlarının evrilmesi beklenen yönler.
+- Hedefler
+  + Açık kaynaklı ve ücretsiz yazılımlarla SEY kullanmanın güçlü ve zor yönleri,
+  + SEY simülasyonları ile yapay zeka etkileşiminin olası sebep ve sonuçları,
+  + Yeni nesil SEY yazılımlarında beklediğim yenilikler
+    - çoklu fizik simülasyonlarında gelişmeler,
+    - strain-gradient elasticity,
+    - micro-polar elasticity,
+    - metamaterials and phononic crystals.
+  
+* Analiz İlkeleri
+** Kurumsal Tercihler
+SEY ile ilgili gerçekleştirilen iş ve işlemlerin Kuruluş içerisinde bir veritabanında depolanma, korunma, erişim, sürüm yönetimi gibi konular; Kuruluş'un sürdürebilirlik, güvenirlik, hesap verebilirlik gibi yönetimsel konularıyla bağlantılıdır.
+- Ticari yazılımların kurumsal veritabanı ile bağlantılandırılmaları, mevcut yüksek bedellerine ek bedeller oluşturabilir,
+- Açık kaynaklı bir çözüm yönetim platformu yapılandırmak, stratejik bir karar olup, Kuruluş'taki Bilgi İşlem Birimi'nce yönetilmelidir.
+- SEY çözümlemelerinde Analiz Birimi'nin hangi yazılımı kullanacağı da stratejik bir tercih olacaktır. Birimde oluşacak bilgi birikimi ve altyapı yeni nesil mühendislerin kolaylıkla adaptasyon sürecini geçirebilecekleri şekilde saklanmalı ve erişilebilir olmalıdır.
+  
+** Çözümlü Problem Kütüphanesi
+Kuruluş'un Analiz Birimi'nce önce doğru bir şekilde tanımlanacak, model tarifnamesi geliştirilecek, çözüme ilişkin gerekli iş akışı oluşturulacak, çözdürülecek ve sonuçları doğrulanacak olan her bir problem, Bilgi İşlem Birimi'nce yönetilecek veri deposunda bulunmalıdır.
+
+** Problemin Tanımlanması
+Problem tanımı olabildiğince basit, derinlemesine anlaşılır şekilde olmalıdır. Tanımın nasıl yapıldığı, çözümün elde edilebilirliğini etkileyen en önemli faktörlerdendir. Problem tanımı, probleme ilişkin klasör yapılandırmasında mutlaka bulunmalıdır. (Metin tabanlı dosyalar bu bakımdan "future-proof" olarak görülmelidir.)
+
+** Modelin Tarifi
+SEY yazılımları Genel/Özel amaçlı, kaynak kodları/programlar erişime *açık* ya da kapalı olabilir.
+- Genel amaçlı (yapısal termomekanik ve çoklu fizik) ticari yazılımlardaki model genellikle grafik kullanıcı arayüzü (GUI) üzerinden tanımlanır ve kurgulanır. Bu alanda öne çıkanlar
+  + ANSYS Mechanical / ANSYS Workbench
+  + COMSOL Multiphysics
+  + Abaqus (Dassault Systèmes / SIMULIA)
+  + Altair OptiStruct / HyperWorks Suite
+  + MSC Software (Nastran / Marc)
+- GUI kullanılarak tanımlanmış modelin yazılı bir kopyasını oluşturmak kolay değildir. Model programın kendi BINARY formatında bir saklanır. Okunabilecek bir kopyası, ancak programın kullandığı İÇ KOMUT DİL'de öğrenildiğinde anlaşılabilir (ör. ANSYS Mechanical APDL)
+
+#+REVEAL: split   
+- SEY teknolojisinin gelişimde öne çıkan ve geniş kullanıcı kitlesine sahip *açık* kaynaklı yazılımlar, bunların geliştiricileri ve yaklaşık başlangıç tarihleri şöyle:
+| [[http://projects.ce.berkeley.edu/feap/][FEAP]]       | RLT, A.B.D.             | 1960s  |
+| [[https://www.dhondt.de/][CalculiX]]   | Guido Dhondt, Almanya   | 2000s  |
+| [[https://fenicsproject.org/][Fenics]]     | Uluslararası            | 2010s  |
+| [[https://www.elmerfem.org/blog/][Elmer]]      | Finlandiya              |        |
+| [[https://seamplex.com/feenox/][FeenoX]]     | Jeremy Theler, Arjantin | 2020s  |
+| [[https://code-aster.org/][Code-Aster]] | Fransa                  |        |
+| [[https://dealii.org/][deal.II]]    | A.B.D.                  | 1990s? |
+
+- Bu programlar, kendilerine has bir İÇ KOMUT DİL'ine sahiptir. Ancak, genelde, eskiden gelen, camiada /geleneksel/ olarak tanımlanabilecek INPUT DECK, ya da INPUT CARD olarak bilinen bir bölümlendirme bulunur. (Bu ticari yazılımlar için de geçerli olabilir.)
+
+** =PRE-=, =POST-= İş ve İşlemler
+SEY teknolojisinin kalbinde yer alan çözücüdür (/solver/). Yaygın genel amaçlı (yapısal ve termomekanik) çözücüler ticari ya da *açık* olarak bulunabilmektedir.
+- Ticari çözücülerin en göze çarpan yönleri şöyledir:
+  - =PRE-=, Solver, ve =POST-= bileşenlerini tümüyle tek arayüzde birleşmiştir,
+  - sürecin karmaşıklığı kullanıcıdan olabildiğince gizlenmiştir,
+  - çözüm olabildiğince müdahaleye gerek kalmadan yakınsatılabilmektedir.
+- Bu özelliklerin tartışmaya açık avantajları ve dezavantajları vardır.
+
+#+REVEAL: split
+*Açık* kaynaklı SEY programlarında ise kullanıcının birçok yönden bilgisayara olan merakının ve etkileşiminin daha güçlü olması beklenir. SEY özelinde bu beklentiler
+- CAD modelden ağa (/mesh/) dönüşte, çeşitli dillerde (/shell/, python, vb.) yazılmış betikleri (/scripts/) konsoldan kullanabilme becerisi,
+- Programların kurulum betiklerinde gerekli ayarların yazılması veya yeni betik yazımında editör kullama becerisi,
+- Seçilmiş olan /solver/'a uygun =PRE-= iş akışının oluşturulması (tavsiye edilen akışın adaptasyonu), ör. [[https://gmsh.info/][gmsh]] ya da [[https://www.salome-platform.org/][Salome]] kullanımının öğrenilmesi,
+- Seçilmiş olan /solver/'a uygun =POST-= iş akışının oluşturulması, ör. [[https://www.salome-platform.org/][Salome]] ya da [[https://www.paraview.org/][Paraview]] kullanımının öğrenilmesi,
+- Açık kaynaklı yazılım felsefesinin belkemiğini oluşturan kullanıcı forum ve gruplarında aktif olarak yer almak.
+
+** Çözümün Doğrulanması ya da Gerçeklenmesi
+Elde edilen çözümün, daha öncekilerin yanında kütüphanede yerini almadan önce yapılması gereken önemli bir işlemdir. Doğrulanmamış bir çözüm =GIGO= (/garbage in garbage out/) olarak görülür. Ancak doğrulama ya da gerçekleme işlemi sonrasında yapılan çalışma gerçek değerine ulaşır. *Doğrulama* (/verification/) işlemi:
+- ağ sıklaştırma (/h-refinement/)  yakınsama çalışması,
+- derece yükseltme (/p-refinement/) yakınsama çalışması,
+yöntemlerinden biri ya da her iki kullanılarak yapılır. *Gerçekleme* (/validation/) işlemi ise:
+- çözümün, modelin basitleştirilmiş haline uygun analitik bir çözümle karşılaştırması,
+- çözümün, boyutsal olarak indirgenmiş başka bir modelin çözümü ile karşılaştırılması, ya da
+- deneysel bulgularla karşılaştırması,
+yöntemlerinden bir ya da birkaçını kullanarak tamamlanabilir.
+
+* Referanslar
+** Kitaplar
+- Dhondt, G. *The Finite Element Method for Three-dimensional Thermomechanical Applications*, Wiley (2004)
+- Hughes, T.J.R. *The Finite Element Method: Linear Static and Dynamic Analysis*
+- Zienkiewicz, O. C., Taylor, R. L. *The Finite Element Method*
+- Bathe, K.J. *Finite Element Procedures*
+  
+** User Space Documentation
+- PrePoMax kullanıcı dokümantasyonu ve örnek modelleri
+- CalculiX [[https://www.calculix.de/][webpage]], A Free Software Three-Dimensional Structural Finite Element Program
+  + jet-engine model
+  + turbo-charger compressor/turbine
+- Guido Dhont [[https://www.dhondt.de/][webpage]], CalculiX
+  + a Calculix GraphiX [[https://www.dhondt.de/tutorial.txt][cgx tutorial]] (ASCII)
+  + source code, documentation for cgx and ccx
+  + examples: folders including openfoam, airfol, basic, compressor and 7-8 more
+- Documentation
+  
+** Example and Source Repositories
+- Calculix [[https://github.com/Dhondtguido/CalculiX/][github repo]], Guido Dhondt.
+- Calculix Examples [[https://github.com/calculix/CalculiX-Examples][github repo]], Martin Kraska
+- Calculix Templates [[https://github.com/rsmith-nl/calculix-templates][github repo]], Ronald Smith
+- CalculiX Advanced Environment (cae) [[https://github.com/calculix/cae][github repo]], a GUI wrapper for CalculiX CrunchiX and GraphicX.
+- Calculix for Windows [[https://github.com/GeneralElectric/CalculiX][github repo]], from the General Electric github org
+  
+** User Groups, Forums, Discourse, etc.
+- A discourse discussion group for CalculiX, [[https://calculix.discourse.group][http link]] 
+- Advanced CalculiX Tutorial, Libre Mechanics [[https://libremechanics.com/advanced-calculix-tutorial/][homepage]]
+- FEA with CalculiX, Roland's [[https://rsmith.home.xs4all.nl/engineering/fea-with-calculix-1.html][homepage]] 
