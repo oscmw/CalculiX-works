@@ -71,4 +71,4 @@ Mesh.Optimize = 1;
 Mesh 2;
 // OptimizeMesh "Gmsh";
 // Coherence Mesh;
-// Save "convertFCS.inp";
+// Save;
