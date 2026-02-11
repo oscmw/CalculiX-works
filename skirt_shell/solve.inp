@@ -1,6 +1,6 @@
 *Heading 
  skirt under dead load
-*INCLUDE, INPUT=convertFCS.inp.old
+*INCLUDE, INPUT=gmsh.inp_edited
 
 ** constraints
 *BOUNDARY

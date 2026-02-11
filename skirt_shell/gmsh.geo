@@ -12,7 +12,7 @@ div_carbo_heigh = 40;
 // ------------------------------
 // Import geometry
 // ------------------------------
-Merge "Skirt_DefeatConvrt_copy.step";
+Merge "Skirt_DefeatConvrt.step";
 
 // ------------------------------
 // to force shared edges have shared nodes
@@ -71,4 +71,4 @@ Mesh.Optimize = 1;
 Mesh 2;
 // OptimizeMesh "Gmsh";
 // Coherence Mesh;
-// Save;
+Save "gmsh.inp";
