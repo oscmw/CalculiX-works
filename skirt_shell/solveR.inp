@@ -1,6 +1,9 @@
 *Heading 
- skirt under dead load using original gmsh output
-*INCLUDE, INPUT=gmsh.inp_ed
+ skirt under dead load u/ remote point w/ gmsh2ccx output
+*INCLUDE, INPUT=gmsh2ccx.inp_ed
+** remote point definition
+*NODE
+9999, 0,9367,0
 
 ** constraints
 *BOUNDARY
@@ -33,29 +36,41 @@ Nbase_plate_cutou,2,2,0
 *SHELL SECTION,ELSET=Ebase_plate_cutou,MATERIAL=Carbo
 65
 
+*COUPLING, REF NODE=9999, SURFACE=skir_sless_uprin, CONSTRAINT NAME=loading
+*KINEMATIC
+1
+
 *STEP
-*STATIC
+*static
 *CLOAD
-Nskir_sless_uprin, 2, -46.75E3
+**Nskir_sless_uprin, 2, -240000
+9999, 2, -240000
+**dsload
+**include, input=pressure.inc
+***dload
+**Eelower,EDNOR2,1
 *NODE FILE
 U, RF
 *EL FILE
 S
 *END STEP
-
-*STEP,PERTURBATION
-*FREQUENCY
+*step,perturbation
+*frequency
 12
 *NODE FILE
 U
 *el file
 *END STEP
-
 *STEP
-*BUCKLE
+*buckle
 12
 *CLOAD
-Nskir_sless_uprin, 2, -46.75E3
+**Nskir_sless_uprin, 2, -6000
+9999, 2, -240000
+**dsload
+**include, input=pressure.inc
+***dload
+**Eelower,EDNOR2,1
 *NODE FILE
 U
 *el file
