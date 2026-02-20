@@ -36,15 +36,15 @@ Nbase_plate_cutou,2,2,0
 *SHELL SECTION,ELSET=Ebase_plate_cutou,MATERIAL=Carbo
 65
 
-*COUPLING, REF NODE=9999, SURFACE=skir_sless_uprin, CONSTRAINT NAME=loading
-*KINEMATIC
-1
+*COUPLING, REF NODE=9999, SURFACE=Sskir_sless_uprin, CONSTRAINT NAME=payload
+*DISTRIBUTING
+1,3
 
 *STEP
 *static
 *CLOAD
-**Nskir_sless_uprin, 2, -240000
-9999, 2, -240000
+**Nskir_sless_uprin, 2, -46.75E3
+9999, 2, -46.75E3
 **dsload
 **include, input=pressure.inc
 ***dload
@@ -66,7 +66,7 @@ U
 12
 *CLOAD
 **Nskir_sless_uprin, 2, -6000
-9999, 2, -240000
+9999, 2, -46.75E3
 **dsload
 **include, input=pressure.inc
 ***dload
