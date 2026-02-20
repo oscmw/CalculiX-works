@@ -1,0 +1,62 @@
+*Heading 
+ skirt under dead load using original gmsh output
+*INCLUDE, INPUT=gmsh.inp_ed
+
+** constraints
+*BOUNDARY
+Nskir_carbo_ctrin,1,1,0
+Nskir_carbo_ctrin,3,3,0
+Nbase_plate_cutin,2,2,0
+Nbase_plate_cutou,2,2,0
+
+*MATERIAL,NAME=Carbo
+*ELASTIC
+200000,0.3
+*density
+7.85e-9
+*MATERIAL,NAME=Sless
+*ELASTIC
+200000,0.3
+*density
+7.85e-9
+
+*SHELL SECTION,ELSET=Eskir_sless,MATERIAL=Sless
+25
+*SHELL SECTION,ELSET=Eskir_carbo_body,MATERIAL=Carbo
+25
+*SHELL SECTION,ELSET=Eskir_carbo_undc,MATERIAL=Carbo
+25
+*SHELL SECTION,ELSET=Euppe_plate,MATERIAL=Carbo
+65
+*SHELL SECTION,ELSET=Ebase_plate_cutin,MATERIAL=Carbo
+65
+*SHELL SECTION,ELSET=Ebase_plate_cutou,MATERIAL=Carbo
+65
+
+*STEP
+*STATIC
+*CLOAD
+Nskir_sless_uprin, 2, -46.75E3
+*NODE FILE
+U, RF
+*EL FILE
+S
+*END STEP
+
+*STEP,PERTURBATION
+*FREQUENCY
+12
+*NODE FILE
+U
+*el file
+*END STEP
+
+*STEP
+*BUCKLE
+12
+*CLOAD
+Nskir_sless_uprin, 2, -46.75E3
+*NODE FILE
+U
+*el file
+*END STEP

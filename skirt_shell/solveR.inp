@@ -1,0 +1,77 @@
+*Heading 
+ skirt under dead load u/ remote point w/ gmsh2ccx output
+*INCLUDE, INPUT=gmsh2ccx.inp_ed
+** remote point definition
+*NODE
+9999, 0,9367,0
+
+** constraints
+*BOUNDARY
+Nskir_carbo_ctrin,1,1,0
+Nskir_carbo_ctrin,3,3,0
+Nbase_plate_cutin,2,2,0
+Nbase_plate_cutou,2,2,0
+
+*MATERIAL,NAME=Carbo
+*ELASTIC
+200000,0.3
+*density
+7.85e-9
+*MATERIAL,NAME=Sless
+*ELASTIC
+200000,0.3
+*density
+7.85e-9
+
+*SHELL SECTION,ELSET=Eskir_sless,MATERIAL=Sless
+25
+*SHELL SECTION,ELSET=Eskir_carbo_body,MATERIAL=Carbo
+25
+*SHELL SECTION,ELSET=Eskir_carbo_undc,MATERIAL=Carbo
+25
+*SHELL SECTION,ELSET=Euppe_plate,MATERIAL=Carbo
+65
+*SHELL SECTION,ELSET=Ebase_plate_cutin,MATERIAL=Carbo
+65
+*SHELL SECTION,ELSET=Ebase_plate_cutou,MATERIAL=Carbo
+65
+
+*COUPLING, REF NODE=9999, SURFACE=Sskir_sless_uprin, CONSTRAINT NAME=payload
+*DISTRIBUTING
+1,3
+
+*STEP
+*static
+*CLOAD
+**Nskir_sless_uprin, 2, -46.75E3
+9999, 2, -46.75E3
+**dsload
+**include, input=pressure.inc
+***dload
+**Eelower,EDNOR2,1
+*NODE FILE
+U, RF
+*EL FILE
+S
+*END STEP
+*step,perturbation
+*frequency
+12
+*NODE FILE
+U
+*el file
+*END STEP
+*STEP
+*buckle
+12
+*CLOAD
+**Nskir_sless_uprin, 2, -6000
+9999, 2, -46.75E3
+**dsload
+**include, input=pressure.inc
+***dload
+**Eelower,EDNOR2,1
+*NODE FILE
+U
+*el file
+*END STEP
