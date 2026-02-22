@@ -1,0 +1,90 @@
+SetFactory("OpenCASCADE");
+
+// ------------------------------
+// Parameters (mesh-level control)
+// ------------------------------
+div_circ        = 40;
+div_uppe_rad    =  2;
+div_base_rad    =  2;
+div_sless_heigh = 10;
+div_carbo_heigh = 40;
+lc              = 265;
+
+// ------------------------------
+// Import geometry
+// ------------------------------
+Merge "730-C-501_Onsh3.step";
+
+
+// ------------------------------
+// to force shared edges have shared nodes
+// ------------------------------
+// skir_sless and skir_carbo_mid
+ BooleanFragments{ Surface{2}; Delete; }{ Surface{3}; Delete; }
+
+// skir_carbo_mid and skir_carbo_und
+ BooleanFragments{ Surface{3}; Delete; }{ Surface{4}; Delete; }
+
+// skir_carbo_und and upper_plate
+ BooleanFragments{ Surface{4}; Delete; }{ Surface{15}; Delete; }
+
+// skir_carbo_und and base_plate
+ BooleanFragments{ Surface{4}; Delete; }{ Surface{16}; Delete; }
+
+// skir_carbo_mid (target) and two oval openings (tools)
+ BooleanFragments{ Surface{3}; Delete; }{ Surface{5:8}; Delete; }
+ BooleanFragments{ Surface{3}; Delete; }{ Surface{9:12}; Delete; }
+// BooleanFragments{ Surface{3}; Delete; }{ Surface{13}; Delete; } // removes opening
+
+// base_plate, upper_plate, skir_carbo_und as targets and 40 gusset plates as tools
+ BooleanFragments{ Surface{15,56}; Delete; }{ Surface{1,17:55}; Delete; }
+
+ Recombine Surface{1,2,3,4,13,14,17:153};
+//Recombine Surface{1,17:153};
+ 
+// ------------------------------
+// Physical groups
+// ------------------------------
+Physical Surface("skir_sless") = {2};
+Physical Surface("skir_carbo_mid") = {3};
+Physical Surface("skir_carbo_und") = {4};
+
+Physical Surface("base_plate_inner_YFIX") = {57};
+
+Physical Curve("skir_sless_uprin_CLOAD") = {220};
+Physical Curve("skir_carbo_ctrin_XZFIX") = {234};
+
+Physical Curve("skir_opening2_CONT") = {224};
+Physical Curve("skir_manhole_CONT") = {233};
+
+Physical Surface("ovalop1_surf") = {58:65};
+Physical Surface("ovalop2_surf") = {66:73};
+Physical Surface("opening2_surf") = {13};
+Physical Surface("manhole_surf") = {14};
+Physical Surface("gussets_surf") = {1,17:55};
+Physical Surface("uppe_plate_gusst") = {74:113};
+Physical Surface("base_plate_gusst_YFIX") = {114:153};
+
+// ------------------------------
+// Mesh control
+// ------------------------------
+    
+Characteristic Length{ PointsOf{ Surface{2,3,4,13,14,57:73}; } } = lc; //+
+
+// make sure to generate second order elements:
+ Mesh.Algorithm = 2; // Automatic
+ Mesh.ElementOrder = 2; // Create second order elements.
+ Mesh.SecondOrderIncomplete = 1;
+
+// the mesh is generated and exported
+Mesh.Format = 39; // Save mesh as INP format.
+Mesh.SaveGroupsOfNodes = 1;
+Mesh.SaveGroupsOfElements = 1;
+Mesh.Optimize = 1;
+Mesh 2;
+// OptimizeMesh "Gmsh";
+
+Geometry.Tolerance = 5.e-4;
+Coherence Mesh;
+// Save "gmsh_hls.inp";
+
