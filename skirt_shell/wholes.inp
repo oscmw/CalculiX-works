@@ -1,13 +1,13 @@
 *Heading 
- skirt under dead load using original gmsh output
-*INCLUDE, INPUT=gmsh.inp_ed
+ skirt wıth openings and holes under dead load (force and moment) using original gmsh output
+*INCLUDE, INPUT=gmsh_hls.inp
 
 ** constraints
 *BOUNDARY
-Nskir_carbo_ctrin,1,1,0
-Nskir_carbo_ctrin,3,3,0
-Nbase_plate_cutin,2,2,0
-Nbase_plate_cutou,2,2,0
+skir_carbo_ctrin_XZFIX,1,1,0
+skir_carbo_ctrin_XZFIX,3,3,0
+base_plate_inner_YFIX,2,2,0
+base_plate_gusst_YFIX,2,2,0
 
 *MATERIAL,NAME=Carbo
 *ELASTIC
@@ -20,23 +20,34 @@ Nbase_plate_cutou,2,2,0
 *density
 7.85e-9
 
-*SHELL SECTION,ELSET=Eskir_sless,MATERIAL=Sless
+*SHELL SECTION,ELSET=skir_sless,MATERIAL=Sless
 25
-*SHELL SECTION,ELSET=Eskir_carbo_body,MATERIAL=Carbo
+*SHELL SECTION,ELSET=skir_carbo_mid,MATERIAL=Carbo
 25
-*SHELL SECTION,ELSET=Eskir_carbo_undc,MATERIAL=Carbo
+*SHELL SECTION,ELSET=skir_carbo_und,MATERIAL=Carbo
 25
-*SHELL SECTION,ELSET=Euppe_plate,MATERIAL=Carbo
+*SHELL SECTION,ELSET=uppe_plate_gusst,MATERIAL=Carbo
 65
-*SHELL SECTION,ELSET=Ebase_plate_cutin,MATERIAL=Carbo
+*SHELL SECTION,ELSET=base_plate_gusst_YFIX,MATERIAL=Carbo
 65
-*SHELL SECTION,ELSET=Ebase_plate_cutou,MATERIAL=Carbo
+*SHELL SECTION,ELSET=base_plate_inner_YFIX,MATERIAL=Carbo
 65
+*SHELL SECTION,ELSET=ovalop1_surf ,MATERIAL=Carbo
+30
+*SHELL SECTION,ELSET=ovalop2_surf ,MATERIAL=Carbo
+30
+*SHELL SECTION,ELSET=opening2_surf ,MATERIAL=Carbo
+30
+*SHELL SECTION,ELSET=manhole_surf ,MATERIAL=Carbo
+30
+*SHELL SECTION,ELSET=gussets_surf ,MATERIAL=Carbo
+30
 
 *STEP
 *STATIC
 *CLOAD
-Nskir_sless_uprin, 2, -46.75E3
+skir_sless_uprin_CLOAD, 2, -46.75E3
+skir_sless_uprin_CLOAD, 4, -178.25E3
 *NODE FILE
 U, RF
 *EL FILE
@@ -55,7 +66,7 @@ U
 *BUCKLE
 12
 *CLOAD
-Nskir_sless_uprin, 2, -46.75E3
+skir_sless_uprin_CLOAD, 2, -46.75E3
 *NODE FILE
 U
 *el file
