@@ -13,7 +13,7 @@ lc              = 265;
 // ------------------------------
 // Import geometry
 // ------------------------------
-Merge "730-C-501_Onsh3.step";
+Merge "730-C-501_Onsh4.step";
 
 
 // ------------------------------
@@ -34,12 +34,14 @@ Merge "730-C-501_Onsh3.step";
 // skir_carbo_mid (target) and two oval openings (tools)
  BooleanFragments{ Surface{3}; Delete; }{ Surface{5:8}; Delete; }
  BooleanFragments{ Surface{3}; Delete; }{ Surface{9:12}; Delete; }
-// BooleanFragments{ Surface{3}; Delete; }{ Surface{13}; Delete; } // removes opening
+ Geometry.Tolerance = 5.e-0;
+// Reverse Surface{13};
+ BooleanFragments{ Surface{3,13,14}; Delete; }{ } // removes opening
 
 // base_plate, upper_plate, skir_carbo_und as targets and 40 gusset plates as tools
  BooleanFragments{ Surface{15,56}; Delete; }{ Surface{1,17:55}; Delete; }
 
- Recombine Surface{1,2,3,4,13,14,17:153};
+ Recombine Surface{1,2,3,4,13,14,15,17:73};
 //Recombine Surface{1,17:153};
  
 // ------------------------------
@@ -69,7 +71,7 @@ Physical Surface("base_plate_gusst_YFIX") = {114:153};
 // Mesh control
 // ------------------------------
     
-Characteristic Length{ PointsOf{ Surface{2,3,4,13,14,57:73}; } } = lc; //+
+Characteristic Length{ PointsOf{ Surface{1,2,3,4,13,14,15,17:73}; } } = lc; //+
 
 // make sure to generate second order elements:
  Mesh.Algorithm = 2; // Automatic
