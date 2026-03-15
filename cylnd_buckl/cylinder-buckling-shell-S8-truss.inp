@@ -1,0 +1,77 @@
+**** written by dichtstoff
+**** buckling of cylindrical shell under axial compression
+**** sigma critical according Theory of elastic stability
+**** by S. Timoshenko 1936
+**** sigma critical = E*t/[r(3(1-v^2))]
+**** E = Young's modulus 			= 210000
+**** v = Poisson's ratio 			= 0.30
+**** t = thickness of the shell			= 5.00
+**** r = radius of cylinder			= 1600
+**** h = height of cylinder			= 9360
+**** sigma cricital 				= 212.0
+**** stress = 2*pi*r*t				= 94248			= 94248
+
+*HEADING
+Model: buckling cylindrical shell axial compression
+
+*INCLUDE, INPUT=all.msh
+*INCLUDE, INPUT=boundary-bottom.nam
+*INCLUDE, INPUT=boundary-top.nam
+*INCLUDE, INPUT=fix-z.nam
+
+*TRANSFORM, TYPE=C, NSET=Nall
+0,0,0,0,0,1
+
+*MATERIAL, NAME=steel
+*ELASTIC
+210000, 0.30
+
+*DENSITY
+7.85e-9
+
+*SHELL SECTION, ELSET=Eall, MATERIAL=steel
+5
+
+**** change all.msh 
+**** *ELEMENT, TYPE=B31, ELSET=Eall
+****  with
+**** *ELEMENT, TYPE=T3D2, ELSET=Etruss
+**** change all. msh
+*SOLID SECTION,ELSET=Etruss,MATERIAL=steel
+1
+
+*STEP
+
+***STATIC, SOLVER=SPOOLES
+
+*BUCKLE, SOLVER=SPOOLES
+8, 1.0e-6
+
+*BOUNDARY
+Nboundary-bottom,1,2,0
+Nboundary-bottom,4,6,0
+Nboundary-top   ,1,2,0
+Nboundary-top   ,4,6,0
+Nfix-z          ,1,3,0
+
+*CLOAD
+**** 94248/630=150
+Nboundary-top   ,3,-150
+Nboundary-bottom,3,+150
+
+*NODE FILE, 
+U
+
+*EL FILE, OUTPUT=2D
+S
+
+*NODE PRINT, NSET=Nboundary-top, TOTALS=ONLY
+RF
+
+*NODE PRINT, NSET=Nfix-z, TOTALS=ONLY
+RF
+
+*NODE PRINT, NSET=Nall, TOTALS=ONLY
+RF
+
+*END STEP

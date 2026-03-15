@@ -1,0 +1,67 @@
+# written by dichtstoff
+# modified by fethio
+# buckling cylinder shell
+# raduius of cylinder
+ valu	rdist	1600
+# 105 / 90 / 75 / 60 / 45 / 30 / 20 / 15 
+# amount of element for circumference
+# U=2*pi*r = 2*pi*1600 = 10053 / 3 / X = 12
+ valu   lidivaoefc   12
+# height of cylinder
+ valu	hdist	9360
+# amount of element for height
+# n = 6860 / 20 = x
+ valu   lidivaoefh  40
+
+ PNT ! rdist
+ PNT ! 0
+
+ seta D001 p D001
+ swep D001 D001 rot z 120 1
+ seta L001 l L001
+ copy L001 L002 rot z 120
+ copy L002 L003 rot z 120
+
+ merg p all
+
+ seta basis l L001 L002 L003
+ swep basis shaft tra 0 0 hdist 1
+ seta circumference L001 L002 L003 L004 L005 L006
+ seta height L008 L009 L00A
+
+ div circumference mult lidivaoefc 
+ div height mult lidivaoefh
+
+ flip all
+
+ div all mult 1
+
+ elty all QU8
+ mesh all
+
+ seta truss p D003 D008 D009
+ swep truss truss tra 0 0 -500 1
+ seta truss l L00B L00C L00D
+
+ elty truss BE2
+ mesh truss
+ merg p all
+ merg n all
+
+ seta nodes n all
+ enq nodes boundary-bottom cz _ _ 0     1
+ enq nodes boundary-top    cz _ _ hdist 1
+ enq nodes fix-z           cz _ _ -500  1
+
+ prnt se
+ plot pa all
+ plus la all
+ plot e all
+ view elem
+ plus n boundary-bottom b
+ plus n boundary-top m
+ plus n fix-z r
+ send all abq
+ send boundary-bottom abq nam
+ send boundary-top    abq nam
+ send fix-z abq nam
