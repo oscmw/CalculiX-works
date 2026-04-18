@@ -13,35 +13,34 @@ lc              = 265;
 // ------------------------------
 // Import geometry
 // ------------------------------
-Merge "730-C-501_Onsh4.step";
+Merge "730-C-501_Onsh5.step";
 
 
 // ------------------------------
 // to force shared edges have shared nodes
 // ------------------------------
 // skir_sless and skir_carbo_mid
- BooleanFragments{ Surface{2}; Delete; }{ Surface{3}; Delete; }
+// BooleanFragments{ Surface{2}; Delete; }{ Surface{3}; Delete; }
 
 // skir_carbo_mid and skir_carbo_und
- BooleanFragments{ Surface{3}; Delete; }{ Surface{4}; Delete; }
+// BooleanFragments{ Surface{3}; Delete; }{ Surface{4}; Delete; }
 
 // skir_carbo_und and upper_plate
- BooleanFragments{ Surface{4}; Delete; }{ Surface{64}; Delete; }
+// BooleanFragments{ Surface{4}; Delete; }{ Surface{64}; Delete; }
 
 // skir_carbo_und and base_plate
- BooleanFragments{ Surface{4}; Delete; }{ Surface{65}; Delete; }
+ BooleanFragments{ Surface{31}; Delete; }{ Surface{17,18}; Delete; }
 
 // skir_carbo_mid (target) and two oval openings (tools)
- BooleanFragments{ Surface{3}; Delete; }{ Surface{5:8}; Delete; }
- BooleanFragments{ Surface{3}; Delete; }{ Surface{9:12}; Delete; }
- BooleanFragments{ Surface{3}; Delete; }{ Surface{22}; Delete; } //
- BooleanFragments{ Surface{3}; Delete; }{ Surface{24}; Delete; } //
+ BooleanFragments{ Surface{23}; Delete; }{ Surface{27:30}; Delete; }
+ BooleanFragments{ Surface{24}; Delete; }{ Surface{19:22}; Delete; }
+// BooleanFragments{ Surface{3}; Delete; }{ Surface{22}; Delete; } //
+// BooleanFragments{ Surface{3}; Delete; }{ Surface{24}; Delete; } //
 
 // base_plate, upper_plate, skir_carbo_und as targets and 40 gusset plates as tools
  BooleanFragments{ Surface{64,65,66,4}; Delete; }{ Surface{1,25:63}; Delete; }
 
- Recombine Surface{1:186};
-//Recombine Surface{1,17:153};
+ Recombine Surface{1:32};
  
 // ------------------------------
 // Physical groups
