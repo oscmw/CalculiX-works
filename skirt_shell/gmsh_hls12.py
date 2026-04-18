@@ -9,6 +9,14 @@ gmsh.initialize()
 # ------------------------------
 gmsh.model.occ.importShapes("730-C-501_Onsh6.step")
 gmsh.model.occ.synchronize()
+gmsh.model.occ.fragment([(2, 17)], [(2, 24)])
+gmsh.model.occ.synchronize()
+
+
+# Re-query — old tags 17 and 24 may no longer exist
+surfaces = gmsh.model.getEntities(2)
+surface_tags = [tag for dim, tag in surfaces]
+print("Surfaces after fragment:", surface_tags)
 
 lc = 265
 
@@ -73,13 +81,14 @@ safe_group([21], "skir_sless")
 safe_group([20], "skir_carbo_mid")
 safe_group([17], "skir_carbo_und")
 
-safe_group(range(1, 9), "ovalop1_surf")
-safe_group(range(9, 17), "ovalop2_surf")
-safe_group([21, 22], "opening2_surf")
+safe_group(range(1,9), "ovalop1_surf")
+safe_group(range(9,17), "ovalop2_surf")
+safe_group([22, 23], "opening2_surf")
 safe_group([18, 19], "manhole_surf")
-safe_group([23, 24], "base_plate")
+safe_group([24, 25], "base_plate")
 
 #safe_group([32], "base_plate_inner_YFIX")
+
 
 points = gmsh.model.getEntities(0)
 gmsh.model.mesh.setSize(points, lc)
@@ -109,12 +118,14 @@ gmsh.option.setNumber("Mesh.Optimize", 1)
 # Generate mesh
 # ------------------------------
 gmsh.model.mesh.generate(2)
-#gmsh.model.mesh.removeDuplicateNodes()
+gmsh.model.mesh.removeDuplicateNodes()
+
+gmsh.model.mesh.reverse([(2,21)])
 
 # ------------------------------
 # Save
 # ------------------------------
-gmsh.write("gmsh_hls6.med")
+gmsh.write("gmsh_hls12.med")
 
 #if "-nopopup" not in sys.argv:
    # gmsh.fltk.run()
