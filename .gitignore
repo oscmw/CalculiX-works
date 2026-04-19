@@ -1,3 +1,8 @@
+spooles.out
+*.12d
+*.dat
+*.cvg
 *.frd
+*.sta
 *FCBak
 *~
