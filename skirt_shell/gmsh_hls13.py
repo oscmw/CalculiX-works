@@ -7,11 +7,10 @@ gmsh.initialize()
 # ------------------------------
 # Import STEP geometry
 # ------------------------------
-gmsh.model.occ.importShapes("730-C-501_Onsh6.step")
+gmsh.model.occ.importShapes("730-C-501_Onsh8.step")
+gmsh.model.occ.fragment([(2, 23)], [(2, 18), (2, 19)])
+gmsh.model.occ.fragment([(2, 23)], [(2, 24), (2, 25)])
 gmsh.model.occ.synchronize()
-gmsh.model.occ.fragment([(2, 17)], [(2, 24)])
-gmsh.model.occ.synchronize()
-
 
 # Re-query — old tags 17 and 24 may no longer exist
 surfaces = gmsh.model.getEntities(2)
@@ -35,29 +34,6 @@ def keep(tags):
     return [(2, t) for t in tags if t in occ_tags]
 
 # ------------------------------
-# BooleanFragments (SAFE)
-# ------------------------------
-
-# original: Surface{23} with {1:16,27:30}
-#gmsh.model.occ.fragment(
-#    keep([24]),
-#    keep([17])
-#)
-#gmsh.model.occ.synchronize()
-
-
-
-# original: Surface{64,65,66,4} with {1,25:63}
-#targets = keep(list(range(1,16)))
-#tools   = keep([17]) 
-
-#if targets and tools:
-#    gmsh.model.occ.fragment(targets, tools)
-#    gmsh.model.occ.synchronize()
-#else:
-#    print("[warning] skipped main fragment (tags not found)")
-
-# ------------------------------
 # Get FINAL surfaces (after OCC)
 # ------------------------------
 surfaces = gmsh.model.getEntities(2)
@@ -66,8 +42,12 @@ surface_tags = [tag for dim, tag in surfaces]
 # ------------------------------
 # Recombine (structured mesh)
 # ------------------------------
-for s in surface_tags:
+
+for s in list(range(18, 22)) + list(range(24, 32)):
+    gmsh.model.mesh.setTransfiniteSurface(s)
     gmsh.model.mesh.setRecombine(2, s)
+#    
+    
 
 # ------------------------------
 # Physical groups (SAFE)
@@ -77,15 +57,15 @@ def safe_group(tags, name):
     if valid:
         gmsh.model.addPhysicalGroup(2, valid, name=name)
 
-safe_group([21], "skir_sless")
-safe_group([20], "skir_carbo_mid")
+safe_group([22], "skir_sless")
+safe_group([23], "skir_carbo_mid")
 safe_group([17], "skir_carbo_und")
 
 safe_group(range(1,9), "ovalop1_surf")
 safe_group(range(9,17), "ovalop2_surf")
-safe_group([22, 23], "opening2_surf")
-safe_group([18, 19], "manhole_surf")
-safe_group([24, 25], "base_plate")
+safe_group(range(24,28), "opening2_surf")
+safe_group(range(18,22), "manhole_surf")
+#safe_group(range(28,32), "base_plate")
 
 #safe_group([32], "base_plate_inner_YFIX")
 
@@ -97,6 +77,7 @@ gmsh.model.mesh.setSize(points, lc)
 # Mesh options
 # ------------------------------
 gmsh.option.setNumber("Mesh.Algorithm", 2)
+gmsh.option.setNumber("Mesh.RecombineAll", 1)
 gmsh.option.setNumber("Mesh.ElementOrder", 2)
 gmsh.option.setNumber("Mesh.SecondOrderIncomplete", 1)
 
@@ -120,12 +101,12 @@ gmsh.option.setNumber("Mesh.Optimize", 1)
 gmsh.model.mesh.generate(2)
 gmsh.model.mesh.removeDuplicateNodes()
 
-gmsh.model.mesh.reverse([(2,21)])
+gmsh.model.mesh.reverse([(2,22)])
 
 # ------------------------------
 # Save
 # ------------------------------
-gmsh.write("gmsh_hls12.med")
+gmsh.write("gmsh_hls13.med")
 
 #if "-nopopup" not in sys.argv:
    # gmsh.fltk.run()
