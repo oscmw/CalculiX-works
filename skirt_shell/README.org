@@ -1,0 +1,22 @@
+* Guide for FileNames 
+** gmsh_hlsX.py: python script created for gmsh api
+** gmsh_hlsX.med: med file obtained from gmsh for salome
+** salome_hlsX.med: file with thickened mesh
+** salome_hlsX.unv: unv file exported from salome
+** salome_hlsX.inp: med/unv file created with meshio/unv2ccx
+*** gmsh_hls13.py
+surface orientation problems solved
+*** gmsh_noholes12.py
+scpript w/o boolean fragments
+*** gmsh_hls6.py
+script w/o mesh sizing
+*** gmsh_hls13.med & gmsg_hls13.unv
+w/o skir_carbo_und
+*** gmsh_noholes12.med
+w/o ovalop1_surf, ovalop2_surf, opening2_surf, manhole_surf
+*** gmsh_hls6.med & gmsh_hls6.unv
+file with full geometry
+*** salome_hls13.inp
+file created with unv2ccx
+*** gmsh_hl6.inp
+file created with gmsh api
