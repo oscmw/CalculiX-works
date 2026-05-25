@@ -1,0 +1,57 @@
+*Heading
+ skirt with openings and holes under load
+
+*INCLUDE, INPUT=salome_hls13.inp
+
+*MATERIAL, NAME=Aluminum
+*Elastic
+70, 0.35
+*Plastic
+160, 0
+340, 0.3
+
+*SHELL SECTION, ELSET=skir_sless, MATERIAL=ALuminum
+25
+*SHELL SECTION, ELSET=skir_carbo_mid, MATERIAL=Aluminum
+25
+*SHELL SECTION, ELSET=skir_carbo_und, MATERIAL=Aluminum
+25
+*SHELL SECTION, ELSET=ovalop1_surf, MATERIAL=Aluminum
+30
+*SHELL SECTION, ELSET=ovalop2_surf, MATERIAL=Aluminum
+30
+*SHELL SECTION, ELSET=opening2_surf, MATERIAL=Aluminum
+30
+*SHELL SECTION, ELSET=manhole_surf, MATERIAL=Aluminum
+30
+
+*STEP
+*STATIC
+0.1, 1, 1E-05, 1E+30
+
+*BOUNDARY, OP=NEW
+bottom_ring, 1, 6, 0
+top_ring, 1, 1, 0
+top_ring, 2, 2, 0
+top_ring, 3, 3, 20
+top_ring, 4, 4, 0
+top_ring, 5, 5, 0
+top_ring, 6, 6, 0
+
+*CLOAD, OP=NEW
+
+*DLOAD, OP=NEW
+
+*NODE FILE
+RF, U
+
+*EL FILE
+S, E, PEEQ, NOE
+
+*NODE PRINT, NSET=top_ring, GLOBAL=YES
+U
+
+*NODE PRINT, NSET=bottom_ring, TOTALS=ONLY, GLOBAL=YES
+RF
+
+*END STEP
