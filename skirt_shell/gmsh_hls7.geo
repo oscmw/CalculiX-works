@@ -23,8 +23,7 @@ Merge "730-C-501_Onsh8.step";
 // BooleanFragments{ Surface{23}; Delete; }{ Surface{27:30}; Delete; }
 // BooleanFragments{ Surface{24}; Delete; }{ Surface{19:22}; Delete; }
 
-// base_plate, upper_plate, skir_carbo_und as targets and 40 gusset plates as tools
-
+// Merge coincident boundaries and remove duplicate entities
 
 Recombine Surface{1:31};
  
@@ -46,13 +45,13 @@ Physical Curve("skir_sless_top_LOAD") = {54,57};
 // ------------------------------
 // Mesh control
 // ------------------------------
-Characteristic Length{ PointsOf{ Surface{17,22,23}; } } = lc; //+
+Characteristic Length{ PointsOf{ Surface{17,22,23,28:31}; } } = lc; //+
 
 
 // make sure to generate second order elements:
- Mesh.Algorithm = 2; // Automatic
- Mesh.ElementOrder = 2; // Create second order elements.
- Mesh.SecondOrderIncomplete = 1;
+Mesh.Algorithm = 2; // Automatic
+Mesh.ElementOrder = 2; // Create second order elements.
+Mesh.SecondOrderIncomplete = 1;
 
 // the mesh is generated and exported
 Mesh.Format = 39; // Save mesh as INP format.
