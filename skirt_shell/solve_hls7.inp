@@ -20,7 +20,7 @@ base_plate_center_YFIX,1,6
 *STEP, NLGEOM, INC=200
 *STATIC
 *CLOAD
-skir_sless_top_LOAD,3,23.38E3
+skir_sless_top_LOAD,3,2337.5
 *NODE FILE
 U
 *NODE PRINT, TOTALS=YES
