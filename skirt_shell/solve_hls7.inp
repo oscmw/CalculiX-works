@@ -19,6 +19,12 @@ base_plate_center_YFIX,1,6
 
 *STEP, NLGEOM, INC=200
 *STATIC
+*TRANSFORM, NSET=skir_sless, TYPE=C
+0.0, 0.0, 0.0, 0.0, 0.0, -1.0
+*TRANSFORM, NSET=skir_carbo_mid, TYPE=C
+0.0, 0.0, 0.0, 0.0, 0.0, -1.0
+*TRANSFORM, NSET=skir_carbo_und, TYPE=C
+0.0, 0.0, 0.0, 0.0, 0.0, -1.0
 *CLOAD
 skir_sless_top_LOAD,3,2337.5
 *NODE FILE
