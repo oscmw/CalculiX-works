@@ -1,0 +1,63 @@
+** Agenda
+Created to follow up with the stated problems below
+-Problem No.1 Deep Drawing
+-Problem No.2 Skirt with Loading 
+*** Query
+1. can you find a credible reference citing the stress concentration
+   formula (or chart) depicting the stress concentration at a hole in cylinder
+   under axial tension/compression?
+   
+2. say I have this tube and would like to read all the output in a
+   cylindrical coordinates aligned with it. Can I transform the coordinates
+   of the tube (all nodes) with an input card?
+
+**** work done
+Date: 27/05/2026
+Previously created noframes_solve.inp file (solid model) is now compared with
+solve_hls7.inp (shell model) in terms of displacement/stress results.
+Assigned loadings for both files are modified according to the parameters (weight
+above skirt)
+
+Date: 26/05/2026
+to solve the errors of solve_hls7.inp file, gmsh_hls7.geo file has been edited
+as "correction on the base_plate_center_YFIX set, deletion of LINE elements"
+
+Date: 25/05/2026
+created new branch 16-mesh-skirt-without-frames-using-shell-elements
+organized skirt_shell by adding new directory: skirt_solid which contains files
+regarding the solid model.
+
+Date: 24/05/2026
+gmsh_hls7.inp file obtained from gmsh_hls7.geo  is now used by solve_hls7.inp. The ccx
+inp file resulted with the following errors:
+*ERROR reading *HEADING. Card image: *HEADING
+*ERROR in gen3delem: first thickness in node 1 of element 1 is zero
+*ERROR reading *SHELL SECTION: *SHELL SECTION can only be used for shell or user
+ elements. Element 134 is not a shell nor a user element.
+ 
+Date: 21/05/2026
+gmsh_hls13.py file has a limitation on curve definiton unlike the previously created
+.geo files. On account of that, gmsh_hls6.geo has been modified as gmsh_hls7.geo
+which uses Onsh8 step file and includes curve definitions. 
+
+***** Additonal Notes
+-> finding nodes that split holes into 2 equal parts on the horizontal axis at
+   maximum stress locations using qenq in CalculiX CGX:
+   1) display the stress dataset in cgx menu
+   2) activate qenq
+   3) Press m → enter max/min search mode
+   4) Press r → click the first corner of a rectangle around the hole
+   5) Press r → click the opposite corner
+   6) Press h → CGX finds and labels the node with the maximum stress in that region
+   7) Repeat with l (low) if you also need the minimum.
+   8) Identify the horizontal-axis nodes (bisecting the hole)
+   8.1) Press n while hovering over the node
+       - CGX prints in the xterm:
+       - Node number
+       - Stress value at that node
+       - XYZ coordinates (and cylindrical coordinates)
+       - Which sets the node belongs to
+   9) Press q to quit the qenq command
+
+   -> transform card  *TODO*
+  
