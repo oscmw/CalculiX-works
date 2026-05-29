@@ -95,6 +95,7 @@ which uses Onsh8 step file and includes curve definitions.
 - Hughes, T.J.R. *The Finite Element Method: Linear Static and Dynamic Analysis*
 - Zienkiewicz, O. C., Taylor, R. L. *The Finite Element Method*
 - Bathe, K.J. *Finite Element Procedures*
+- Pilkey, W. D. & Pilkey, D. F., *Peterson's Stress Concentration Factors*, 2nd ed., Wiley, 1997.
   
 ** User Space Documentation
 - PrePoMax kullanıcı dokümantasyonu ve örnek modelleri
