@@ -37,6 +37,8 @@ Can you find a credible reference citing the stress concentration formula (or ch
 *** TODO Query 2
 say I have this tube and would like to read all the output in a cylindrical coordinates aligned with it. Can I transform the coordinates of the tube (all nodes) with an input card?
 
+*** skirt_solid/ skirt_shell comparison table
+[[/home/maya/Downloads/skirt_solid-shell_table.png]]
 *** DONE *TRANSFORM coordinates
 
 *** DONE SHELL/SOLID comparison
