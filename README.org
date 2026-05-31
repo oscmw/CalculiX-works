@@ -38,10 +38,12 @@ Can you find a credible reference citing the stress concentration formula (or ch
 say I have this tube and would like to read all the output in a cylindrical coordinates aligned with it. Can I transform the coordinates of the tube (all nodes) with an input card?
 
 *** skirt_solid/ skirt_shell comparison table
-| Location     | σ_nom_zz | σ_max_zz | K_t numerical_calc |
-|--------------+----------+----------+--------------------|
-| skirt_solid  |    0.742 |     3.82 |              5.148 |
-| skirt_shell  |    0.742 |     3.98 |              5.360 |
+| Location    | σ_nom_zz | σ_max_zz | K_t numerical | K_t ampirical |
+|-------------+----------+----------+---------------+---------------|
+| skirt_solid | 0.742    |     3.82 |          5.15 | 3.84          |
+| skirt_shell | (same)   |     3.98 |          5.36 | (same)        |
+
+The difference between numerical and ampirical values is attributed to the existence of extra holes in the numerical model which is unaccounted for by the ampirical model.
 *** DONE *TRANSFORM coordinates
 
 *** DONE SHELL/SOLID comparison
