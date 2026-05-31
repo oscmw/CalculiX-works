@@ -37,6 +37,11 @@ Can you find a credible reference citing the stress concentration formula (or ch
 *** TODO Query 2
 say I have this tube and would like to read all the output in a cylindrical coordinates aligned with it. Can I transform the coordinates of the tube (all nodes) with an input card?
 
+*** skirt_solid/ skirt_shell comparison table
+| Location     | σ_nom_zz | σ_max_zz | K_t numerical_calc |
+|--------------+----------+----------+--------------------|
+| skirt_solid  |    0.742 |     3.82 |              5.148 |
+| skirt_shell  |    0.742 |     3.98 |              5.360 |
 *** DONE *TRANSFORM coordinates
 
 *** DONE SHELL/SOLID comparison
@@ -95,6 +100,7 @@ which uses Onsh8 step file and includes curve definitions.
 - Hughes, T.J.R. *The Finite Element Method: Linear Static and Dynamic Analysis*
 - Zienkiewicz, O. C., Taylor, R. L. *The Finite Element Method*
 - Bathe, K.J. *Finite Element Procedures*
+- Pilkey, W. D. & Pilkey, D. F., *Peterson's Stress Concentration Factors*, 2nd ed., Wiley, 1997.
   
 ** User Space Documentation
 - PrePoMax kullanıcı dokümantasyonu ve örnek modelleri
