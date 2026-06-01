@@ -1,0 +1,42 @@
+*Heading
+ skirt with openings and holes under load
+
+*INCLUDE, INPUT=all.msh
+** remote point definition
+*NODE
+27899, 0,0,-9384
+
+*BOUNDARY
+Nbottom_ring,1,2,0
+
+*MATERIAL,NAME=STEEL
+*ELASTIC
+210000,0.3
+
+*SOLID SECTION, ELSET=Eskir_sless_extruded, MATERIAL=STEEL
+
+*SOLID SECTION, ELSET=Eskir_carbo_mid_extruded, MATERIAL=STEEL
+
+*SOLID SECTION, ELSET=Eskir_carbo_und_extruded, MATERIAL=STEEL
+
+*SOLID SECTION, ELSET=Eovalop1_surf_extruded, MATERIAL=STEEL
+
+*SOLID SECTION, ELSET=Eovalop2_surf_extruded, MATERIAL=STEEL
+
+*SOLID SECTION, ELSET=Eopening2_surf_extruded, MATERIAL=STEEL
+
+*SOLID SECTION, ELSET=Emanhole_surf_extruded, MATERIAL=STEEL
+
+*COUPLING, REF NODE= 27899, SURFACE=Stop_ring, CONSTRAINT NAME=remote_load
+*DISTRIBUTING
+
+*STEP, NLGEOM, INC=200
+*STATIC
+*CLOAD
+27899,3,-10000
+*NODE FILE,OUTPUT=2D
+U
+*EL FILE
+S
+
+*END STEP

@@ -1,0 +1,73 @@
+*Heading 
+ skirt wıth openings and holes under dead load (force and moment) using original gmsh output
+*INCLUDE, INPUT=gmsh_hls.inp
+
+** constraints
+*BOUNDARY
+skir_carbo_ctrin_XZFIX,1,1,0
+skir_carbo_ctrin_XZFIX,3,3,0
+base_plate_inner_YFIX,2,2,0
+base_plate_gusst_YFIX,2,2,0
+
+*MATERIAL,NAME=Carbo
+*ELASTIC
+200000,0.3
+*density
+7.85e-9
+*MATERIAL,NAME=Sless
+*ELASTIC
+200000,0.3
+*density
+7.85e-9
+
+*SHELL SECTION,ELSET=skir_sless,MATERIAL=Sless
+25
+*SHELL SECTION,ELSET=skir_carbo_mid,MATERIAL=Carbo
+25
+*SHELL SECTION,ELSET=skir_carbo_und,MATERIAL=Carbo
+25
+*SHELL SECTION,ELSET=uppe_plate_gusst,MATERIAL=Carbo
+65
+*SHELL SECTION,ELSET=base_plate_gusst_YFIX,MATERIAL=Carbo
+65
+*SHELL SECTION,ELSET=base_plate_inner_YFIX,MATERIAL=Carbo
+65
+*SHELL SECTION,ELSET=ovalop1_surf ,MATERIAL=Carbo
+30
+*SHELL SECTION,ELSET=ovalop2_surf ,MATERIAL=Carbo
+30
+*SHELL SECTION,ELSET=opening2_surf ,MATERIAL=Carbo
+30
+*SHELL SECTION,ELSET=manhole_surf ,MATERIAL=Carbo
+30
+*SHELL SECTION,ELSET=gussets_surf ,MATERIAL=Carbo
+30
+
+*STEP
+*STATIC
+*CLOAD
+skir_sless_uprin_CLOAD, 2, -46.75E3
+skir_sless_uprin_CLOAD, 4, -178.25E3
+*NODE FILE
+U, RF
+*EL FILE
+S
+*END STEP
+
+*STEP,PERTURBATION
+*FREQUENCY
+12
+*NODE FILE
+U
+*el file
+*END STEP
+
+*STEP
+*BUCKLE
+12
+*CLOAD
+skir_sless_uprin_CLOAD, 2, -46.75E3
+*NODE FILE
+U
+*el file
+*END STEP

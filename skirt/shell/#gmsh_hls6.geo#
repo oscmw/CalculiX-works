@@ -1,0 +1,66 @@
+SetFactory("OpenCASCADE");
+
+// ------------------------------
+// Parameters (mesh-level control)
+// ------------------------------
+div_circ        = 40;
+div_uppe_rad    =  2;
+div_base_rad    =  2;
+div_sless_heigh = 10;
+div_carbo_heigh = 40;
+lc              = 265;
+
+// ------------------------------
+// Import geometry
+// ------------------------------
+Merge "730-C-501_Onsh8.step";
+
+
+// ------------------------------
+// to force shared edges have shared nodes
+// ------------------------------
+ BooleanFragments{ Surface{23}; Delete; }{ Surface{27:30}; Delete; }
+ BooleanFragments{ Surface{24}; Delete; }{ Surface{19:22}; Delete; }
+
+// base_plate, upper_plate, skir_carbo_und as targets and 40 gusset plates as tools
+ BooleanFragments{ Surface{64,65,66,4}; Delete; }{ Surface{1,25:63}; Delete; }
+
+ Recombine Surface{1:32};
+ 
+// ------------------------------
+// Physical groups
+// ------------------------------
+Physical Surface("skir_sless") = {2};
+Physical Surface("skir_carbo_mid") = {3};
+Physical Surface("skir_carbo_und") = {31};
+
+Physical Surface("ovalop1_surf") = {1:8};
+Physical Surface("ovalop2_surf") = {9:16};
+Physical Surface("opening2_surf") = {21,22};
+Physical Surface("manhole_surf") = {19:22};
+
+Physical Surface("base_plate_inner_YFIX") = {32};
+
+// ------------------------------
+// Mesh control
+// ------------------------------
+Characteristic Length{ PointsOf{ Surface{2,3,5:24}; } } = lc; //+
+Characteristic Length{ PointsOf{ Surface{1,25:63,66,67:186}; } } = lc; 
+
+// make sure to generate second order elements:
+ Mesh.Algorithm = 2; // Automatic
+ Mesh.ElementOrder = 2; // Create second order elements.
+ Mesh.SecondOrderIncomplete = 1;
+
+// the mesh is generated and exported
+Mesh.Format = 39; // Save mesh as INP format.
+Mesh.SaveGroupsOfNodes = 1;
+Mesh.SaveGroupsOfElements = 1;
+Mesh.Optimize = 1;
+Mesh 2;
+// OptimizeMesh "Gmsh";
+
+Geometry.Tolerance = 5.e-4;
+Coherence Mesh;
+// Save "gmsh_hls.inp";
+
