@@ -1,0 +1,162 @@
+#+TITLE:  Skirt Design 
+#+AUTHOR: Fethi Okyar
+#+DATE: 2025-10-26
+#+SUBTITLE: with CalcuiX
+#+DESCRIPTION: 
+#+STARTUP: overview
+#+REVEAL_THEME: simple
+#+REVEAL_INIT_OPTIONS: slideNumber:"c/t", width:1920, height:1080
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2> <h3>%s</h3> <h4>%d</h4>
+#+OPTIONS: timestamp:nil toc:1 num:nil
+#+REVEAL_EXTRA_CSS: ../style.css
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+HTML_HEAD_EXTRA: <style>
+#+HTML_HEAD_EXTRA: pre.src { font-size: 0.8em; color: white; background: black; padding: 10px; }
+#+HTML_HEAD_EXTRA: </style>
+
+* About us
+People contributing to this repo will mostly be affiliated with the loosely tied group of mechanicians entitled open-source computational mechanics and acoustics workshop, or OSCMW.
+
+The "thread" called [[https://github.com/CalculiX-works/][CalculiX-works]] was created in order to share information, experience, knowledge as well as models created in [[https://dhondt.de][CalculiX]].
+
+This document will be organized as blog sections (threads) devoted to specific problems  which will be found as issues (and branch names for that matter), in the github repo. For example, our first issue is related with the earing phenomenon in deep-drawing process. The second issue will be buckling, wind and earthquake response of the skirt of a vertical pressure vessel. Hopefully, there will be more topics (issues) to follow these...
+
+The final section will be References where an enriched list of content addresses about CalculiX is aimed.
+* Sections
+** Skirt Response
+In this problem buckling of a simplified cylindrical skirt model (the structure used to support a vertical pressure vessel) is studied under various types of loading such as static gravitational, wind, earthquake, etc.
+
+*** TODO Query 1
+Can you find a credible reference citing the stress concentration formula (or chart) depicting the stress concentration at a hole in cylinder under axial tension/compression?
+   
+*** TODO Query 2
+say I have this tube and would like to read all the output in a cylindrical coordinates aligned with it. Can I transform the coordinates of the tube (all nodes) with an input card?
+
+*** TODO Query 3
+if I solve for multiple buckling modes do they coresspond to instabilities that occur at increasing loads (similar to results of a modal analysis where characteristic frequencies increase).
+Which buckling mode should be formed while performing nonlinear buckling analysis
+
+*** solid/shell model comparison table
+| Location    | σ_nom_zz | σ_max_zz | K_t numerical | K_t ampirical |
+|-------------+----------+----------+---------------+---------------|
+| skirt_solid | 0.742    |     3.82 |          5.15 | 3.84          |
+| skirt_shell | (same)   |     3.98 |          5.36 | (same)        |
+
+The difference between numerical and ampirical values is attributed to the existence of extra holes in the numerical model which is unaccounted for by the ampirical model.
+*** DONE *TRANSFORM coordinates
+
+*** DONE SHELL/SOLID comparison
+<2026-05-27 Wed>
+Previously created noframes_solve.inp file (solid model) is now compared with
+solve_hls7.inp (shell model) in terms of displacement/stress results.
+Assigned loadings for both files are modified according to the parameters (weight
+above skirt)
+**** Post-Processing Notes
+finding nodes that split holes into 2 equal parts on the horizontal axis at maximum stress locations using qenq in CalculiX CGX:
+   1) display the stress dataset in cgx menu
+   2) activate qenq   3) 
+   3) Press m → enter max/min search mode
+   4) Press r → click the first corner of a rectangle around the hole
+   5) Press r → click the opposite corner
+   6) Press h → CGX finds and labels the node with the maximum stress in that region
+   7) Repeat with l (low) if you also need the minimum.
+   8) Identify the horizontal-axis nodes (bisecting the hole)
+   8.1) Press n while hovering over the node
+       - CGX prints in the xterm:
+       - Node number
+       - Stress value at that node
+       - XYZ coordinates (and cylindrical coordinates)
+       - Which sets the node belongs to
+   9) Press q to quit the qenq command
+
+*** DONE
+<2026-05-26 Tue>
+to solve the errors of solve_hls7.inp file, gmsh_hls7.geo file has been edited
+as "correction on the base_plate_center_YFIX set, deletion of LINE elements"
+
+*** DONE
+<2026-05-25 Mon>
+created new branch 16-mesh-skirt-without-frames-using-shell-elements
+organized skirt_shell by adding new directory: skirt_solid which contains files
+regarding the solid model.
+
+*** DONE
+<2026-05-24 Sun>
+gmsh_hls7.inp file obtained from gmsh_hls7.geo  is now used by solve_hls7.inp. The ccx
+inp file resulted with the following errors:
+*ERROR reading *HEADING. Card image: *HEADING
+*ERROR in gen3delem: first thickness in node 1 of element 1 is zero
+*ERROR reading *SHELL SECTION: *SHELL SECTION can only be used for shell or user
+ elements. Element 134 is not a shell nor a user element.
+ 
+*** DONE
+<2026-05-21 Thu>
+gmsh_hls13.py file has a limitation on curve definiton unlike the previously created
+.geo files. On account of that, gmsh_hls6.geo has been modified as gmsh_hls7.geo
+which uses Onsh8 step file and includes curve definitions. 
+
+*** Guide for File Names
+**** gmsh_hlsX.py: Python script created for Gmsh API
+**** gmsh_hlsX.med: med file obtained from Gmsh for Salome
+**** salome_hlsX.med: file with thickened mesh
+**** salome_hlsX.unv: unv file exported from Salome
+**** salome_hlsX.inp: med/unv file created with meshio/unv2ccx
+
+**** gmsh_hls13.py
+surface orientation problems solved
+
+**** gmsh_noholes12.py
+script without boolean fragments
+
+**** gmsh_hls6.py
+script without mesh sizing
+
+**** gmsh_hls13.med & gmsh_hls13.unv
+without skir_carbo_und
+
+**** gmsh_noholes12.med
+without ovalop1_surf, ovalop2_surf, opening2_surf, manhole_surf
+
+**** gmsh_hls6.med & gmsh_hls6.unv
+file with full geometry
+
+**** salome_hls13.inp
+file created with unv2ccx
+
+**** gmsh_hl6.inp
+file created with Gmsh API
+
+
+* Referanslar
+** Kitaplar
+- Dhondt, G. *The Finite Element Method for Three-dimensional Thermomechanical Applications*, Wiley (2004)
+- Hughes, T.J.R. *The Finite Element Method: Linear Static and Dynamic Analysis*
+- Zienkiewicz, O. C., Taylor, R. L. *The Finite Element Method*
+- Bathe, K.J. *Finite Element Procedures*
+- Pilkey, W. D. & Pilkey, D. F., *Peterson's Stress Concentration Factors*, 2nd ed., Wiley, 1997.
+  
+** User Space Documentation
+- PrePoMax kullanıcı dokümantasyonu ve örnek modelleri
+- CalculiX [[https://www.calculix.de/][webpage]], A Free Software Three-Dimensional Structural Finite Element Program
+  + jet-engine model
+  + turbo-charger compressor/turbine
+- Guido Dhont [[https://www.dhondt.de/][webpage]], CalculiX
+  + a Calculix GraphiX [[https://www.dhondt.de/tutorial.txt][cgx tutorial]] (ASCII)
+  + source code, documentation for cgx and ccx
+  + examples: folders including openfoam, airfol, basic, compressor and 7-8 more
+- Documentation
+  
+** Example and Source Repositories
+- Calculix [[https://github.com/Dhondtguido/CalculiX/][github repo]], Guido Dhondt.
+- Calculix Examples [[https://github.com/calculix/CalculiX-Examples][github repo]], Martin Kraska
+- Calculix Templates [[https://github.com/rsmith-nl/calculix-templates][github repo]], Ronald Smith
+- CalculiX Advanced Environment (cae) [[https://github.com/calculix/cae][github repo]], a GUI wrapper for CalculiX CrunchiX and GraphicX.
+- Calculix for Windows [[https://github.com/GeneralElectric/CalculiX][github repo]], from the General Electric github org
+  
+** User Groups, Forums, Discourse, etc.
+- A discourse discussion group for CalculiX, [[https://calculix.discourse.group][http link]] 
+- Advanced CalculiX Tutorial, Libre Mechanics [[https://libremechanics.com/advanced-calculix-tutorial/][homepage]]
+- FEA with CalculiX, Roland's [[https://rsmith.home.xs4all.nl/engineering/fea-with-calculix-1.html][homepage]]
+** Reports
+*** Bilge S A, Aras M
+ 
