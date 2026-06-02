@@ -51,3 +51,22 @@ U
 S
 *END STEP
 
+** step 3, inject geometric imperfection from Mode 1
+*IMPERFECTION, FILE=solve_hls7, STEP=2
+1, 2.5
+
+** step 4, nonlinear displacement control buckling analysis
+*STEP, NLGEOM, INC=400
+*STATIC
+0.01, 1.0, 1e-6, 0.1
+*BOUNDARY, OP=NEW
+base_plate_center_YFIX, 1, 6
+skir_sless_top_LOAD, 3, 3, -10.0
+*NODE FILE
+U
+*EL FILE
+S
+*NODE PRINT, NSET=skir_sless_top_LOAD, TOTALS=YES
+RF
+*END STEP 
+
