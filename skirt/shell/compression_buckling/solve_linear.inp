@@ -1,0 +1,42 @@
+**Heading
+ skirt  with openings and holes under load, shell mesh
+
+*INCLUDE, INPUT=gmsh_hls7.inp
+*TRANSFORM, NSET=skir_sless, TYPE=C
+0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+*TRANSFORM, NSET=skir_carbo_mid, TYPE=C
+0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+*TRANSFORM, NSET=skir_carbo_und, TYPE=C
+0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+
+*BOUNDARY
+base_plate_center_YFIX,1,6
+
+*MATERIAL,NAME=STEEL
+*ELASTIC
+210000,0.3
+
+*ORIENTATION, NAME=CYL_CSYS, SYSTEM=C
+0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+
+*SHELL SECTION, ELSET=skir_sless, MATERIAL=STEEL, ORIENTATION=CYL_CSYS
+25
+*SHELL SECTION, ELSET=skir_carbo_mid, MATERIAL=STEEL, ORIENTATION=CYL_CSYS
+25
+*SHELL SECTION, ELSET=skir_carbo_und, MATERIAL=STEEL, ORIENTATION=CYL_CSYS
+25
+
+** step 1, linear buckling using preloaded state
+*STEP, PERTURBATION
+*BUCKLE
+1
+*CLOAD
+skir_sless_top_LOAD,3,2337.5
+*NODE FILE, OUTPUT=2D
+U
+*END STEP
+
+
+
+
+
