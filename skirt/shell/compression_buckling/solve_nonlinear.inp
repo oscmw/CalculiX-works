@@ -1,0 +1,34 @@
+**Heading
+nonlinear buckling analysis, skirt  with openings and holes under load, shell mesh
+
+*INCLUDE, INPUT=all.msh
+*INCLUDE, INPUT=base_plate_center_YFIX.nam
+*INCLUDE, INPUT=skir_sless_top_LOAD.nam
+
+*BOUNDARY
+Nbase_plate_center_YFIX,1,6
+
+*MATERIAL,NAME=STEEL
+*ELASTIC
+210000,0.3
+*PLASTIC
+100,0
+200,0.3
+300,1
+*DENSITY
+7.8E-9
+
+*SHELL SECTION, ELSET=Eall, MATERIAL=STEEL
+25
+
+** step 1, nonlinear displacement control buckling analysis 
+*STEP,NLGEOM
+*STATIC
+*CLOAD
+** 23375.5*894.9, load factor 
+Nskir_sless_top_LOAD,3,2091828.75
+*NODE FILE, OUTPUT=2D
+U
+*EL FILE
+S
+*END STEP
