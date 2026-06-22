@@ -1,5 +1,5 @@
 **Heading
- skirt  with openings and holes under load, shell mesh
+linear buckling analysis skirt, with openings and holes under load, shell mesh
 
 *INCLUDE, INPUT=gmsh_hls7.inp
 *TRANSFORM, NSET=skir_sless, TYPE=C
