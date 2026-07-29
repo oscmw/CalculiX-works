@@ -8,7 +8,7 @@ div_uppe_rad    =  2;
 div_base_rad    =  2;
 div_sless_heigh = 10;
 div_carbo_heigh = 40;
-lc              = 265;
+lc              = 256;
 
 // ------------------------------
 // Import geometry
@@ -39,8 +39,8 @@ Physical Surface("skir_carbo_und") = {3};
 //Physical Surface("opening2_surf") = {24,27};
 //Physical Surface("manhole_surf") = {18:21};
 
-Physical Curve("base_plate_center_YFIX") = {4};
-Physical Curve("skir_sless_top_LOAD") = {5};
+Physical Curve("base_plate_center_YFIX") = {18};
+Physical Curve("skir_sless_top_LOAD") = {17};
 
 // ------------------------------
 // Mesh control
@@ -64,4 +64,4 @@ Mesh 2;
 
 Geometry.Tolerance = 5.e-4;
 Coherence Mesh;
- Save "gmsh_hls8.inp";
+ Save "gmsh_256.inp";

@@ -1,0 +1,36 @@
+**Heading
+nonlinear buckling analysis, skirt without openings and holes under load, shell mesh,no imposed displacement, quad4
+
+*INCLUDE, INPUT=noholes_S4_128.inp
+**INCLUDE, INPUT=base_plate_center_YFIX.nam
+**INCLUDE, INPUT=skir_sless_top_LOAD.nam
+*BOUNDARY
+base_plate_center_YFIX,1,3
+
+*MATERIAL,NAME=STEEL
+*ELASTIC
+2.09000000e+05, 2.80000000e-01
+*DENSITY
+7.8E-9
+
+*SHELL SECTION, ELSET=skir_carbo_und, MATERIAL=STEEL
+25
+*SHELL SECTION, ELSET=skir_carbo_mid, MATERIAL=STEEL
+25
+*SHELL SECTION, ELSET=skir_sless, MATERIAL=STEEL
+25
+
+** step 1, nonlinear displacement control buckling analysis 
+*STEP,NLGEOM,INC=100000
+*STATIC
+0.02,1,1e-6,0.1 
+*BOUNDARY
+skir_sless_top_LOAD,3,3,100
+*NODE FILE, OUTPUT=2D
+U
+*EL FILE
+S, PEEQ  
+*NODE PRINT, NSET=base_plate_center_YFIX, TOTALS=ONLY
+RF
+
+*END STEP

@@ -1,0 +1,42 @@
+-------------load_disp_S8R_0_256.dat------------------------ 
+awk '
+/^ total force \(fx,fy,fz\) for set BASE_PLATE_CENTER_YFIX/ {
+    getline; getline
+    if (NF==3) { c++; print c, $1, $2, $3 }
+}
+' solve_S8R_0_256.dat > rf3_S8R_0_256.dat
+
+
+awk '$0 !~ /U/ && $1==1 {c++; print c, $5*100}' solve_S8R_0_256.sta > u3_S8R_0_256.dat
+
+
+paste -d' ' u3_S8R_0_256.dat rf3_S8R_0_256.dat > load_disp_S8R_0_256.dat
+
+------------load_disp_S8R_e3_256.dat ----------------------------
+awk '
+/^ total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/ {
+    getline; getline
+    if (NF==3) { c++; print c, $1, $2, $3 }
+}
+' solve_S8R_e3_256.dat > rf3_S8R_e3_256.dat
+
+
+awk '$0 !~ /U/ && $1==1 {c++; print c, $5*100}' solve_S8R_e3_256.sta > u3_S8R_e3_256.dat
+
+
+paste -d' ' u3_S8R_e3_256.dat rf3_S8R_e3_256.dat > load_disp_S8R_e3_256.dat
+
+-------------load_disp_S8R_e4_256.dat---------------------------------
+
+awk '
+/^ total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/ {
+    getline; getline
+    if (NF==3) { c++; print c, $1, $2, $3 }
+}
+' solve_S8R_e4_256.dat > rf3_S8R_e4_256.dat
+
+
+awk '$0 !~ /U/ && $1==1 {c++; print c, $5*100}' solve_S8R_e4_256.sta > u3_S8R_e4_256.dat
+
+
+paste -d' ' u3_S8R_e4_256.dat rf3_S8R_e4_256.dat > load_disp_S8R_e4_256.dat
