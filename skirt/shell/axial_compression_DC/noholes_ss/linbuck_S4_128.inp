@@ -1,4 +1,4 @@
-**Heading
+*Heading
 linear buckling analysis, skirt without openings and holes under load, shell mesh lc 128, quad 4.
 
 *INCLUDE, INPUT=noholes_S4_128.inp
@@ -20,7 +20,7 @@ skir_sless_top_LOAD,1,1
 *DENSITY
 7.8E-9
 
-**ORIENTATION, NAME=CYL_CSYS, SYSTEM=C
+*ORIENTATION, NAME=CYL_CSYS, SYSTEM=C
 0.0, 0.0, 0.0, 0.0, 0.0, 1.0
 
 *SHELL SECTION, ELSET=skir_sless, MATERIAL=STEEL
@@ -39,6 +39,3 @@ skir_sless_top_LOAD,3,2337.5
 *NODE FILE, OUTPUT=2D
 U
 *END STEP
-
-
-
