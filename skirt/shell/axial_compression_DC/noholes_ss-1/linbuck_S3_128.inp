@@ -1,0 +1,45 @@
+**Heading
+linear buckling analysis, skirt without openings and holes under load, shell mesh lc 128, quad 4.
+
+*INCLUDE, INPUT=noholes_S3_128.inp
+*TRANSFORM, NSET=skir_sless_top_LOAD, TYPE=C
+0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+*TRANSFORM, NSET=base_plate_center_YFIX, TYPE=C
+0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+**TRANSFORM, NSET=skir_carbo_und, TYPE=C
+**0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+
+*BOUNDARY
+base_plate_center_YFIX,1,1
+base_plate_center_YFIX,3,3
+301,2,2
+skir_sless_top_LOAD,1,1
+
+*MATERIAL,NAME=STEEL
+*ELASTIC
+2.09000000e+05, 2.80000000e-01
+*DENSITY
+7.8E-9
+
+**ORIENTATION, NAME=CYL_CSYS, SYSTEM=C
+0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+
+*SHELL SECTION, ELSET=skir_sless, MATERIAL=STEEL
+25
+*SHELL SECTION, ELSET=skir_carbo_mid, MATERIAL=STEEL
+25
+*SHELL SECTION, ELSET=skir_carbo_und, MATERIAL=STEEL
+25
+
+** step 1, linear buckling using preloaded state
+*STEP, PERTURBATION
+*BUCKLE
+10
+*CLOAD
+skir_sless_top_LOAD,3,2337.5
+*NODE FILE, OUTPUT=2D
+U
+*END STEP
+
+
+

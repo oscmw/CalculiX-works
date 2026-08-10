@@ -1,0 +1,9 @@
+S3
+------------------------
+awk '
+/^ total force \(fx,fy,fz\) for set BASE_PLATE_CENTER_YFIX/ {
+    t = $NF
+    getline; getline
+    if (NF==3) { c++; print c, $3, t }
+}
+' solve_S3_0_128.dat > S3_ss.dat
