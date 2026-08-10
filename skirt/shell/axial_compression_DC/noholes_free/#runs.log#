@@ -1,5 +1,28 @@
+noholes_free, no imposed displacement, elastic
+
+S3 solved 97.4% hcpy_S3.png RF3 -4.804917E+08
+
+S4 solved 49.74% hcpy_S4.png RF3 -2.452947E+08
+
+S4R solved 39.0% hcpy_S4R.png RF3 -1.921624E+08
+
 S6 solved 51.17% hcpy_S6.png RF3 -2.543541E+08
 
-S4 solved 49.74% hcpyS4.png RF3 -2.452947E+08
+S8 solved 50.7% hcpyS8.png RF3 -2.522883E+08
 
-S8 solved  50.7% hcpyS8.png RF3 -2.522883E+08
+S8R solved 46.9% hcpy_S8R.png  RF3 -2.332731E+08
+
+
+noholes_ss, no imposed displacement, elastic
+
+S3 solved 100% hcpy_S3.png RF3 -4.916538E+08
+
+S4 solved 53.5% hcpy_S4.png RF3 -2.631020E+08
+
+S4R solved 27.7% hcpy_S4R.png -1.374207E+08
+
+S6 solved 54.4% hcpy_S6.png RF3 -2.682212E+08
+
+S8 solved 55.6% hcpy_S8.png RF3 -2.736845E+08
+
+S8R solved 51.1% hcpyS8R.png RF3 -2.515877E+08
