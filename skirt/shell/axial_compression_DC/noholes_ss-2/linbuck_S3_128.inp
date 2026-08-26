@@ -1,7 +1,7 @@
 **Heading
-linear buckling analysis, skirt without openings and holes under load, shell mesh lc 256, quad 4.
+linear buckling analysis, skirt without openings and holes under load, shell mesh lc 128, quad 4.
 
-*INCLUDE, INPUT=noholes_S8R_256.inp
+*INCLUDE, INPUT=noholes_S3_128.inp
 **TRANSFORM, NSET=skir_sless_top_LOAD, TYPE=C
 **0.0, 0.0, 0.0, 0.0, 0.0, 1.0
 **TRANSFORM, NSET=base_plate_center_YFIX, TYPE=C
@@ -32,7 +32,7 @@ skir_sless_top_LOAD,1,2
 ** step 1, linear buckling using preloaded state
 *STEP, PERTURBATION
 *BUCKLE
-25
+35
 *CLOAD
 **load changed from 2337.5 to 3202.05
 skir_sless_top_LOAD,3,3202.05
