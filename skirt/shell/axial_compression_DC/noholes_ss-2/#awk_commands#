@@ -1,0 +1,59 @@
+awk '
+FNR==NR {
+    if (/^ total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/) {
+        t = $NF
+        getline; getline
+        if (NF==3) { c++; force[c]=$3; time[c]=t }
+    }
+    next
+}
+$0 !~ /U/ && $1==1 {
+    d++; disp[d]=$5*100
+}
+END {
+    n = (c<d)?c:d
+    for (i=1; i<=n; i++)
+        print i, disp[i], force[i], time[i]
+}
+' solve_S4_e3_128.dat solve_S4_e3_128.sta > S4_e3_ss-2.dat
+-------------------------------------------------
+
+awk '
+FNR==NR {
+    if (/^ total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/) {
+        t = $NF
+        getline; getline
+        if (NF==3) { c++; force[c]=$3; time[c]=t }
+    }
+    next
+}
+$0 !~ /U/ && $1==1 {
+    d++; disp[d]=$5*100
+}
+END {
+    n = (c<d)?c:d
+    for (i=1; i<=n; i++)
+        print i, disp[i], force[i], time[i]
+}
+' solve_S4_e4_128.dat solve_S4_e4_128.sta > S4_e4_ss-2.dat
+
+--------------------------------------------------------
+
+awk '
+FNR==NR {
+    if (/^ total force \(fx,fy,fz\) for set BASE_PLATE_CENTER_YFIX/) {
+        t = $NF
+        getline; getline
+        if (NF==3) { c++; force[c]=$3; time[c]=t }
+    }
+    next
+}
+$0 !~ /U/ && $1==1 {
+    d++; disp[d]=$5*100
+}
+END {
+    n = (c<d)?c:d
+    for (i=1; i<=n; i++)
+        print i, disp[i], force[i], time[i]
+}
+' solve_S4_0_128.dat solve_S4_0_128.sta > S4_0_ss-2.dat
