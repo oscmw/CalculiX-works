@@ -11,8 +11,8 @@ nu_ = 0.28    % Poisson's ratio
 fa2 = (1-nu_^2) % frequently used factor
 
                % buckling mode geometry factors
-m_ = 1.E-2         % the number of axial half waves in the mode
-n_ = 1.E-2         % the number of circumferential full waves
+m_ = 4.E-0    % the number of axial half waves in the mode
+n_ = 5.E-0    % the number of circumferential full waves
 gam = 1       % buckling knock-down factor
 
                % structural properties
@@ -29,7 +29,7 @@ k_x = fa3 + (12/pi^4)*(gam*Z_)^2/fa3
               %  buckling line load of a simply supported cylinder 
               % under axial compression
               % based on Donnell’s shell theory (Eq.1)
-N_x = k_x*(pi/Len)^2*Dia
+N_x = k_x*(pi/Len)^2*D_
              % total buckling load
 F_x = (2*pi*Rad)*N_x
 
@@ -40,5 +40,6 @@ s_x = gam*E_m/sqrt(3*fa2)*1/fa1
 ar_ = pi*Dia*thk
              % calculation of percentage difference
              % between the two 
-abs(s_x*ar_ - F_x)/F_x
-abs(s_x*ar_ - F_x)/(s_x*ar_)
+F_7 = s_x*ar_ % load from Eq.7
+abs(F_7 - F_x)/F_x
+abs(F_7 - F_x)/F_7
