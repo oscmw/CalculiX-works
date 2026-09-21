@@ -19,7 +19,7 @@ Nskir_sless_top_LOAD,1,2
 ** step 1, nonlinear displacement control buckling analysis 
 *STEP,NLGEOM,INC=10000
 *STATIC
-0.02,1,1e-4,0.1 
+0.02,1,1e-4,0.01 
 *BOUNDARY, 
 Nskir_sless_top_LOAD,3,3,100
 *NODE FILE, OUTPUT=2D
