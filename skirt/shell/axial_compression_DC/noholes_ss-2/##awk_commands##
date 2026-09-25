@@ -1,0 +1,82 @@
+awk '
+FNR==NR {
+    if (/TOTAL TIME COMPLETED/) t = $4
+    if (/total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/) {
+        if ((getline) > 0 && (getline) > 0 && NF == 3) {
+            c++
+            fy[c] = $2
+            fz[c] = $3
+            time[c] = t
+        }
+    }
+    next
+}
+$0 !~ /U/ && $1 == 1 {
+    d++
+    disp[d] = $5 * 100
+}
+END {
+    if (c != d)
+        printf("warning: %d force records vs %d displacement records\n", c, d) > "/dev/stderr"
+    n = (c < d) ? c : d
+    for (i = 1; i <= n; i++)
+        print i, disp[i], fy[i], fz[i], time[i]
+}
+' solve_S4_e3_128.dat solve_S4_e3_128.sta > S4_e3_128_ss-2.dat
+
+================================
+
+awk '
+FNR==NR {
+    if (/TOTAL TIME COMPLETED/) t = $4
+    if (/total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/) {
+        if ((getline) > 0 && (getline) > 0 && NF == 3) {
+            c++
+            fy[c] = $2
+            fz[c] = $3
+            time[c] = t
+        }
+    }
+    next
+}
+$0 !~ /U/ && $1 == 1 {
+    d++
+    disp[d] = $5 * 100
+}
+END {
+    if (c != d)
+        printf("warning: %d force records vs %d displacement records\n", c, d) > "/dev/stderr"
+    n = (c < d) ? c : d
+    for (i = 1; i <= n; i++)
+        print i, disp[i], fy[i], fz[i], time[i]
+}
+' solve_S4_e3_128.dat solve_S4_e3_128.sta > S4_e3_128_ss-2.dat
+
+-------------------------------------
+
+
+awk '
+FNR==NR {
+    if (/TOTAL TIME COMPLETED/) t = $4
+    if (/total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/) {
+        if ((getline) > 0 && (getline) > 0 && NF == 3) {
+            k = sprintf("%.6f", t + 0)
+            fy[k] = $2
+            fz[k] = $3
+        }
+    }
+    next
+}
+/TOT TIME/ && !/RFY/ { print $0 "   RFY   RFZ"; next }
+$1 ~ /^[0-9]+$/ && $2 ~ /^[0-9]+$/ && $3 ~ /^[0-9]+$/ && NF >= 7 {
+    k = sprintf("%.6f", $5 + 0)
+    if (k in fy)
+        print $0 "   " fy[k] "   " fz[k]
+    else {
+        print $0
+        printf("warning: no force record for total time %s (inc %s)\n", $5, $2) > "/dev/stderr"
+    }
+    next
+}
+{ print }
+' solve_S4_e3_128.dat solve_S4_e3_128.sta > S4_e3_128_ss-2.dat

@@ -1,6 +1,8 @@
 ** Names based on base_plate_center_YFIX
 *NSET,NSET=Nbase_plate_center_YFIX 
 3, 
+228, 
+229, 
 230, 
 231, 
 232, 
@@ -78,5 +80,3 @@
 304, 
 305, 
 306, 
-307, 
-308, 
