@@ -64,4 +64,4 @@ Mesh 2;
 
 Geometry.Tolerance = 5.e-4;
 Coherence Mesh;
- Save "gmsh_hls7.inp";
+ //Save "gmsh_hls7.inp";

@@ -1,0 +1,36 @@
+awk '
+/^ forces \(fx,fy,fz\) for set NSKIR_SLESS_TOP_LOAD/ {inblock=1; next}
+/^ displacements/ {inblock=0}
+inblock && $1==334 {count++; print count, $4}
+' solve_nonlinear.dat > rf3.dat
+
+-------------------------------
+awk '
+/INCREMENT/ {inc=$NF}
+/displacements.*time/ {table=1; next}
+
+table && $1==334 {
+    print inc, $4
+    table=0
+}
+' solve_nonlinear.dat > u3.dat
+
+------------------------------------
+paste -d' ' u3.dat rf3.dat > load_disp.dat
+---------------------------------------
+awk '
+NR==FNR {
+    if ($0 !~ /U/ && $1 == 1) { count++; time[count]=$5 }
+    next
+}
+/^ forces \(fx,fy,fz\) for set NSKIR_SLESS_TOP_LOAD/ {inblock=1; next}
+/^ displacements/ {inblock=0}
+inblock && $1==334 {c++; print c, $4, time[c]}
+' solve_nonlinear.sta solve_nonlinear.dat > rf3.dat
+----------------------------------------------------
+awk '
+/^ total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/ {
+    getline; getline
+    if (NF==3) { c++; print c, $1, $2, $3 }
+}
+' solve_nonlinear.dat > rf3.dat

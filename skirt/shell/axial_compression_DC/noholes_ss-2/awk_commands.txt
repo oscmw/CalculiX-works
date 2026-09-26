@@ -1,0 +1,25 @@
+awk '
+FNR==NR {
+    if (/TOTAL TIME COMPLETED/) t = $4
+    if (/total force \(fx,fy,fz\) for set NBASE_PLATE_CENTER_YFIX/) {
+        if ((getline) > 0 && (getline) > 0 && NF == 3) {
+            c++
+            fy[c] = $2
+            fz[c] = $3
+            time[c] = t
+        }
+    }
+    next
+}
+$0 !~ /U/ && $1 == 1 {
+    d++
+    disp[d] = $5 * 100
+}
+END {
+    if (c != d)
+        printf("warning: %d force records vs %d displacement records\n", c, d) > "/dev/stderr"
+    n = (c < d) ? c : d
+    for (i = 1; i <= n; i++)
+        print i, disp[i], fy[i], fz[i], time[i]
+}
+' solve_S6_e3_256.dat solve_S6_e3_256.sta > S6_e3_256.dat
