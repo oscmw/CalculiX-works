@@ -1,0 +1,59 @@
+
+frame
+rot -z
+
+# Parameters
+valu D 3255.
+valu R / D 2.
+valu H 10667.5
+valu Ncirc 100
+valu Nheight 60
+
+# --------------------------------------------------
+# Vertical generator on the cylinder surface
+# --------------------------------------------------
+
+PNT PBASE R 0. 0.
+PNT PTOP  R 0. H
+
+LINE LGEN PBASE PTOP Nheight
+
+SETA generator l LGEN
+
+# --------------------------------------------------
+# Rotate the generator around the Z axis
+# through 360 degrees to create the cylindrical surface
+# --------------------------------------------------
+
+SETO cylinder
+SWEP generator cylinder ROT z 360. Ncirc
+SETC cylinder
+
+# --------------------------------------------------
+# Mesh the cylindrical shell
+# ------------------------------------------------# Mesh
+ELTY all QU8
+MESH all
+
+# Create top and bottom node sets
+SETA skir_sless_top_LOAD L <TOP_EDGE_SET>
+COMP skir_sless_top_LOAD DO
+
+SETA base_plate_center_YFIX L <BOTTOM_EDGE_SET>
+COMP base_plate_center_YFIX DO
+
+
+# Select nodes near the top and bottom
+NCL skir_sless_top_LOAD z 10667.5 0.1
+NCL base_plate_center_YFIX z 0.0 0.1
+
+
+# --------------------------------------------------
+# Export mesh and named node sets
+#
+--------------------------------------------------
+send all abq
+send skir_sless_top_LOAD abq nam
+send base_plate_center_YFIX abq nam
+
+# End
