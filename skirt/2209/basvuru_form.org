@@ -1,0 +1,117 @@
+* TÜBİTAK 2209-B ÜNİVERSİTE ÖĞRENCİLERİ SANAYİYE YÖNELİK ARAŞTIRMA PROJELERİ DESTEĞİ PROGRAMI ARAŞTIRMA ÖNERİSİ FORMU
+
+** Genel Bilgiler
+# Başvuru Sahibinin Adı Soyadı:
+# Araştırma Önerisinin Başlığı:
+Reaktör Taşıyıcı Kolonlarının Mekanik Tasarımında Açık Kaynaklı Sonlu Elemanlar Yazılımının Kullanılabilirliğinin ve Analiz Güvenilirliğinin İncelenmesi
+# Akademik Danışmanın Adı Soyadı:
+# Sanayi Danışmanının Adı Soyadı:
+# Araştırmanın Yürütüleceği Kurum/Kuruluşlar:
+
+** ÖZET
+# Araştırma önerisi özetinin (1) bilimsel nitelik; (2) yöntem; (3) proje yönetimi ve (4) sanayi odaklı çıktıları ve yaygın etki hakkında bilgileri kapsaması beklenir. Her bir özet 450 kelime veya bir sayfa ile sınırlandırılmalıdır.
+# Bu bölümün en son yazılması önerilir.
+
+** 1. ARAŞTIRMA ÖNERİSİNİN BİLİMSEL NİTELİĞİ
+
+*** 1.1. Amaç ve Hedefler 
+
+# Araştırma önerisinde ele alınan konunun amacı, somut hedefleri ve sanayiye yönelik içeriği ortaya konulur. Önerilen konunun çözülmesi gereken ya da önceden çalışılmış aydınlatılması gereken bir problem olup olmadığı, hangi eksikliği nasıl gidereceği veya hangi sorunlara çözüm getireceği açıklanmalıdır. 
+
+Bu araştırma önerisinin amacı, endüstriyel reaktörlerde kullanılan silindirik taşıyıcı kolonun mekanik tasarımını sonlu elemanlar yöntemiyle incelemek, eksenel yükler altındaki burkulma davranışını değerlendirmek ve tasarımın ilgili kriterlere göre doğrulanmasını sağlamaktır.
+
+Çalışmada, açık kaynaklı yazılımlar kullanılarak gerçekleştirilecek sayısal analizler aracılığıyla yapının gerilme, deformasyon ve burkulma davranışının ortaya konulması; elde edilen sonuçlar doğrultusunda mevcut tasarımın mekanik açıdan değerlendirilmesi ve gerekli görülmesi hâlinde tasarım iyileştirme seçeneklerinin geliştirilmesi amaçlanmaktadır.
+
+Proje kapsamında mevcut taşıyıcı kolonun mekanik davranışının incelenmesi, ardından analiz sonuçlarının tasarım açısından değerlendirilmesi ve gerekli olması durumunda iyileştirme seçeneklerinin araştırılması hedeflenmektedir. Bu doğrultuda belirlenen somut hedefler aşağıda sunulmuştur:
+
+1. Farklı kabuk elemanlarının karşılaştırılması: S3, S6, S8 ve S8R gibi elemanlarla elde edilen doğrusal burkulma sonuçlarının karşılaştırılması; burkulma yükleri, burkulma modları ve hesaplama maliyetleri bakımından eleman seçiminin etkisinin incelenmesi.
+2. Ağ yakınsamasının değerlendirilmesi: Farklı ağ yoğunlukları kullanılarak analiz sonuçlarının değişiminin incelenmesi ve sonuçların ağ yoğunluğuna duyarlılığının belirlenmesi. Böylece doğruluk ile hesaplama maliyeti arasında uygun bir denge kurulması hedeflenmektedir.
+3. Analiz sonuçlarının tutarlılığının değerlendirilmesi: Elde edilen sonuçların teorik beklentiler, analitik hesaplamalar ve mevcut mühendislik kabulleriyle karşılaştırılması; farklı modelleme seçeneklerinden kaynaklanan sonuç farklılıklarının açıklanması.
+4. Tekrarlanabilir bir analiz iş akışının oluşturulması: Geometri hazırlama, ağ oluşturma, malzeme ve sınır koşullarını tanımlama, çözüm gerçekleştirme ve sonuçları değerlendirme adımlarının belgelenmesi. Böylece benzer endüstriyel yapıların analizlerinde kullanılabilecek, izlenebilir bir yöntem ortaya konulması.
+5.Tasarım iyileştirme seçeneklerinin geliştirilmesi (silindirik yapıda yer alan delik/menhol gibi açıklıkların geometrik etkileri): Analizlerde belirlenen kritik gerilme bölgeleri, deformasyonlar veya burkulma eğilimleri doğrultusunda mevcut tasarımın nasıl iyileştirilebileceğinin araştırılması. Gerekli olması durumunda geometrik boyutlar, et kalınlığı, takviye elemanları veya diğer uygun tasarım parametreleri üzerinden alternatifler geliştirilmesi ve bu alternatiflerin mekanik performans açısından karşılaştırılması.
+6.Tasarım kararlarının sayısal analizlerle desteklenmesi: Mevcut tasarım ile geliştirilen alternatiflerin uygun analiz sonuçları üzerinden karşılaştırılması; yapısal yeterlilik, burkulma dayanımı ve hesaplama maliyeti gibi ölçütler çerçevesinde tasarım kararlarına teknik dayanak oluşturulması.
+
+Projenin sanayiye yönelik katkısı, gerçek bir endüstriyel taşıyıcı yapının mekanik tasarımının açık kaynaklı sonlu elemanlar yazılımları kullanılarak incelenmesi ve analiz sonuçlarının tasarım kararlarına dönüştürülmesidir.
+Ayrıca çalışma, açık kaynaklı yazılımların endüstriyel mekanik tasarım süreçlerinde kullanılabilirliğine ilişkin uygulamaya dayalı bir değerlendirme sağlayacaktır.
+
+Projenin başarısı; burkulma davranışının ortaya konulması, tasarım gereksinimlerine yönelik kontrollerin gerçekleştirilmesi ve analiz bulgularına dayalı tasarım değerlendirmelerinin yapılmasıyla ölçülecektir. Tasarım iyileştirme çalışmaları kapsamında ise geliştirilen alternatiflerin uygun analizlerle karşılaştırılması hedeflenmektedir. İlgili standartlar ve doğrulama kriterleri, tasarım değerlendirmesini destekleyen unsurlar olarak ele alınacaktır.
+
+
+
+
+*** 1.2 Yenilikçi Yönü ve Teknolojik Değeri
+
+# Proje fikrinin ortaya çıkışından, hedeflenen ürünün veya sürecin özelliklerine kadar projenin endüstriyel Ar-Ge içeriği, teknoloji düzeyi ve yenilikçi yönü anlatılmalıdır. Projedeki yenilik unsurları ve proje çıktısının nitelikleri bakımından benzerlerinden farklı ve üstün olan yönleri somut verilerle ortaya konulmalıdır. 
+
+İnce cidarlı silindirik yapıların eksenel basınç altında burkulma davranışı, yapısal güvenilirlik ve malzeme kullanımının verimliliği açısından önemli bir mühendislik problemidir. Özellikle silindirik gövde üzerindeki delikler ve menhol açıklıkları, yapının gerilme dağılımını ve deformasyon davranışını etkileyerek kritik burkulma yükünün azalmasına ve yerel göçme bölgelerinin oluşmasına neden olabilir. Bu nedenle, söz konusu geometrik özelliklerin yapısal dayanım üzerindeki etkilerinin belirlenmesi ve tasarımın bu etkiler dikkate alınarak geliştirilmesi önem taşımaktadır.
+
+Projenin yenilikçi yönünü, burkulma davranışının analiz edilmesinden elde edilen bulguların sistematik bir tasarım iyileştirme sürecine aktarılması oluşturmaktadır. Analizler sonucunda yapısal dayanımı sınırlayan kritik bölgeler belirlenecek; delik ve menhol açıklıklarının çevresinde yerel takviye uygulanması, açıklık geometrilerinin değiştirilmesi veya farklı yapısal düzenlemelerin kullanılması gibi alternatifler değerlendirilecektir.
+
+Geliştirilen alternatifler mevcut tasarımla karşılaştırılarak burkulma dayanımı, deformasyon davranışı, toplam kütle ve üretilebilirlik bakımından incelenecektir. Böylece yalnızca dayanımı artırmaya odaklanan bir yaklaşım yerine, gerekli yapısal performansı mümkün olduğunca düşük ek malzeme kullanımıyla sağlayan ve endüstriyel uygulamalarda üretilebilirliği koruyan bir tasarım alternatifinin belirlenmesi hedeflenmektedir.
+
+Projenin teknolojik değeri, yapısal davranışın sayısal analizlerle değerlendirilmesi ve elde edilen sonuçların mühendislik tasarım kararlarında kullanılabilecek verilere dönüştürülmesiyle ortaya çıkacaktır. Farklı tasarım alternatiflerinin aynı analiz ve değerlendirme kriterleri üzerinden karşılaştırılması sayesinde, açıklıkların ve olası takviye düzenlemelerinin yapısal performansa etkisi ortaya konabilecektir.
+
+Tasarım iyileştirmesinin başarısı, başlangıç tasarımına göre kritik burkulma yükü ve doğrusal olmayan analizle belirlenen taşıma kapasitesindeki değişim ile kütle farkı üzerinden değerlendirilecektir. Sonuçların güvenilirliğini artırmak amacıyla ağ yakınsaması incelenecek ve mümkün olduğu ölçüde analiz bulguları analitik hesaplar, literatür verileri veya mevcut deneysel sonuçlarla karşılaştırılacaktır. Bu değerlendirmeler elde edilen iyileşmenin teknik açıdan gerekçelendirilmesini de sağlayacaktır.
+
+Proje kapsamında ayrıca ilgili tasarım standartlarının, burkulma kriterlerinin ve doğrulama gerekliliklerinin incelenmesi planlanmaktadır. Bu çalışma silindirik gövdenin yapısal davranışının değerlendirilmesine ve tasarım kararlarının teknik açıdan desteklenmesine yönelik bir altyapı oluşturmayı amaçlamaktadır. Elde edilecek bulguların, benzer geometrik özelliklere sahip silindirik yapıların tasarım ve doğrulama çalışmalarına katkı sağlaması beklenmektedir.
+
+Sonuç olarak proje ile mevcut silindirik gövdenin burkulma davranışının ortaya konulması, yapısal dayanımı etkileyen geometrik özelliklerin belirlenmesi ve analiz sonuçlarına dayalı tasarım alternatiflerinin geliştirilmesi hedeflenmektedir. Projenin temel çıktısı, burkulma dayanımı ile malzeme kullanımı arasındaki ilişkinin değerlendirilmesine ve yapısal performans açısından daha uygun tasarım seçeneklerinin belirlenmesine imkân sağlayan doğrulanabilir bir mühendislik yaklaşımı olacaktır.
+
+
+** 2.YÖNTEM
+# Araştırmada uygulanacak analitik ve/veya deneysel çözüm yöntemleri, amaç ve hedeflere ulaşmaya ne düzeyde elverişli olduğu ilişkilendirilerek ve literatüre atıf yapılarak ortaya konulur. Araştırma önerisinde sunulan yöntemlerin çalışma takvimi ile ilişkilendirilmesi gerekir
+
+
+** 3.PROJE YÖNETİMİ
+ 
+*** 3.1 Çalışma Takvimi
+
+# Araştırmada yer alacak başlıca faaliyetler, her bir faaliyetin hangi sürede gerçekleştirileceği, başarı ölçütü ve araştırmanın başarısına katkısı “Çalışma Takvimi” doldurularak sunulur. 
+
+* İŞ-ZAMAN ÇİZELGESİ
+
+#+CAPTION: İŞ-ZAMAN ÇİZELGESİ
+| No | İş Paketlerinin Adı ve Hedefleri | Kim(ler) Tarafından Gerçekleştirileceği | Zaman Aralığı (..-.. Ay) | Başarı Ölçütü ve Projenin Başarısına Katkısı |
+|----+----------------------------------+-----------------------------------------+--------------------------+---------------------------------------------|
+|  1 |                                  |                                         |                          |                                             |
+|  2 |                                  |                                         |                          |                                             |
+|  3 |                                  |                                         |                          |                                             |
+|  4 |                                  |                                         |                          |                                             |
+|  5 |                                  |                                         |                          |                                             |
+
+
+*** 3.2 Risk Yönetimi
+
+# Araştırmanın başarısını olumsuz yönde etkileyebilecek riskler ve bu risklerle karşılaşıldığında araştırmanın başarıyla yürütülmesini sağlamak için alınacak tedbirler (B Planı) aşağıdaki Risk Yönetimi Tablosu’nda ifade edilir. B Plan(lar)ının uygulanması araştırmanın temel hedeflerinden sapmaya yol açmamalıdır. B Plan(lar)ına geçilmesi durumunda yöntem değişikliğine gidiliyor ise bu durum detaylandırılmalıdır
+
+* RİSK YÖNETİMİ
+
+#+CAPTION: RİSK YÖNETİMİ TABLOSU
+| No | En Büyük Riskler | Risk Yönetimi (B Planı) |
+|----+------------------+-------------------------|
+|  1 |                  |                         |
+|  2 |                  |                         |
+
+
+*** 3.3. Araştırma Olanakları
+# Bu bölümde projenin yürütüleceği kurum ve kuruluşlarda bulunan ve projede kullanılacak olan altyapı/ekipman (laboratuvar, araç, makine-teçhizat vb.) olanakları belirtilir.
+
+
+* ARAŞTIRMA OLANAKLARI
+
+#+CAPTION: ARAŞTIRMA OLANAKLARI TABLOSU
+| Altyapı/Ekipmanın Bulunduğu Kuruluş | Kuruluşta Bulunan Altyapı/Ekipman Türü, Modeli (Laboratuvar, Araç, Makine-Teçhizat vb.) | Projede Kullanım Amacı |
+|-------------------------------------+----------------------------------------------------------------------------------------+------------------------|
+|                                     |                                                                                        |                        |
+
+** 4.SANAYİ ODAKLI ÇIKTILARI ve YAYGIN ETKİ
+# Araştırma önerisi kapsamındaki çalışmadan elde edilmesi öngörülen çıktılar amaçlarına göre belirlenen kategorilere ayrılarak belirtilir; ölçülebilir ve gerçekçi hedeflere dayandırılır
+
+
+** 5. BELİRTMEK İSTEDİĞİNİZ DİĞER KONULAR
+
+# Sadece araştırma önerisinin değerlendirilmesine katkı sağlayabilecek bilgi/veri (grafik, tablo, vb.) eklenebilir. 
+
+** 6.EKLER
+
+EK-1: Kaynaklar
