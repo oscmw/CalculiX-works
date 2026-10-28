@@ -55,7 +55,7 @@ Tasarım iyileştirmesinin başarısı, başlangıç tasarımına göre kritik b
 
 Proje kapsamında ayrıca ilgili tasarım standartlarının, burkulma kriterlerinin ve doğrulama gerekliliklerinin incelenmesi planlanmaktadır. Bu çalışma silindirik gövdenin yapısal davranışının değerlendirilmesine ve tasarım kararlarının teknik açıdan desteklenmesine yönelik bir altyapı oluşturmayı amaçlamaktadır. Elde edilecek bulguların, benzer geometrik özelliklere sahip silindirik yapıların tasarım ve doğrulama çalışmalarına katkı sağlaması beklenmektedir.
 
-Sonuç olarak proje ile mevcut silindirik gövdenin burkulma davranışının ortaya konulması, yapısal dayanımı etkileyen geometrik özelliklerin belirlenmesi ve analiz sonuçlarına dayalı tasarım alternatiflerinin geliştirilmesi hedeflenmektedir. Projenin temel çıktısı, burkulma dayanımı ile malzeme kullanımı arasındaki ilişkinin değerlendirilmesine ve yapısal performans açısından daha uygun tasarım seçeneklerinin belirlenmesine imkân sağlayan doğrulanabilir bir mühendislik yaklaşımı olacaktır.
+Sonuç olarak proje ile mevcut silindirik gövdenin burkulma davranışının ortaya konulması, yapısal dayanımı etkileyen geometrik özelliklerin belirlenmesi ve analiz sonuçlarına dayalı tasarım alternatiflerinin geliştirilmesi hedeflenmektedir. Projenin temel çıktısı, yapısal performans açısından daha uygun tasarım seçeneklerinin belirlenmesine imkân sağlayan doğrulanabilir bir mühendislik yaklaşımı olacaktır.
 
 
 ** 2.YÖNTEM
