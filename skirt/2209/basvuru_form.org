@@ -64,6 +64,25 @@ Sonuç olarak proje ile mevcut silindirik gövdenin burkulma davranışının or
 
 Mühendislik yapılarının mekanik davranışını belirlemek ve bu davranışın belirli sınırlar içerisinde kalması için gereken tasarımsal değişiklikleri öngörebilmek için kullanılan  en gelişmiş halen araç sonlu elemanlar analizidir.  Bu analiz yöntemi, katı cisimlerin mekanik yükler altındaki davranışını belirleyen ve güçlü form olarak bilinen diferansiyel hareket denklemleri sisteminin önce ağırlıklı artık integrali yöntemi ile zayıf forma dönüştürülmesi ve sonrasında zayıf formun ayrıklaştırılmış sonlu bir uzaya uygulanması ile problemin doğrusal denklemler sistemine indirgenmesi olarak özetlenebilir. Bu yöntemi kullanarak elde edilen yaklaşık bir çözüm olup, ayrıklaştırmanın yoğunlaştırılması ile gerçeğe yakınsadığı matematiksel olarak ispat edilebilmektedir.
 
+
+Burkulma analizi, bir yapının belirli bir yükleme koşulu altında kararlılığını kaybettiği kritik yük seviyesinin belirlenmesini amaçlar. Sonlu elemanlar yönteminde burkulma problemi, ön yükleme etkisi altındaki yapının doğal frekanslarının incelendiği özdeğer problemleriyle ilişkilendirilebilir. Yapının etkin rijitlik matrisi; elastik rijitlik, ön yüklemeden kaynaklanan geometrik rijitlik ve büyük deformasyon etkilerini temsil eden rijitlik katkılarının toplamı olarak ifade edilir:
+
+\begin{equation}
+\mathbf{K}_{mod} = \mathbf{K}_{LE} + \mathbf{K}_{ST} + \mathbf{K}_{LD}
+\end{equation}
+
+Burkulma, sistemin en düşük doğal frekansının sıfıra ulaşmasıyla ilişkilendirilen bir kararlılık kaybı durumudur. Bu noktada yapının etkin rijitlik matrisi tekil hâle gelir ve yapı, mevcut yükleme koşulları altında kararlı denge durumunu sürdüremez.
+
+Doğrusal özdeğer burkulma analizinde, yapıya öncelikle bir başlangıç yükleme durumu uygulanır ve ardından incelenen ilave yükleme durumu bir \(\lambda\) yük çarpanı ile ölçeklendirilir. Bu yaklaşımda kritik burkulma yükü, ilgili özdeğerin başlangıç yüküne uygulanmasıyla elde edilir. Büyük deformasyon kaynaklı rijitlik değişimleri ihmal edildiğinde problem aşağıdaki genelleştirilmiş özdeğer denklemine indirgenebilir:
+
+\begin{equation}
+\left( \mathbf{K}_{LE} + \mathbf{K}_{ST1} + \mathbf{K}_{LD1} \right) \mathbf{U}
+= -\lambda \mathbf{K}_{ST2} \mathbf{U}
+\end{equation}
+
+Burada \(\lambda\) yük çarpanını, \(\mathbf{U}\) ise burkulma moduna karşılık gelen özvektörü ifade etmektedir. Elde edilen özdeğerler kritik yük seviyesinin belirlenmesinde, özvektörler ise yapının olası burkulma şekillerinin incelenmesinde kullanılır. En düşük pozitif özdeğer, ilgili yükleme koşulları için ilk burkulma moduna karşılık gelen kritik yük çarpanını verir.
+
+
 ** 3.PROJE YÖNETİMİ
  
 *** 3.1 Çalışma Takvimi
