@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XAO version="1.0" author="Gmsh">
+  <geometry name="test">
+    <shape format="BREP"><![CDATA[
+CASCADE Topology V1, (c) Matra-Datavision
+Locations 0
+Curve2ds 12
+1 7.8539816339744828 0 -1 0 
+1 7.8539816339744828 0 0 1 
+1 1.5707963267948966 0 0 1 
+1 7.8539816339744828 8252.5 -1 0 
+1 7.8539816339744828 0 -1 0 
+1 7.8539816339744828 0 0 1 
+1 1.5707963267948966 0 0 1 
+1 7.8539816339744828 415 -1 0 
+1 7.8539816339744828 0 -1 0 
+1 7.8539816339744828 0 0 1 
+1 1.5707963267948966 0 0 1 
+1 7.8539816339744828 2000 -1 0 
+Curves 9
+2 0 0 -415 0 0 1 1 0 -0 -0 1 0 1627.5
+7 0 0  1 2 2  1627.5 9.9655633280615872e-14 -415  1627.5 9.9655633280615872e-14 -8667.5 
+ 0 2 8252.5 2
+2 0 0 -8667.5 0 0 1 1 0 -0 -0 1 0 1627.5
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 1627.5
+7 0 0  1 2 2  1627.5 9.9655633280615872e-14 0  1627.5 9.9655633280615872e-14 -415 
+ 0 2 415 2
+2 0 0 -415 0 0 1 1 0 -0 -0 1 0 1627.5
+2 0 0 -8667.5 0 0 1 1 0 -0 -0 1 0 1627.5
+7 0 0  1 2 2  1627.5 9.9655633280615872e-14 -8667.5  1627.5 9.9655633280615872e-14 -10667.5 
+ 0 2 2000 2
+2 0 0 -10667.5 0 0 1 1 0 -0 -0 1 0 1627.5
+Polygon3D 0
+PolygonOnTriangulations 0
+Surfaces 3
+10 1.5707963267948966 7.8539816339744828 0 8252.5
+2 0 0 -415 0 0 -1 0 1 0 1 -0 0 1627.5
+10 1.5707963267948966 7.8539816339744828 0 415
+2 0 0 0 0 0 -1 0 1 0 1 -0 0 1627.5
+10 1.5707963267948966 7.8539816339744828 0 2000
+2 0 0 -8667.5 0 0 -1 0 1 0 1 -0 0 1627.5
+Triangulations 0
+
+TShapes 22
+Ve
+1e-05
+1627.5 0 -415
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  1 0 0 6.28318530717959
+2  1 1 0 0 6.28318530717959
+0
+
+0101000
+-22 0 +22 0 *
+Ve
+1e-05
+1627.5 0 -8667.5
+0 0
+
+0101101
+*
+Ed
+ 1e-05 1 1 0
+1  2 0 0 8252.5
+3  2 3CN 1 0 0 8252.5
+0
+
+0101000
++22 0 -20 0 *
+Ed
+ 1e-07 1 1 0
+1  3 0 0 6.28318530717959
+2  4 1 0 0 6.28318530717959
+0
+
+0101000
++20 0 -20 0 *
+Wi
+
+0101100
+-21 0 +19 0 +18 0 -19 0 *
+Fa
+0  1e-07 1 0
+
+0111000
++17 0 *
+Ve
+1e-05
+1627.5 0 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  4 0 0 6.28318530717959
+2  5 2 0 0 6.28318530717959
+0
+
+0101000
+-15 0 +15 0 *
+Ve
+1e-05
+1627.5 0 -415
+0 0
+
+0101101
+*
+Ed
+ 1e-05 1 1 0
+1  5 0 0 415
+3  6 7CN 2 0 0 415
+0
+
+0101000
++15 0 -13 0 *
+Ed
+ 1e-07 1 1 0
+1  6 0 0 6.28318530717959
+2  8 2 0 0 6.28318530717959
+0
+
+0101000
++13 0 -13 0 *
+Wi
+
+0101100
+-14 0 +12 0 +11 0 -12 0 *
+Fa
+0  1e-07 2 0
+
+0111000
++10 0 *
+Ve
+1e-05
+1627.5 0 -8667.5
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  7 0 0 6.28318530717959
+2  9 3 0 0 6.28318530717959
+0
+
+0101000
+-8 0 +8 0 *
+Ve
+1e-05
+1627.5 0 -10667.5
+0 0
+
+0101101
+*
+Ed
+ 1e-05 1 1 0
+1  8 0 0 2000
+3  10 11CN 3 0 0 2000
+0
+
+0101000
++8 0 -6 0 *
+Ed
+ 1e-07 1 1 0
+1  9 0 0 6.28318530717959
+2  12 3 0 0 6.28318530717959
+0
+
+0101000
++6 0 -6 0 *
+Wi
+
+0101100
+-7 0 +5 0 +4 0 -5 0 *
+Fa
+0  1e-07 3 0
+
+0111000
++3 0 *
+Co
+
+1100000
+-16 0 -9 0 -2 0 *
+
++1 0 ]]></shape>
+    <topology>
+      <vertices count="6">
+        <vertex index="0" name="" reference="5"/>
+        <vertex index="1" name="" reference="7"/>
+        <vertex index="2" name="" reference="12"/>
+        <vertex index="3" name="" reference="14"/>
+        <vertex index="4" name="" reference="19"/>
+        <vertex index="5" name="" reference="21"/>
+      </vertices>
+      <edges count="9">
+        <edge index="0" name="" reference="4"/>
+        <edge index="1" name="" reference="6"/>
+        <edge index="2" name="" reference="8"/>
+        <edge index="3" name="" reference="11"/>
+        <edge index="4" name="" reference="13"/>
+        <edge index="5" name="" reference="15"/>
+        <edge index="6" name="" reference="18"/>
+        <edge index="7" name="" reference="20"/>
+        <edge index="8" name="" reference="22"/>
+      </edges>
+      <faces count="3">
+        <face index="0" name="Shapes/skir_carbo_mid" reference="2"/>
+        <face index="1" name="Shapes/skir_carbo_und" reference="9"/>
+        <face index="2" name="Shapes/skir_sless" reference="16"/>
+      </faces>
+      <solids count="0">
+      </solids>
+    </topology>
+  </geometry>
+  <groups count="5">
+    <group name="base_plate_center_YFIX" dimension="edge" tag="4" count="1">
+      <element index="3"/>
+    </group>
+    <group name="skir_sless_top_LOAD" dimension="edge" tag="5" count="1">
+      <element index="8"/>
+    </group>
+    <group name="skir_sless" dimension="face" tag="1" count="1">
+      <element index="2"/>
+    </group>
+    <group name="skir_carbo_mid" dimension="face" tag="2" count="1">
+      <element index="0"/>
+    </group>
+    <group name="skir_carbo_und" dimension="face" tag="3" count="1">
+      <element index="1"/>
+    </group>
+  </groups>
+  <fields count="0"/>
+</XAO>

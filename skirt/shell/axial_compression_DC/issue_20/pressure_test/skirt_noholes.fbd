@@ -26,7 +26,10 @@ SETA generator l LGEN
 
 SETO cylinder
 SWEP generator cylinder ROT z 360. Ncirc
+# Merge coincident nodes at the seam
+MERGE N all
 SETC cylinder
+
 
 # --------------------------------------------------
 # Mesh the cylindrical shell
@@ -34,24 +37,20 @@ SETC cylinder
 ELTY all QU8
 MESH all
 
-# Create top and bottom node sets
-SETA skir_sless_top_LOAD L <TOP_EDGE_SET>
-COMP skir_sless_top_LOAD DO
 
-SETA base_plate_center_YFIX L <BOTTOM_EDGE_SET>
-COMP base_plate_center_YFIX DO
+# Select all nodes
+SETA cylinder N all
 
+# Select nodes at the bottom elevation, z = 0
+enq cylinder base_plate_center_YFIX rec _ _ 0.0 0.1 a
 
-# Select nodes near the top and bottom
-NCL skir_sless_top_LOAD z 10667.5 0.1
-NCL base_plate_center_YFIX z 0.0 0.1
-
-
+enq cylinder skir_sless_top_LOAD rec _ _ 10667.5 0.1 a
+#
 # --------------------------------------------------
 # Export mesh and named node sets
 #
 --------------------------------------------------
-# send all abq
+send all abq
 send skir_sless_top_LOAD abq nam
 send base_plate_center_YFIX abq nam
 
