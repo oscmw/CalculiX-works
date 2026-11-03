@@ -36,8 +36,7 @@ Proje kapsamında mevcut taşıyıcı kolonun mekanik davranışının incelenme
    
 6. Tasarım iyileştirme seçeneklerinin geliştirilmesi (silindirik yapıda yer alan delik/menhol gibi açıklıkların geometrik etkileri): Analizlerde belirlenen kritik gerilme bölgeleri, deformasyonlar veya burkulma eğilimleri doğrultusunda mevcut tasarımın nasıl iyileştirilebileceğinin araştırılması. Gerekli olması durumunda geometrik boyutlar, et kalınlığı, takviye elemanları veya diğer uygun tasarım parametreleri üzerinden alternatifler geliştirilmesi ve bu alternatiflerin mekanik performans açısından karşılaştırılması.
    
-Projenin sanayiye yönelik katkısı, gerçek bir endüstriyel taşıyıcı yapının mekanik tasarımının açık kaynaklı sonlu elemanlar yazılımları kullanılarak incelenmesi ve analiz sonuçlarının tasarım kararlarına dönüştürülmesidir.
-Ayrıca çalışma, açık kaynaklı yazılımların endüstriyel mekanik tasarım süreçlerinde kullanılabilirliğine ilişkin uygulamaya dayalı bir değerlendirme sağlayacaktır.
+Projenin sanayiye yönelik katkısı, gerçek bir endüstriyel taşıyıcı yapının mekanik tasarımının açık kaynaklı sonlu elemanlar yazılımları kullanılarak incelenmesi ve analiz sonuçlarının tasarım kararlarına dönüştürülmesidir. Ayrıca çalışma, açık kaynaklı yazılımların endüstriyel mekanik tasarım süreçlerinde kullanılabilirliğine ilişkin uygulamaya dayalı bir değerlendirme sağlayacaktır.
 
 Projenin başarısı; burkulma davranışının ortaya konulması, tasarım gereksinimlerine yönelik kontrollerin gerçekleştirilmesi ve analiz bulgularına dayalı tasarım değerlendirmelerinin yapılmasıyla ölçülecektir. Tasarım iyileştirme çalışmaları kapsamında ise geliştirilen alternatiflerin uygun analizlerle karşılaştırılması hedeflenmektedir. İlgili standartlar ve doğrulama kriterleri, tasarım değerlendirmesini destekleyen unsurlar olarak ele alınacaktır.
 
