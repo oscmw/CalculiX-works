@@ -3,7 +3,7 @@
 ** Genel Bilgiler
 # Başvuru Sahibinin Adı Soyadı:
 # Araştırma Önerisinin Başlığı:
-Reaktör Taşıyıcı Kolonlarının Mekanik Tasarımında Açık Kaynaklı Sonlu Elemanlar Yazılımının Kullanılabilirliğinin ve Analiz Güvenilirliğinin İncelenmesi
+Reaktör Taşıyıcı Kolonlarının Mekanik Tasarımında Açık Kaynaklı Sonlu Elemanlar Yazılımı Kullanılarak İşletme İçerisinde Tekrarlanabilir Bir Burkulma Analiz İş Akışının Geliştirilmesi 
 # Akademik Danışmanın Adı Soyadı:
 # Sanayi Danışmanının Adı Soyadı:
 # Araştırmanın Yürütüleceği Kurum/Kuruluşlar:
@@ -129,14 +129,14 @@ Son aşamada, mevcut tasarım ve alternatif tasarımlardan elde edilen sonuçlar
 * İŞ-ZAMAN ÇİZELGESİ
 
 #+CAPTION: İŞ-ZAMAN ÇİZELGESİ
-| No | İş Paketlerinin Adı ve Hedefleri | Kim(ler) Tarafından Gerçekleştirileceği | Zaman Aralığı (..-.. Ay) | Başarı Ölçütü ve Projenin Başarısına Katkısı |
-|----+----------------------------------+-----------------------------------------+--------------------------+---------------------------------------------|
-|  1 |                                  |                                         |                          |                                             |
-|  2 |                                  |                                         |                          |                                             |
-|  3 |                                  |                                         |                          |                                             |
-|  4 |                                  |                                         |                          |                                             |
-|  5 |                                  |                                         |                          |                                             |
-
+| No | İş Paketlerinin Adı ve Hedefleri                                                        | Kim(ler) Tarafından Gerçekleştirileceği | Zaman Aralığı (..-.. Ay) | Başarı Ölçütü ve Projenin Başarısına Katkısı |   |   |   |   |   |   |
+|----+-----------------------------------------------------------------------------------------+-----------------------------------------+--------------------------+----------------------------------------------+---+---+---+---+---+---|
+|  1 | Eleman Performansı; analize uygun eleman tipinin belirlenmesi; sayısal modelin minimum iterasyonla yakınsaması |                                         |                          |                                              |   |   |   |   |   |   |
+|  2 | Ağ Yakınsaması; gerekli hassasiyeti sağlayan  ağ yoğunluğunun belirlenmesi; ağ yoğunluğunu fazla artırmadan gerekli hassasiyetin elde edilmesi |                                         |                          |                                              |   |   |   |   |   |   |
+|  3 | Çözücü Karşılaştırılması; optimal işlemci sayısının belirlenmesi; belirlenen işlemci sayısısının en düşük sürede çözüm vermesi |                                         |                          |                                              |   |   |   |   |   |   |
+|  4 | Sayısal Doğrulama ve Analitik Geçerleme; ; sayısal doğrulama için yakınsamanın elde edilmesi, analitik formüllerle tutarlılığın sağlanması |                                         |                          |                                              |   |   |   |   |   |   |
+|  5 | Tekrarlanabilir İş Akışı; 1,2,3 ve 4. adımların raporlanması/yönerge haline getirilmesi; kısa ve anlaşılır bir kılavuzun ortaya çıkarılması |                                         |                          |                                              |   |   |   |   |   |   |
+|  6 | İyileştirme; mevcuttan daha iyi bir tasarım önerisi; ortaya konulmuş kriterlere göre mevcuttan daha iyi performans göstermesi |                                         |                          |                                              |   |   |   |   |   |   |
 
 *** 3.2 Risk Yönetimi
 
@@ -145,10 +145,13 @@ Son aşamada, mevcut tasarım ve alternatif tasarımlardan elde edilen sonuçlar
 * RİSK YÖNETİMİ
 
 #+CAPTION: RİSK YÖNETİMİ TABLOSU
-| No | En Büyük Riskler | Risk Yönetimi (B Planı) |
-|----+------------------+-------------------------|
-|  1 |                  |                         |
-|  2 |                  |                         |
+| No | En Büyük Riskler       | Risk Yönetimi (B Planı)                                         |
+|----+------------------------+-----------------------------------------------------------------|
+|  1 | Veri Kaybı             | Git ve Github kullanımı                                         |
+|  2 | İşlemci Yetersizliği   | Yüksek Başarımlı Hesaplama Sisteminin Kullanımı                 |
+|  3 | Bellek Yetersizliği    | Yüksek Başarımlı Hesaplama Sisteminin Kullanımı                 |
+|  4 | Dökümantasyon Eksiliği | İnternet Üzerinde Forumlara Danışılması                         |
+|  5 | Programda Hata Olması  | Forumlara bildirilmesi ve Kaynak Kodundaki Hatanın Düzeltilmesi |
 
 
 *** 3.3. Araştırma Olanakları
@@ -158,9 +161,10 @@ Son aşamada, mevcut tasarım ve alternatif tasarımlardan elde edilen sonuçlar
 * ARAŞTIRMA OLANAKLARI
 
 #+CAPTION: ARAŞTIRMA OLANAKLARI TABLOSU
-| Altyapı/Ekipmanın Bulunduğu Kuruluş | Kuruluşta Bulunan Altyapı/Ekipman Türü, Modeli (Laboratuvar, Araç, Makine-Teçhizat vb.) | Projede Kullanım Amacı |
-|-------------------------------------+----------------------------------------------------------------------------------------+------------------------|
-|                                     |                                                                                        |                        |
+| Altyapı/Ekipmanın Bulunduğu Kuruluş                     | Kuruluşta Bulunan Altyapı/Ekipman Türü, Modeli (Laboratuvar, Araç, Makine-Teçhizat vb.) | Projede Kullanım Amacı |
+|---------------------------------------------------------+-----------------------------------------------------------------------------------------+------------------------|
+| İTÜ UHEM; Yüksek Başarımlı Hesaplama Merkezi; Hesaplama |                                                                                         |                        |
+|                                                         |                                                                                         |                        |
 
 ** 4.SANAYİ ODAKLI ÇIKTILARI ve YAYGIN ETKİ
 # Araştırma önerisi kapsamındaki çalışmadan elde edilmesi öngörülen çıktılar amaçlarına göre belirlenen kategorilere ayrılarak belirtilir; ölçülebilir ve gerçekçi hedeflere dayandırılır
