@@ -12,6 +12,16 @@ Reaktör Taşıyıcı Kolonlarının Mekanik Tasarımında Açık Kaynaklı Sonl
 # Araştırma önerisi özetinin (1) bilimsel nitelik; (2) yöntem; (3) proje yönetimi ve (4) sanayi odaklı çıktıları ve yaygın etki hakkında bilgileri kapsaması beklenir. Her bir özet 450 kelime veya bir sayfa ile sınırlandırılmalıdır.
 # Bu bölümün en son yazılması önerilir.
 
+
+Endüstriyel reaktörlerde kullanılan silindirik taşıyıcı kolonlar, işletme sırasında oluşan eksenel basma yükleri altında burkulma ve yerel kararsızlık riskiyle karşı karşıya kalabilir. Özellikle gövde üzerinde bulunan delik ve menhol gibi geometrik açıklıklar, rijitlik dağılımını ve gerilme alanını değiştirerek yapının kritik burkulma yükünü ve göçme davranışını etkileyebilir. Bu nedenle taşıyıcı kolonun yalnızca sayısal olarak analiz edilmesi değil, analiz bulgularının mekanik tasarım açısından yorumlanması ve gerekli görülen bölgelerde tasarım iyileştirmelerinin geliştirilmesi önem taşımaktadır.
+
+Bu projenin amacı, endüstriyel bir reaktör taşıyıcı kolonunun eksenel yükler altındaki mekanik davranışını sonlu elemanlar yöntemiyle incelemek, mevcut tasarımın burkulma performansını değerlendirmek ve analiz sonuçlarına dayanarak en az bir iyileştirilmiş tasarım alternatifi geliştirmektir. Çalışmada CalculiX açık kaynaklı sonlu elemanlar yazılımı temel analiz aracı olarak kullanılacak; farklı kabuk elemanları, ağ yoğunlukları ve sayısal çözücüler karşılaştırılarak güvenilir ve hesaplama maliyeti bakımından uygun bir analiz yaklaşımı belirlenecektir.
+
+Yöntem kapsamında öncelikle mevcut kolonun geometrisi, malzeme özellikleri, sınır koşulları ve yükleme durumları tanımlanacaktır. Deliksiz ve açıklık içeren modeller üzerinden doğrusal burkulma analizleri gerçekleştirilecek; uygun görülen durumlarda doğrusal olmayan analizlerle taşıma kapasitesi ve deformasyon davranışı incelenecektir. Ağ yakınsaması ve analitik hesaplarla karşılaştırmalar yoluyla sayısal modelin doğruluğu değerlendirilecektir. Analizlerde belirlenen kritik bölgeler için açıklık geometrisinin değiştirilmesi, yerel takviye kullanılması veya uygun geometrik düzenlemeler yapılması gibi tasarım seçenekleri oluşturulacaktır. Mevcut tasarım ve alternatif tasarım(lar), kritik burkulma yükü, doğrusal olmayan taşıma kapasitesi, maksimum deformasyon, kütle ve üretilebilirlik açısından karşılaştırılacaktır.
+
+Projenin temel çıktısı, mevcut taşıyıcı kolonun mekanik performansını ortaya koyan analiz sonuçları, en az bir iyileştirilmiş tasarım alternatifi ve benzer endüstriyel silindirik yapılarda tekrar kullanılabilecek belgelenmiş bir analiz-değerlendirme iş akışı olacaktır. Başarı; sayısal modelin belirlenen yakınsama ve karşılaştırma kriterlerini sağlaması, tasarım alternatifinin tanımlı performans ölçütleriyle değerlendirilmesi ve sonuçların izlenebilir biçimde raporlanması üzerinden ölçülecektir.
+
+
 ** 1. ARAŞTIRMA ÖNERİSİNİN BİLİMSEL NİTELİĞİ
 
 *** 1.1. Amaç ve Hedefler 
@@ -67,7 +77,6 @@ Sonuç olarak proje ile mevcut silindirik gövdenin burkulma davranışının or
 
 Mühendislik yapılarının mekanik davranışını belirlemek ve bu davranışın belirli sınırlar içerisinde kalması için gereken tasarımsal değişiklikleri öngörebilmek için kullanılan  en gelişmiş halen araç sonlu elemanlar analizidir.  Bu analiz yöntemi, katı cisimlerin mekanik yükler altındaki davranışını belirleyen ve güçlü form olarak bilinen diferansiyel hareket denklemleri sisteminin önce ağırlıklı artık integrali yöntemi ile zayıf forma dönüştürülmesi ve sonrasında zayıf formun ayrıklaştırılmış sonlu bir uzaya uygulanması ile problemin doğrusal denklemler sistemine indirgenmesi olarak özetlenebilir. Bu yöntemi kullanarak elde edilen yaklaşık bir çözüm olup, ayrıklaştırmanın yoğunlaştırılması ile gerçeğe yakınsadığı matematiksel olarak ispat edilebilmektedir.
 
-Yöntem 1 – Farklı Kabuk Elemanlarının Sayısal Performans ve Hesaplama Maliyeti Açısından Karşılaştırılması (Hedef 1)
 
 Silindirik yapının doğrusal burkulma davranışının modellenmesinde kullanılan farklı kabuk elemanlarının sonuçlar üzerindeki etkisini incelemek amacıyla S3, S6, S8 ve S8R elemanları kullanılarak sonlu elemanlar analizleri gerçekleştirilecektir. Karşılaştırmanın tutarlığı için aynı geometri, malzeme özellikleri, sınır koşulları, yükleme ve mümkün olduğunca karşılaştırılabilir ağ yoğunlukları kullanılacaktır.
 
@@ -77,21 +86,17 @@ Elde edilen sonuçlar doğrultusunda, kritik burkulma yükünü ve burkulma modl
 
 
 
-Yöntem 2 – Ağ Yakınsamasının ve Ağ Kalitesinin Değerlendirilmesi (Hedef 2)
-
 Sonlu elemanlar analizlerinde ağ yoğunluğunun sonuçlar üzerindeki etkisini incelemek amacıyla farklı ağ yoğunluklarında analizler gerçekleştirilecektir. İlk aşamada, delik içermeyen silindir modeli üzerinde farklı ağ yoğunlukları kullanılarak burkulma analizleri yapılacaktır. Elde edilen kritik burkulma yükleri ve burkulma modları karşılaştırılarak sonuçların ağ yoğunluğuna duyarlılığı incelenecek ve uygun ağ yoğunluğu belirlenecektir.
 
 İkinci aşamada, belirlenen ağ oluşturma yaklaşımı delikli silindir modeline uygulanacaktır. Delik çevresindeki geometrik değişimlerin ve yerel gerilme yoğunlaşmalarının ağ kalitesi üzerindeki etkileri dikkate alınarak bu bölgelerde gerekli ağ iyileştirmeleri yapılacaktır. Delikli ve deliksiz modellerin analiz sonuçları karşılaştırılarak ağ yoğunluğunun ve yerel ağ iyileştirmelerinin burkulma davranışının belirlenmesine etkisi değerlendirilecektir.
 
 
-Yöntem 3 – Farklı Sayısal Çözücülerin ve Paralel Hesaplama Yöntemlerinin Karşılaştırılması (Hedef 3)
 
 Burkulma analizlerinde kullanılan sayısal çözücülerin performansını değerlendirmek amacıyla farklı doğrudan ve paralel denklem çözücüleri incelenecektir. Bu kapsamda, PARDISO, PaStiX ve MUMPS gibi çözücüler kullanılarak aynı sonlu elemanlar modeli üzerinde analizler gerçekleştirilecektir.
 
 Karşılaştırma sürecinde, çözücülerin hesaplama süreleri, bellek kullanımları ve elde edilen sonuçların tutarlılığı değerlendirilecektir. Özellikle kritik burkulma yükü, özdeğerler ve burkulma modları üzerinden çözücülerin sayısal sonuçları karşılaştırılacaktır.
 
 
-Yöntem 4 – Analiz Sonuçlarının Tutarlılığının ve Tasarım Doğrulamasının Değerlendirilmesi (Hedef 4)
 
 Sonlu elemanlar yöntemi kullanılarak elde edilen burkulma analiz sonuçlarının güvenilirliğini değerlendirmek amacıyla sonuçlar teorik beklentiler, analitik hesaplamalar ve ilgili mühendislik kabulleriyle karşılaştırılacaktır. İlk aşamada, delik içermeyen silindir modeli için elde edilen kritik burkulma yükleri teorik ve analitik yaklaşımlarla karşılaştırılarak sayısal modelin tutarlılığı incelenecektir.
 
@@ -100,7 +105,6 @@ Sonlu elemanlar yöntemi kullanılarak elde edilen burkulma analiz sonuçların�
 Son aşamada, elde edilen bulgular ilgili mühendislik kabulleri ve tasarım kriterleri çerçevesinde değerlendirilerek oluşturulan modelin tasarım doğrulaması açısından yeterliliği incelenecektir.
 
 
-Yöntem 5 – Tekrarlanabilir Bir Sonlu Elemanlar Analiz İş Akışının Oluşturulması (Hedef 5)
 
 Proje kapsamında gerçekleştirilecek burkulma analizlerinin tekrarlanabilir ve izlenebilir olmasını sağlamak amacıyla geometri hazırlığından sonuçların değerlendirilmesine kadar olan analiz süreci sistematik olarak belgelenecektir. İlk aşamada, silindir modelinin geometrik özellikleri ve analiz için gerekli geometrik düzenlemeler tanımlanacaktır. Ardından, uygun eleman tipleri ve ağ yoğunluğu belirlenerek sonlu elemanlar ağı oluşturulacaktır.
 
@@ -111,7 +115,6 @@ Analiz sürecinde kullanılan geometrik parametreler, ağ oluşturma ayarları, 
 Sonuç olarak, proje kapsamında oluşturulan analiz iş akışının benzer geometrik ve yapısal özelliklere sahip endüstriyel silindirik yapıların burkulma analizlerinde kullanılabilecek, izlenebilir ve tekrarlanabilir bir yöntem olarak ortaya konulması hedeflenmektedir.
 
 
-Yöntem 6 – Tasarım İyileştirme Alternatiflerinin Geliştirilmesi ve Karşılaştırılması (Hedef 6)
 
 Mevcut silindirik yapının mekanik performansını iyileştirmek amacıyla, delik ve menhol gibi geometrik açıklıkların yapısal davranış üzerindeki etkileri gerçekleştirilen analizlerin sonuçları üzerinden değerlendirilecektir. İlk aşamada, delikli silindir modelinde kritik gerilme bölgeleri, yerel deformasyonlar ve burkulma eğilimleri incelenerek tasarım açısından iyileştirmeye ihtiyaç duyulan bölgeler belirlenecektir.
 
@@ -129,14 +132,15 @@ Son aşamada, mevcut tasarım ve alternatif tasarımlardan elde edilen sonuçlar
 * İŞ-ZAMAN ÇİZELGESİ
 
 #+CAPTION: İŞ-ZAMAN ÇİZELGESİ
-| No | İş Paketlerinin Adı ve Hedefleri                                                        | Kim(ler) Tarafından Gerçekleştirileceği | Zaman Aralığı (..-.. Ay) | Başarı Ölçütü ve Projenin Başarısına Katkısı |   |   |   |   |   |   |
-|----+-----------------------------------------------------------------------------------------+-----------------------------------------+--------------------------+----------------------------------------------+---+---+---+---+---+---|
-|  1 | Eleman Performansı; analize uygun eleman tipinin belirlenmesi; sayısal modelin minimum iterasyonla yakınsaması |                                         |                          |                                              |   |   |   |   |   |   |
-|  2 | Ağ Yakınsaması; gerekli hassasiyeti sağlayan  ağ yoğunluğunun belirlenmesi; ağ yoğunluğunu fazla artırmadan gerekli hassasiyetin elde edilmesi |                                         |                          |                                              |   |   |   |   |   |   |
-|  3 | Çözücü Karşılaştırılması; optimal işlemci sayısının belirlenmesi; belirlenen işlemci sayısısının en düşük sürede çözüm vermesi |                                         |                          |                                              |   |   |   |   |   |   |
-|  4 | Sayısal Doğrulama ve Analitik Geçerleme; ; sayısal doğrulama için yakınsamanın elde edilmesi, analitik formüllerle tutarlılığın sağlanması |                                         |                          |                                              |   |   |   |   |   |   |
-|  5 | Tekrarlanabilir İş Akışı; 1,2,3 ve 4. adımların raporlanması/yönerge haline getirilmesi; kısa ve anlaşılır bir kılavuzun ortaya çıkarılması |                                         |                          |                                              |   |   |   |   |   |   |
-|  6 | İyileştirme; mevcuttan daha iyi bir tasarım önerisi; ortaya konulmuş kriterlere göre mevcuttan daha iyi performans göstermesi |                                         |                          |                                              |   |   |   |   |   |   |
+| No | İş Paketlerinin Adı ve Hedefleri                                                                                                                                                                                                                       | Kim(ler) Tarafından Gerçekleştirileceği | Zaman Aralığı (..-.. Ay) | Başarı Ölçütü ve Projenin Başarısına Katkısı |   |   |   |   |   |   |
+|----+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------+--------------------------+----------------------------------------------+---+---+---+---+---+---|
+|  1 | Eleman Performansı; analize uygun eleman tipinin belirlenmesi; sayısal modelin 10 iterasyon altında yakınsaması                                                                                                                                        |                                         |                          |                                              |   |   |   |   |   |   |
+|  2 | Ağ Yakınsaması; gerekli hassasiyeti sağlayan  ağ yoğunluğunun belirlenmesi; ağ yoğunluğunun 100000 eleman altında gerekli hassasiyeti elde etmesi                                                                                                      |                                         |                          |                                              |   |   |   |   |   |   |
+|  3 | Çözücü Karşılaştırılması; optimal işlemci sayısının belirlenmesi; belirlenen işlemci sayısısının en fazla 1 saatlik sürede çözüm vermesi                                                                                                               |                                         |                          |                                              |   |   |   |   |   |   |
+|  4 | Sayısal Doğrulama ve Analitik Geçerleme; ; sayısal doğrulama için yakınsamanın elde edilmesi, asimptotik yakınsamanın sağlanması ve elde edilen sayısal sonuçların analitik formüllerle karşılaştırılarak aralarındaki farkın %5’in altına indirilmesi |                                         |                          |                                              |   |   |   |   |   |   |
+|  5 | Tekrarlanabilir İş Akışı; 1,2,3 ve 4. adımların raporlanması/yönerge haline getirilmesi; kısa ve anlaşılır bir kılavuzun ortaya çıkarılması                                                                                                            |                                         |                          |                                              |   |   |   |   |   |   |
+|  6 | İyileştirme; mevcuttan daha iyi bir tasarım önerisi; ortaya konulmuş kriterlere göre mevcuttan daha iyi performans göstermesi                                                                                                                          |                                         |                          |                                              |   |   |   |   |   |   |
+
 
 *** 3.2 Risk Yönetimi
 
@@ -145,13 +149,14 @@ Son aşamada, mevcut tasarım ve alternatif tasarımlardan elde edilen sonuçlar
 * RİSK YÖNETİMİ
 
 #+CAPTION: RİSK YÖNETİMİ TABLOSU
-| No | En Büyük Riskler       | Risk Yönetimi (B Planı)                                         |
-|----+------------------------+-----------------------------------------------------------------|
-|  1 | Veri Kaybı             | Git ve Github kullanımı                                         |
-|  2 | İşlemci Yetersizliği   | Yüksek Başarımlı Hesaplama Sisteminin Kullanımı                 |
-|  3 | Bellek Yetersizliği    | Yüksek Başarımlı Hesaplama Sisteminin Kullanımı                 |
-|  4 | Dökümantasyon Eksiliği | İnternet Üzerinde Forumlara Danışılması                         |
-|  5 | Programda Hata Olması  | Forumlara bildirilmesi ve Kaynak Kodundaki Hatanın Düzeltilmesi |
+| No | En Büyük Riskler       | Risk Yönetimi (B Planı)                                                                                                                                                         |
+|----+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  1 | Veri Kaybı             | Sürüm kontrol sistemi (Git) ve düzenli yedekleme kullanılacak; önemli model ve sonuç sürümleri ayrı arşivlenecektir.                                                            |
+|  2 | İşlemci Yetersizliği   | Önce model sadeleştirme ve uygun ağ/çözücü ayarları değerlendirilecek; gerekirse İTÜ UHEM gibi yüksek başarımlı hesaplama altyapısından yararlanılacaktır.                      |
+|  3 | Bellek Yetersizliği    | Ağ yoğunluğu ve denklem çözücü seçenekleri yeniden değerlendirilecek; daha yüksek bellekli hesaplama altyapısı kullanılacaktır.                                                 |
+|  4 | Dökümantasyon Eksiliği | Hata daha küçük doğrulama modelleriyle ayrıştırılacak; yazılım dokümantasyonu ve kullanıcı topluluklarından yararlanılacak; mümkünse alternatif çözücüyle kontrol yapılacaktır. |
+|  5 | Programda Hata Olması  | Forumlara bildirilmesi ve Kaynak Kodundaki Hatanın Düzeltilmesi                                                                                                                 |
+
 
 
 *** 3.3. Araştırma Olanakları
@@ -161,13 +166,40 @@ Son aşamada, mevcut tasarım ve alternatif tasarımlardan elde edilen sonuçlar
 * ARAŞTIRMA OLANAKLARI
 
 #+CAPTION: ARAŞTIRMA OLANAKLARI TABLOSU
-| Altyapı/Ekipmanın Bulunduğu Kuruluş                     | Kuruluşta Bulunan Altyapı/Ekipman Türü, Modeli (Laboratuvar, Araç, Makine-Teçhizat vb.) | Projede Kullanım Amacı |
-|---------------------------------------------------------+-----------------------------------------------------------------------------------------+------------------------|
-| İTÜ UHEM; Yüksek Başarımlı Hesaplama Merkezi; Hesaplama |                                                                                         |                        |
-|                                                         |                                                                                         |                        |
+| Altyapı/Ekipmanın Bulunduğu Kuruluş                     | Kuruluşta Bulunan Altyapı/Ekipman Türü, Modeli (Laboratuvar, Araç, Makine-Teçhizat vb.) | Projede Kullanım Amacı                                                                                                                                             |
+|---------------------------------------------------------+-----------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| İTÜ UHEM; Yüksek Başarımlı Hesaplama Merkezi; Hesaplama | Yüksek başarımlı hesaplama sistemi                                                      | Büyük ölçekli sonlu elemanlar modellerinin çözülmesi ve çözücü performansının değerlendirilmesi.                                                                   |
+| Yeditepe Üniversitesi                                   | Bilgisayar laboratuvarı ve bilgisayar donanımları                                       | Üç boyutlu geometrik modelleme, sonlu elemanlar ağının oluşturulması, analizlerin gerçekleştirilmesi ve sonuçların görselleştirilerek değerlendirilmesi.           |
+| Yeditepe Üniversitesi                                   | Üniversite kütüphanesi ve elektronik akademik veri tabanları                            | Silindirik kabukların burkulma davranışı, geometrik kusurlar, sonlu elemanlar yöntemi ve ilgili tasarım standartları üzerine literatür araştırmasının yürütülmesi. |
+
+
 
 ** 4.SANAYİ ODAKLI ÇIKTILARI ve YAYGIN ETKİ
 # Araştırma önerisi kapsamındaki çalışmadan elde edilmesi öngörülen çıktılar amaçlarına göre belirlenen kategorilere ayrılarak belirtilir; ölçülebilir ve gerçekçi hedeflere dayandırılır
+
+Proje sonunda, endüstriyel reaktör taşıyıcı kolonunun mevcut tasarımına ilişkin mekanik performans değerlendirmesinin gerçekleştirilmesi ve
+analiz bulgularına dayalı iki farklı iyileştirilmiş tasarım alternatifinin
+geliştirilmesi hedeflenmektedir. Proje kapsamında elde edilmesi beklenen sanayi odaklı çıktılar aşağıda sunulmuştur:
+
+- İki adet iyileştirilmiş tasarım alternatifi: Mevcut tasarımın burkulma davranışı ve mekanik performansına ilişkin analiz sonuçları doğrultusunda,
+   yapısal performansı iyileştirmeye yönelik iki farklı model alternatifi oluşturulacaktır. Alternatifler; kritik burkulma yükü, deformasyon,
+    gerilme dağılımı ve kütle gibi mühendislik ölçütleri açısından mevcut tasarımla karşılaştırılacaktır.
+
+- Açık kaynaklı yazılımlara dayalı analiz iş akışı: Geometri hazırlama, sonlu elemanlar ağı oluşturma, malzeme ve sınır koşullarının tanımlanması,
+  yükleme, çözüm ve sonuçların değerlendirilmesi aşamalarını kapsayan, açık kaynaklı yazılımlarla yürütülebilir bir analiz iş akışı oluşturulacaktır.
+
+- Teknik yönerge ve dokümantasyon: Oluşturulan analiz iş akışının farklı mühendislik problemlerinde tekrarlanabilir ve uygulanabilir olmasını sağlamak
+   amacıyla modelleme, analiz ve sonuç değerlendirme adımlarını açıklayan teknik bir yönerge hazırlanacaktır.
+
+-Yaygın etki bakımından projenin öncelikli katkılarından biri, mühendislik analizlerinde açık kaynaklı yazılımların kullanımını teşvik ederek
+açık bilim ve açık kaynak kültürünün yaygınlaşmasına katkı sağlamaktır. Geliştirilecek iş akışı ve teknik yönergenin paylaşılabilir ve
+yeniden kullanılabilir olması, benzer mühendislik problemleri üzerinde çalışan araştırmacıların ve mühendislerin bu çalışmadan yararlanmasını sağlayacaktır.
+
+Bununla birlikte, açık kaynaklı yazılımların kullanılması ve bu yazılımlara dayalı analiz yöntemlerinin geliştirilmesi, ticari yazılım lisanslarına
+duyulan ihtiyacın ve analiz süreçlerinin yazılım maliyetlerinin azaltılmasına katkı sağlayabilecektir. Geliştirilecek yöntemlerin yerli mühendislik
+çalışmalarında kullanılabilir hâle getirilmesi, yabancı yazılım ve yazılım sağlayıcılarına olan bağımlılığın azaltılmasını destekleyecektir.
+Böylece proje, yalnızca incelenen taşıyıcı kolonun tasarım performansının iyileştirilmesine değil, aynı zamanda ekonomik açıdan daha erişilebilir,
+bağımsız ve sürdürülebilir mühendislik analiz süreçlerinin geliştirilmesine de katkı sunacaktır.
 
 
 ** 5. BELİRTMEK İSTEDİĞİNİZ DİĞER KONULAR
@@ -177,3 +209,17 @@ Son aşamada, mevcut tasarım ve alternatif tasarımlardan elde edilen sonuçlar
 ** 6.EKLER
 
 EK-1: Kaynaklar
+
+## REFERENCES
+
+[1] T. J. R. Hughes, *The Finite Element Method: Linear Static and Dynamic Finite Element Analysis*. Englewood Cliffs, NJ: Prentice-Hall, 1987.
+
+[2] G. Dhondt, *The Finite Element Method for Three-Dimensional Thermomechanical Applications*. Chichester, UK: John Wiley & Sons, 2004. https://doi.org/10.1002/0470021217.
+
+[3] R. D. Cook and W. C. Young, *Advanced Mechanics of Materials*, 2nd ed. Upper Saddle River, NJ: Prentice Hall, 1999.
+
+[4] American Society of Mechanical Engineers (ASME), *ASME V&V 10-2019 (R2025): Standard for Verification and Validation in Computational Solid Mechanics*. New York: ASME, 2019.
+
+[5] G. Dhondt, *CalculiX CrunchiX User's Manual*, Version 2.23, Oct. 19, 2025. Available: https://dhondt.de/ccx_2.23.pdf. [Accessed: Nov. 7, 2026].
+
+[6] K. Wittig, *CalculiX GraphiX User's Manual*, Version 2.23, Oct. 4, 2025. Available: https://dhondt.de/cgx_2.23.pdf. [Accessed: Nov. 7, 2026].
