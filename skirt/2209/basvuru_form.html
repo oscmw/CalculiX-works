@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-11-13 Fri 21:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-c:before { content: 'C'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'JavaScript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge89c54b">1. TÜBİTAK 2209-B ÜNİVERSİTE ÖĞRENCİLERİ SANAYİYE YÖNELİK ARAŞTIRMA PROJELERİ DESTEĞİ PROGRAMI ARAŞTIRMA ÖNERİSİ FORMU</a>
+<ul>
+<li><a href="#org3c50c91">1.1. Genel Bilgiler</a></li>
+<li><a href="#org2a54818">1.2. ÖZET</a></li>
+<li><a href="#org716aace">1.3. 1. ARAŞTIRMA ÖNERİSİNİN BİLİMSEL NİTELİĞİ</a>
+<ul>
+<li><a href="#org438d9b7">1.3.1. 1.1. Amaç ve Hedefler</a></li>
+<li><a href="#org01447cb">1.3.2. 1.2 Yenilikçi Yönü ve Teknolojik Değeri</a></li>
+</ul>
+</li>
+<li><a href="#orgf5a97ad">1.4. 2.YÖNTEM</a></li>
+<li><a href="#org8fdbf6c">1.5. Yöntem 1 – Mevcut tasarımın modellenmesi ve mekanik davranışının belirlenmesi</a></li>
+<li><a href="#orge008b43">1.6. Yöntem 2 – Farklı kabuk elemanlarının sayısal performans ve hesaplama maliyeti açısından karşılaştırılması</a></li>
+<li><a href="#orgd36552d">1.7. Yöntem 3 – Ağ yakınsaması ve ağ kalitesinin değerlendirilmesi</a></li>
+<li><a href="#org763078f">1.8. Yöntem 4 – Sayısal çözücülerin ve paralel hesaplama seçeneklerinin karşılaştırılması</a></li>
+<li><a href="#org78356a0">1.9. Yöntem 5 – Sayısal doğrulama, analitik karşılaştırma ve tasarım değerlendirmesi</a></li>
+<li><a href="#org9dd0e63">1.10. Yöntem 6 – Tasarım iyileştirme alternatiflerinin geliştirilmesi ve karşılaştırılması</a></li>
+<li><a href="#org82da23c">1.11. Yöntem 7 – Tekrarlanabilir analiz ve tasarım değerlendirme iş akışının oluşturulması</a></li>
+<li><a href="#orgaf2c4c0">1.12. 3.PROJE YÖNETİMİ</a>
+<ul>
+<li><a href="#orgdb15ef4">1.12.1. 3.1 Çalışma Takvimi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org03e073b">2. İŞ-ZAMAN ÇİZELGESİ</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org6b5666d">2.0.1. 3.2 Risk Yönetimi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org59c9752">3. RİSK YÖNETİMİ</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgee26242">3.0.1. 3.3. Araştırma Olanakları</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4fd3028">4. ARAŞTIRMA OLANAKLARI</a>
+<ul>
+<li><a href="#orgcd8b71f">4.1. 4.SANAYİ ODAKLI ÇIKTILARI ve YAYGIN ETKİ</a></li>
+<li><a href="#org780cdb8">4.2. 5. BELİRTMEK İSTEDİĞİNİZ DİĞER KONULAR</a></li>
+<li><a href="#org03913ef">4.3. 6.EKLER</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge89c54b" class="outline-2">
+<h2 id="orge89c54b"><span class="section-number-2">1.</span> TÜBİTAK 2209-B ÜNİVERSİTE ÖĞRENCİLERİ SANAYİYE YÖNELİK ARAŞTIRMA PROJELERİ DESTEĞİ PROGRAMI ARAŞTIRMA ÖNERİSİ FORMU</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org3c50c91" class="outline-3">
+<h3 id="org3c50c91"><span class="section-number-3">1.1.</span> Genel Bilgiler</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Reaktör Taşıyıcı Kolonlarının Mekanik Tasarımında Açık Kaynaklı Genel Amaçlı Sonlu Elemanlar Yazılımı Kullanılarak İşletme İçerisinde Tekrarlanabilir Bir Burkulma Analiz İş Akışının Geliştirilmesi 
+</p>
+</div>
+</div>
+<div id="outline-container-org2a54818" class="outline-3">
+<h3 id="org2a54818"><span class="section-number-3">1.2.</span> ÖZET</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Endüstriyel reaktörlerde kullanılan silindirik taşıyıcı kolonlar, işletme sırasında oluşan eksenel basma yükleri altında burkulma ve yerel kararsızlık riskiyle karşı karşıya kalabilir. Özellikle gövde üzerinde bulunan delik ve menhol gibi geometrik açıklıklar, rijitlik dağılımını ve gerilme alanını değiştirerek yapının kritik burkulma yükünü ve göçme davranışını etkileyebilir. Bu nedenle taşıyıcı kolonun yalnızca sayısal olarak analiz edilmesi değil, analiz bulgularının mekanik tasarım açısından yorumlanması ve gerekli görülen bölgelerde tasarım iyileştirmelerinin geliştirilmesi önem taşımaktadır.
+</p>
+
+<p>
+Bu projenin amacı, endüstriyel bir reaktör taşıyıcı kolonunun eksenel yükler altındaki mekanik davranışını sonlu elemanlar yöntemiyle incelemek, mevcut tasarımın burkulma performansını değerlendirmek ve analiz sonuçlarına dayanarak en az bir iyileştirilmiş tasarım alternatifi geliştirmektir. Çalışmada CalculiX açık kaynaklı genel amaçlı  sonlu elemanlar yazılımı temel analiz aracı olarak kullanılacak; farklı kabuk elemanları, ağ yoğunlukları ve sayısal çözücüler karşılaştırılarak güvenilir ve hesaplama maliyeti bakımından uygun bir analiz yaklaşımı belirlenecektir.
+</p>
+
+<p>
+Yöntem kapsamında öncelikle mevcut kolonun geometrisi, malzeme özellikleri, sınır koşulları ve yükleme durumları tanımlanacaktır. Deliksiz ve açıklık içeren modeller üzerinden doğrusal burkulma analizleri gerçekleştirilecek; uygun görülen durumlarda doğrusal olmayan analizlerle taşıma kapasitesi ve deformasyon davranışı incelenecektir. Ağ yakınsaması ve analitik hesaplarla karşılaştırmalar yoluyla sayısal modelin doğruluğu değerlendirilecektir. Analizlerde belirlenen kritik bölgeler için açıklık geometrisinin değiştirilmesi, yerel takviye kullanılması veya uygun geometrik düzenlemeler yapılması gibi tasarım seçenekleri oluşturulacaktır. Mevcut tasarım ve alternatif tasarım(lar), kritik burkulma yükü, doğrusal olmayan taşıma kapasitesi, maksimum deformasyon, kütle ve üretilebilirlik açısından karşılaştırılacaktır.
+</p>
+
+<p>
+Projenin temel çıktısı, mevcut taşıyıcı kolonun mekanik performansını ortaya koyan analiz sonuçları, en az bir iyileştirilmiş tasarım alternatifi ve benzer endüstriyel silindirik yapılarda tekrar kullanılabilecek belgelenmiş bir analiz-değerlendirme iş akışı olacaktır. Başarı; sayısal modelin belirlenen yakınsama ve karşılaştırma kriterlerini sağlaması, tasarım alternatifinin tanımlı performans ölçütleriyle değerlendirilmesi ve sonuçların izlenebilir biçimde raporlanması üzerinden ölçülecektir.
+</p>
+</div>
+</div>
+<div id="outline-container-org716aace" class="outline-3">
+<h3 id="org716aace"><span class="section-number-3">1.3.</span> 1. ARAŞTIRMA ÖNERİSİNİN BİLİMSEL NİTELİĞİ</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org438d9b7" class="outline-4">
+<h4 id="org438d9b7"><span class="section-number-4">1.3.1.</span> 1.1. Amaç ve Hedefler</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+Bu araştırmanın amacı, endüstriyel reaktörlerde kullanılan silindirik taşıyıcı kolonun eksenel yükler altındaki mekanik davranışını incelemek, burkulma dayanımını etkileyen geometrik ve sayısal parametreleri belirlemek ve mevcut tasarımın performansını iyileştirmeye yönelik en az bir tasarım alternatifi geliştirmektir. Projede çözülmesi hedeflenen temel mühendislik problemi, kolon gövdesindeki geometrik açıklıkların ve tasarım özelliklerinin yapısal kararlılık üzerindeki etkilerinin belirlenmesi ve gerekli performansın üretilebilirliği gözeten bir tasarımla sağlanmasıdır.
+</p>
+
+<p>
+CalculiX ve sonlu elemanlar yöntemi bu problemin çözümünde kullanılacak araçlardır; projenin ana çıktısı mekanik performansı değerlendirilmiş ve iyileştirme seçeneği ortaya konmuş bir taşıyıcı kolon tasarımıdır.
+</p>
+
+<p>
+Bu amaç doğrultusunda aşağıdaki somut hedefler belirlenmiştir:
+</p>
+
+<ul class="org-ul">
+<li>*Mevcut tasarımın mekanik davranışının belirlenmesi: *Kolonun tanımlanan yükleme ve sınır koşulları altında gerilme, deformasyon ve burkulma davranışını ortaya koymak; kritik bölgeleri belirlemek.</li>
+
+<li>*Uygun sonlu eleman modelinin oluşturulması: *S3, S6, S8 ve S8R gibi kabuk elemanlarını kritik burkulma yükü, burkulma modu ve hesaplama maliyeti bakımından karşılaştırarak sonraki analizlerde kullanılacak eleman yaklaşımını seçmek.</li>
+
+<li>*Ağ yakınsaması ve ağ kalitesinin incelenmesi: *Farklı ağ yoğunluklarında elde edilen kritik burkulma yüklerini karşılaştırmak; delik ve menhol çevresinde yeterli yerel ağ kalitesini sağlayan, hesaplama maliyeti açısından uygun ağı belirlemek.</li>
+
+<li>*Sayısal çözücü performansının değerlendirilmesi: *PARDISO, PaStiX ve MUMPS gibi erişilebilir çözücüleri çözüm süresi, bellek kullanımı ve sonuç tutarlılığı bakımından karşılaştırmak; uygun hesaplama yaklaşımını belirlemek.</li>
+
+<li>*Sayısal doğrulama ve model geçerlemesinin yapılması: *Ağ yakınsaması ve çözüm tutarlılığını incelemek; uygun analitik/teorik sonuçlarla karşılaştırma yaparak modelin temsil gücünü değerlendirmek.</li>
+
+<li>*Tasarım iyileştirme alternatifi geliştirilmesi: *Analizlerde belirlenen kritik bölgelere yönelik en az bir alternatif tasarım oluşturmak. Açıklık boyutu/konumu, açıklık çevresi takviyesi, yerel et kalınlığı veya diğer uygulanabilir geometrik düzenlemeleri değerlendirmek.</li>
+
+<li>*Tasarım alternatiflerinin karşılaştırılması ve iş akışının belgelenmesi: *Mevcut tasarım ile alternatif tasarımı kritik burkulma yükü, doğrusal olmayan taşıma kapasitesi, deformasyon, kütle ve üretilebilirlik ölçütleri üzerinden karşılaştırmak; analiz sürecini tekrarlanabilir biçimde belgelemek.</li>
+</ul>
+
+<p>
+Projenin sanayiye yönelik katkısı, gerçek bir endüstriyel taşıyıcı yapının mekanik açıdan değerlendirilmesi ve analiz bulgularının tasarım kararlarına dönüştürülmesidir. Çalışma sonunda yalnızca analiz sonuçlarının sunulması değil, mevcut tasarıma ilişkin mühendislik değerlendirmesi ve en az bir iyileştirme seçeneğinin teknik karşılaştırması hedeflenmektedir.
+</p>
+</div>
+</div>
+<div id="outline-container-org01447cb" class="outline-4">
+<h4 id="org01447cb"><span class="section-number-4">1.3.2.</span> 1.2 Yenilikçi Yönü ve Teknolojik Değeri</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+İnce cidarlı silindirik yapıların eksenel basma kuvvetleri altındaki burkulma davranışı, yapısal güvenilirlik ve malzeme kullanımının verimliliği açısından önemli bir mühendislik problemidir. Silindirik gövde üzerinde bulunan delik ve menhol gibi açıklıklar, rijitlik ve gerilme dağılımını değiştirerek kritik burkulma yükünü etkileyebilir ve yerel kararsızlık bölgeleri oluşturabilir. Bu nedenle açıklıkların etkisinin belirlenmesi, taşıyıcı kolonun tasarım performansının değerlendirilmesi açısından önemlidir.
+</p>
+
+<p>
+Projenin yenilikçi yönü, sayısal burkulma analizlerinden elde edilen bulguların doğrudan mekanik tasarım iyileştirmesine aktarılmasıdır. İlk aşamada mevcut tasarımın kritik bölgeleri belirlenecek; sonraki aşamada bu bölgelerde açıklık geometrisinin veya konumunun değiştirilmesi, açıklık çevresine takviye eklenmesi ya da uygun yerel geometrik düzenlemeler yapılması gibi seçenekler değerlendirilecektir. Böylece analiz, yalnızca mevcut durumun raporlanmasıyla sınırlı kalmayacak; tasarım alternatifi geliştirme ve karşılaştırma sürecinin temelini oluşturacaktır.
+</p>
+
+<p>
+Geliştirilen alternatifler mevcut tasarımla aynı malzeme özellikleri, sınır koşulları ve karşılaştırılabilir yükleme koşulları altında incelenecektir. Karşılaştırmada kritik burkulma yükü, doğrusal olmayan analizle belirlenebildiği ölçüde taşıma kapasitesi, maksimum deformasyon, kütle ve üretilebilirlik dikkate alınacaktır. Bu yaklaşım, yalnızca dayanımı artırmayı değil, yapısal performans ile malzeme kullanımı ve üretim gereklilikleri arasında dengeli bir çözüm geliştirmeyi amaçlamaktadır.
+</p>
+
+<p>
+Projenin teknolojik değeri, endüstriyel bir taşıyıcı kolon için uygulanabilir tasarım değerlendirme verileri ve tekrarlanabilir bir sonlu elemanlar analiz iş akışı üretmesidir. Açık kaynaklı yazılım kullanımı, analiz adımlarının izlenebilir ve yeniden uygulanabilir olmasına katkı sağlayacaktır. Yazılım ve çözücü karşılaştırmaları ise bu ana mühendislik hedefini destekleyen yöntemsel çalışmalar olarak ele alınacaktır.
+</p>
+
+<p>
+Tasarım iyileştirmesinin başarısı, başlangıç tasarımı ile alternatif tasarımın aynı ölçütler üzerinden karşılaştırılmasıyla değerlendirilecektir. Ağ yakınsaması, analitik karşılaştırmalar ve çözücü tutarlılığı sayısal sonuçların güvenilirliğini incelemek için kullanılacaktır. İlgili tasarım standartları ve doğrulama gereklilikleri, tasarımın değerlendirilmesinde başvurulacak teknik çerçeveyi oluşturacaktır.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf5a97ad" class="outline-3">
+<h3 id="orgf5a97ad"><span class="section-number-3">1.4.</span> 2.YÖNTEM</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Mühendislik yapılarının mekanik davranışını belirlemek ve bu davranışın belirli sınırlar içerisinde kalması için gereken tasarımsal değişiklikleri öngörebilmek için kullanılan  en gelişmiş halen araç sonlu elemanlar analizidir.  Bu analiz yöntemi, katı cisimlerin mekanik yükler altındaki davranışını belirleyen ve güçlü form olarak bilinen diferansiyel hareket denklemleri sisteminin önce ağırlıklı artık integrali yöntemi ile zayıf forma dönüştürülmesi ve sonrasında zayıf formun ayrıklaştırılmış sonlu bir uzaya uygulanması ile problemin doğrusal denklemler sistemine indirgenmesi olarak özetlenebilir. Bu yöntemi kullanarak elde edilen yaklaşık bir çözüm olup, ayrıklaştırmanın yoğunlaştırılması ile gerçeğe yakınsadığı matematiksel olarak ispat edilebilmektedir.
+</p>
+
+<p>
+Burkulma analizi, bir yapının belirli bir yükleme koşulu altında kararlılığını kaybettiği kritik yük seviyesinin belirlenmesini amaçlar. Sonlu elemanlar yönteminde burkulma problemi, ön yükleme etkisi altındaki yapının doğal frekanslarının incelendiği özdeğer problemleriyle ilişkilendirilebilir. Yapının etkin rijitlik matrisi; elastik rijitlik, ön yüklemeden kaynaklanan geometrik rijitlik ve büyük deformasyon etkilerini temsil eden rijitlik katkılarının toplamı olarak ifade edilir:
+</p>
+
+<p>
+K<sub>mod</sub> = K<sub>LE</sub> + K<sub>ST</sub> + K<sub>LD</sub>
+\[\boldsymbol{K}_\mathrm{mod} = \boldsymbol{K}_\mathrm{LE} + \boldsymbol{K}_\mathrm{ST} +  \boldsymbol{K}_\mathrm{LD} \]
+</p>
+
+<p>
+Yukarıdaki denklemdeki terimlerin tek tek açıklmasını bir cümle içerisinde yapmalısın, örneğin \(\boldsymbol{K}_\mathrm{mod}\) terimi rijitlik matrisine katkıda bulunan tüm etkilerin toplamını temsil eder, vb. Burkulma, sistemin en düşük doğal frekansının sıfıra ulaşmasıyla ilişkilendirilen bir kararlılık kaybı durumudur. Bu noktada yapının etkin rijitlik matrisi tekil hâle gelir ve yapı, mevcut yükleme koşulları altında kararlı denge durumunu sürdüremez.
+</p>
+
+<p>
+Doğrusal burkulma özdeğer analizinde, yapıya öncelikle bir başlangıç yükleme durumu uygulanır ve ardından incelenen ilave yükleme durumu bir yük çarpanı, λ, (\(\lambda\)) ile ölçeklendirilir. Bu yaklaşımda kritik burkulma yükü, ilgili özdeğerin başlangıç yüküne uygulanmasıyla elde edilir. Büyük deformasyon kaynaklı rijitlik değişimleri ihmal edildiğinde problem aşağıdaki genelleştirilmiş özdeğer denklemine indirgenebilir:
+</p>
+
+<p>
+(K<sub>LE</sub> + K<sub>ST1</sub> + K<sub>LD1</sub>) U = −λ K<sub>ST2</sub> U
+</p>
+
+<p>
+K<sub>ST</sub> matrisinin nasıl ST1 ve ST2 olarak ayırıldığında, ST1 ve ST2&rsquo;nin açıklmaları verilerek değinilmeli. 
+Burada λ yük çarpanını, U ise burkulma moduna karşılık gelen özvektörü ifade etmektedir. Elde edilen özdeğerler kritik yük seviyesinin belirlenmesinde, özvektörler ise yapının olası burkulma şekillerinin incelenmesinde kullanılır. En düşük pozitif özdeğer, ilgili yükleme koşulları için ilk burkulma moduna karşılık gelen kritik yük çarpanını verir.
+</p>
+
+<p>
+Projede, taşıyıcı kolonun mekanik davranışını belirlemek ve tasarım iyileştirme seçeneklerini değerlendirmek amacıyla sonlu elemanlar yöntemi kullanılacaktır. Süreç; geometrinin hazırlanması, sonlu elemanlar ağının oluşturulması, malzeme ve sınır koşullarının tanımlanması, doğrusal burkulma ve gerekli görülen doğrusal olmayan analizlerin gerçekleştirilmesi ve sonuçların tasarım ölçütleri üzerinden değerlendirilmesi aşamalarından oluşacaktır. CalculiX temel analiz aracı olarak kullanılacak; gerekli ön/son işlem adımları uygun açık kaynaklı araçlarla yürütülecektir.
+</p>
+</div>
+</div>
+<div id="outline-container-org8fdbf6c" class="outline-3">
+<h3 id="org8fdbf6c"><span class="section-number-3">1.5.</span> Yöntem 1 – Mevcut tasarımın modellenmesi ve mekanik davranışının belirlenmesi</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Öncelikle endüstriyel taşıyıcı kolonun geometrik boyutları, et kalınlığı, malzeme özellikleri, mesnet koşulları ve işletme/tasarım yükleri belirlenecektir. Model, mevcut tasarımı temsil edecek şekilde hazırlanacaktır. Deliksiz referans model ve gövdesinde delik/menhol gibi açıklıklar bulunan model oluşturularak doğrusal burkulma analizleri gerçekleştirilecektir. Uygun olduğu durumlarda doğrusal olmayan analizlerle yük-deplasman davranışı, deformasyonlar ve taşıma kapasitesi incelenecektir. Böylece tasarım açısından kritik bölgeler belirlenecektir.
+</p>
+</div>
+</div>
+<div id="outline-container-orge008b43" class="outline-3">
+<h3 id="orge008b43"><span class="section-number-3">1.6.</span> Yöntem 2 – Farklı kabuk elemanlarının sayısal performans ve hesaplama maliyeti açısından karşılaştırılması</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Silindirik yapının doğrusal burkulma davranışının modellenmesinde S3, S6, S8 ve S8R kabuk elemanları değerlendirilecektir. Karşılaştırmanın tutarlı olması için aynı geometri, malzeme özellikleri, sınır koşulları ve yükleme kullanılacak; ağ yoğunlukları mümkün olduğunca karşılaştırılabilir tutulacaktır. Kritik burkulma yükleri, burkulma modları ve çözüm süreleri karşılaştırılarak sonraki analizlerde kullanılacak eleman formülasyonu belirlenecektir.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd36552d" class="outline-3">
+<h3 id="orgd36552d"><span class="section-number-3">1.7.</span> Yöntem 3 – Ağ yakınsaması ve ağ kalitesinin değerlendirilmesi</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Öncelikle deliksiz referans model farklı ağ yoğunluklarında analiz edilecektir. Kritik burkulma yükündeki değişim izlenerek ağ yakınsaması değerlendirilecektir. Ardından belirlenen ağ yaklaşımı açıklık içeren modele uygulanacak; delik ve menhol çevresinde geometrik değişim ve yerel gerilme gradyanları dikkate alınarak yerel ağ iyileştirmesi yapılacaktır. Başarı ölçütü olarak son iki ağ seviyesinde kritik burkulma yükündeki bağıl değişimin hedef olarak %5 veya altında olması kullanılacaktır.
+</p>
+</div>
+</div>
+<div id="outline-container-org763078f" class="outline-3">
+<h3 id="org763078f"><span class="section-number-3">1.8.</span> Yöntem 4 – Sayısal çözücülerin ve paralel hesaplama seçeneklerinin karşılaştırılması</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+Aynı sonlu elemanlar modeli üzerinde erişilebilir PARDISO, PaStiX ve MUMPS çözücüleri değerlendirilecektir. Çözüm süresi, bellek kullanımı ve elde edilen kritik özdeğer/yük sonuçları kaydedilecektir. Paralel hesaplama seçenekleri mevcut donanım ve yazılım desteği ölçüsünde incelenecektir. Çözücülerin karşılaştırılması, sonuçların tutarlılığı ve hesaplama maliyeti birlikte dikkate alınarak yapılacaktır.
+</p>
+</div>
+</div>
+<div id="outline-container-org78356a0" class="outline-3">
+<h3 id="org78356a0"><span class="section-number-3">1.9.</span> Yöntem 5 – Sayısal doğrulama, analitik karşılaştırma ve tasarım değerlendirmesi</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Sayısal modelin güvenilirliği öncelikle ağ yakınsaması ve çözüm ayarlarının tutarlılığı üzerinden incelenecektir. Deliksiz ve analitik olarak temsil edilebilen referans silindir için elde edilen kritik burkulma yükü, uygun teorik/analitik yaklaşımlarla karşılaştırılacaktır. Analitik model ile sonlu elemanlar modelinin geometri, sınır koşulları ve idealizasyon farklılıkları açıkça belirtilecektir. Açıklık içeren modelde ise açıklıkların kritik burkulma yükü, burkulma modu, gerilme ve deformasyon dağılımı üzerindeki etkisi değerlendirilecektir. Bu aşamada sayısal doğrulama (çözümün ve ayrıklaştırmanın kontrolü) ile modelin fiziksel davranışı temsil etme yeterliliğine ilişkin geçerleme/analitik karşılaştırma birbirinden ayrı değerlendirilecektir. İlgili tasarım standartları ve sanayi tarafından sağlanan tasarım kriterleri, sonuçların mühendislik açısından yorumlanmasında kullanılacaktır.
+</p>
+</div>
+</div>
+<div id="outline-container-org9dd0e63" class="outline-3">
+<h3 id="org9dd0e63"><span class="section-number-3">1.10.</span> Yöntem 6 – Tasarım iyileştirme alternatiflerinin geliştirilmesi ve karşılaştırılması</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Analiz sonuçlarında kritik gerilme, deformasyon veya burkulma eğilimi görülen bölgeler belirlenecektir. Bu bölgelere yönelik en az bir alternatif tasarım oluşturulacaktır. Alternatifler; açıklık boyutu/konumu değişikliği, açıklık çevresinde yerel takviye, yerel et kalınlığı değişikliği veya üretim açısından uygulanabilir başka geometrik düzenlemeleri içerebilir. Seçilen alternatif, mevcut tasarımla aynı malzeme özellikleri, sınır koşulları ve karşılaştırılabilir yükleme koşulları altında analiz edilecektir. Sonuçlar kritik burkulma yükü, doğrusal olmayan taşıma kapasitesi, maksimum deformasyon, kütle ve üretilebilirlik bakımından karşılaştırılacaktır. En az bir alternatifin mevcut tasarıma göre kritik burkulma yükü bakımından iyileşme sağlaması hedeflenecek; olası kütle artışı ve imalat etkileri birlikte raporlanacaktır.
+</p>
+</div>
+</div>
+<div id="outline-container-org82da23c" class="outline-3">
+<h3 id="org82da23c"><span class="section-number-3">1.11.</span> Yöntem 7 – Tekrarlanabilir analiz ve tasarım değerlendirme iş akışının oluşturulması</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+Geometri hazırlığı, ağ oluşturma, malzeme tanımları, sınır koşulları, yükleme, çözücü ayarları, analiz adımları ve sonuç değerlendirme işlemleri belgelenerek standart bir iş akışı oluşturulacaktır. Girdi dosyaları, çözüm dosyaları ve sonuçlar düzenli biçimde arşivlenecektir. Böylece hem mevcut tasarım hem de geliştirilen alternatifler için izlenebilir ve tekrarlanabilir bir değerlendirme süreci elde edilecektir.
+</p>
+</div>
+</div>
+<div id="outline-container-orgaf2c4c0" class="outline-3">
+<h3 id="orgaf2c4c0"><span class="section-number-3">1.12.</span> 3.PROJE YÖNETİMİ</h3>
+<div class="outline-text-3" id="text-1-12">
+</div>
+<div id="outline-container-orgdb15ef4" class="outline-4">
+<h4 id="orgdb15ef4"><span class="section-number-4">1.12.1.</span> 3.1 Çalışma Takvimi</h4>
+<div class="outline-text-4" id="text-1-12-1">
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org03e073b" class="outline-2">
+<h2 id="org03e073b"><span class="section-number-2">2.</span> İŞ-ZAMAN ÇİZELGESİ</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> İŞ-ZAMAN ÇİZELGESİ</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">No</th>
+<th scope="col" class="org-left">İş Paketlerinin Adı ve Hedefleri</th>
+<th scope="col" class="org-left">Kim(ler) Tarafından Gerçekleştirileceği</th>
+<th scope="col" class="org-left">Zaman Aralığı (..-.. Ay)</th>
+<th scope="col" class="org-left">Başarı Ölçütü ve Projenin Başarısına Katkısı</th>
+<th scope="col" class="org-left">&nbsp;</th>
+<th scope="col" class="org-left">&nbsp;</th>
+<th scope="col" class="org-left">&nbsp;</th>
+<th scope="col" class="org-left">&nbsp;</th>
+<th scope="col" class="org-left">&nbsp;</th>
+<th scope="col" class="org-left">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">Eleman Performansı; analize uygun eleman tipinin belirlenmesi; sayısal modelin 10 iterasyon altında yakınsaması</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">Ağ Yakınsaması; gerekli hassasiyeti sağlayan  ağ yoğunluğunun belirlenmesi; ağ yoğunluğunun 100000 eleman altında gerekli hassasiyeti elde etmesi</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">Çözücü Karşılaştırılması; optimal işlemci sayısının belirlenmesi; belirlenen işlemci sayısısının en fazla 1 saatlik sürede çözüm vermesi</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">Sayısal Doğrulama ve Analitik Geçerleme; ; sayısal doğrulama için yakınsamanın elde edilmesi, asimptotik yakınsamanın sağlanması ve elde edilen sayısal sonuçların analitik formüllerle karşılaştırılarak aralarındaki farkın %5’in altına indirilmesi</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">Tekrarlanabilir İş Akışı; 1,2,3 ve 4. adımların raporlanması/yönerge haline getirilmesi; kısa ve anlaşılır bir kılavuzun ortaya çıkarılması</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">İyileştirme; mevcuttan daha iyi bir tasarım önerisi; ortaya konulmuş kriterlere göre mevcuttan daha iyi performans göstermesi</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-org6b5666d" class="outline-4">
+<h4 id="org6b5666d"><span class="section-number-4">2.0.1.</span> 3.2 Risk Yönetimi</h4>
+<div class="outline-text-4" id="text-2-0-1">
+</div>
+</div>
+</div>
+<div id="outline-container-org59c9752" class="outline-2">
+<h2 id="org59c9752"><span class="section-number-2">3.</span> RİSK YÖNETİMİ</h2>
+<div class="outline-text-2" id="text-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> RİSK YÖNETİMİ TABLOSU</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">No</th>
+<th scope="col" class="org-left">En Büyük Riskler</th>
+<th scope="col" class="org-left">Risk Yönetimi (B Planı)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">Veri Kaybı</td>
+<td class="org-left">Sürüm kontrol sistemi (Git) ve düzenli yedekleme kullanılacak; önemli model ve sonuç sürümleri ayrı arşivlenecektir.</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">İşlemci Yetersizliği</td>
+<td class="org-left">Önce model sadeleştirme ve uygun ağ/çözücü ayarları değerlendirilecek; gerekirse İTÜ UHEM gibi yüksek başarımlı hesaplama altyapısından yararlanılacaktır.</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">Bellek Yetersizliği</td>
+<td class="org-left">Ağ yoğunluğu ve denklem çözücü seçenekleri yeniden değerlendirilecek; daha yüksek bellekli hesaplama altyapısı kullanılacaktır.</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">Dökümantasyon Eksiliği</td>
+<td class="org-left">Hata daha küçük doğrulama modelleriyle ayrıştırılacak; yazılım dokümantasyonu ve kullanıcı topluluklarından yararlanılacak; mümkünse alternatif çözücüyle kontrol yapılacaktır.</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">Programda Hata Olması</td>
+<td class="org-left">Forumlara bildirilmesi ve Kaynak Kodundaki Hatanın Düzeltilmesi</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-orgee26242" class="outline-4">
+<h4 id="orgee26242"><span class="section-number-4">3.0.1.</span> 3.3. Araştırma Olanakları</h4>
+<div class="outline-text-4" id="text-3-0-1">
+</div>
+</div>
+</div>
+<div id="outline-container-org4fd3028" class="outline-2">
+<h2 id="org4fd3028"><span class="section-number-2">4.</span> ARAŞTIRMA OLANAKLARI</h2>
+<div class="outline-text-2" id="text-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> ARAŞTIRMA OLANAKLARI TABLOSU</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Altyapı/Ekipmanın Bulunduğu Kuruluş</th>
+<th scope="col" class="org-left">Kuruluşta Bulunan Altyapı/Ekipman Türü, Modeli (Laboratuvar, Araç, Makine-Teçhizat vb.)</th>
+<th scope="col" class="org-left">Projede Kullanım Amacı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">İTÜ UHEM; Yüksek Başarımlı Hesaplama Merkezi; Hesaplama</td>
+<td class="org-left">Yüksek başarımlı hesaplama sistemi</td>
+<td class="org-left">Büyük ölçekli sonlu elemanlar modellerinin çözülmesi ve çözücü performansının değerlendirilmesi.</td>
+</tr>
+
+<tr>
+<td class="org-left">Yeditepe Üniversitesi</td>
+<td class="org-left">Bilgisayar laboratuvarı ve bilgisayar donanımları</td>
+<td class="org-left">Üç boyutlu geometrik modelleme, sonlu elemanlar ağının oluşturulması, analizlerin gerçekleştirilmesi ve sonuçların görselleştirilerek değerlendirilmesi.</td>
+</tr>
+
+<tr>
+<td class="org-left">Yeditepe Üniversitesi</td>
+<td class="org-left">Üniversite kütüphanesi ve elektronik akademik veri tabanları</td>
+<td class="org-left">Silindirik kabukların burkulma davranışı, geometrik kusurlar, sonlu elemanlar yöntemi ve ilgili tasarım standartları üzerine literatür araştırmasının yürütülmesi.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-orgcd8b71f" class="outline-3">
+<h3 id="orgcd8b71f"><span class="section-number-3">4.1.</span> 4.SANAYİ ODAKLI ÇIKTILARI ve YAYGIN ETKİ</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Proje sonunda, endüstriyel reaktör taşıyıcı kolonunun mevcut tasarımına ilişkin mekanik performans değerlendirmesinin gerçekleştirilmesi ve
+analiz bulgularına dayalı iki farklı iyileştirilmiş tasarım alternatifinin
+geliştirilmesi hedeflenmektedir. Proje kapsamında elde edilmesi beklenen sanayi odaklı çıktılar aşağıda sunulmuştur:
+</p>
+
+<ul class="org-ul">
+<li>İki adet iyileştirilmiş tasarım alternatifi: Mevcut tasarımın burkulma davranışı ve mekanik performansına ilişkin analiz sonuçları doğrultusunda,
+yapısal performansı iyileştirmeye yönelik iki farklı model alternatifi oluşturulacaktır. Alternatifler; kritik burkulma yükü, deformasyon,
+ gerilme dağılımı ve kütle gibi mühendislik ölçütleri açısından mevcut tasarımla karşılaştırılacaktır.</li>
+
+<li>Açık kaynaklı yazılımlara dayalı analiz iş akışı: Geometri hazırlama, sonlu elemanlar ağı oluşturma, malzeme ve sınır koşullarının tanımlanması,
+yükleme, çözüm ve sonuçların değerlendirilmesi aşamalarını kapsayan, açık kaynaklı yazılımlarla yürütülebilir bir analiz iş akışı oluşturulacaktır.</li>
+
+<li>Teknik yönerge ve dokümantasyon: Oluşturulan analiz iş akışının farklı mühendislik problemlerinde tekrarlanabilir ve uygulanabilir olmasını sağlamak
+amacıyla modelleme, analiz ve sonuç değerlendirme adımlarını açıklayan teknik bir yönerge hazırlanacaktır.</li>
+</ul>
+
+<p>
+-Yaygın etki bakımından projenin öncelikli katkılarından biri, mühendislik analizlerinde açık kaynaklı yazılımların kullanımını teşvik ederek
+açık bilim ve açık kaynak kültürünün yaygınlaşmasına katkı sağlamaktır. Geliştirilecek iş akışı ve teknik yönergenin paylaşılabilir ve
+yeniden kullanılabilir olması, benzer mühendislik problemleri üzerinde çalışan araştırmacıların ve mühendislerin bu çalışmadan yararlanmasını sağlayacaktır.
+</p>
+
+<p>
+Bununla birlikte, açık kaynaklı yazılımların kullanılması ve bu yazılımlara dayalı analiz yöntemlerinin geliştirilmesi, ticari yazılım lisanslarına
+duyulan ihtiyacın ve analiz süreçlerinin yazılım maliyetlerinin azaltılmasına katkı sağlayabilecektir. Geliştirilecek yöntemlerin yerli mühendislik
+çalışmalarında kullanılabilir hâle getirilmesi, yabancı yazılım ve yazılım sağlayıcılarına olan bağımlılığın azaltılmasını destekleyecektir.
+Böylece proje, yalnızca incelenen taşıyıcı kolonun tasarım performansının iyileştirilmesine değil, aynı zamanda ekonomik açıdan daha erişilebilir,
+bağımsız ve sürdürülebilir mühendislik analiz süreçlerinin geliştirilmesine de katkı sunacaktır.
+</p>
+</div>
+</div>
+<div id="outline-container-org780cdb8" class="outline-3">
+<h3 id="org780cdb8"><span class="section-number-3">4.2.</span> 5. BELİRTMEK İSTEDİĞİNİZ DİĞER KONULAR</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+</div>
+<div id="outline-container-org03913ef" class="outline-3">
+<h3 id="org03913ef"><span class="section-number-3">4.3.</span> 6.EKLER</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+EK-1: Kaynaklar
+</p>
+
+<p>
+[1] T. J. R. Hughes, <b>The Finite Element Method: Linear Static and Dynamic Finite Element Analysis</b>. Englewood Cliffs, NJ: Prentice-Hall, 1987.
+</p>
+
+<p>
+[2] G. Dhondt, <b>The Finite Element Method for Three-Dimensional Thermomechanical Applications</b>. Chichester, UK: John Wiley &amp; Sons, 2004. <a href="https://doi.org/10.1002/0470021217">https://doi.org/10.1002/0470021217</a>.
+</p>
+
+<p>
+[3] R. D. Cook and W. C. Young, <b>Advanced Mechanics of Materials</b>, 2nd ed. Upper Saddle River, NJ: Prentice Hall, 1999.
+</p>
+
+<p>
+[4] American Society of Mechanical Engineers (ASME), <b>ASME V&amp;V 10-2019 (R2025): Standard for Verification and Validation in Computational Solid Mechanics</b>. New York: ASME, 2019.
+</p>
+
+<p>
+[5] G. Dhondt, <b>CalculiX CrunchiX User&rsquo;s Manual</b>, Version 2.23, Oct. 19, 2025. Available: <a href="https://dhondt.de/ccx_2.23.pdf">https://dhondt.de/ccx_2.23.pdf</a>. [Accessed: Nov. 7, 2026].
+</p>
+
+<p>
+[6] K. Wittig, <b>CalculiX GraphiX User&rsquo;s Manual</b>, Version 2.23, Oct. 4, 2025. Available: <a href="https://dhondt.de/cgx_2.23.pdf">https://dhondt.de/cgx_2.23.pdf</a>. [Accessed: Nov. 7, 2026].
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2026-11-13 Fri 21:45</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
